@@ -12,5 +12,10 @@ config_version=5
 
 config/name="Wilds Of Kalevala"
 config/tags=PackedStringArray("2d", "awesome", "platformer")
+run/main_scene="uid://dsqj4dxsb7nqo"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

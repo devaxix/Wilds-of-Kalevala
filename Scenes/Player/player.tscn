@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://hogl4i6f6uxc"]
+
+[ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/char_blue.png" id="1_uvnfx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_a3d8c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+root_node = NodePath("../..")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_uvnfx")
+region_enabled = true
+region_rect = Rect2(18, 24, 22, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_cvnsp")
