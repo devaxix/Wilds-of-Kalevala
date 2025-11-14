@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hogl4i6f6uxc"]
+[gd_scene load_steps=12 format=3 uid="uid://hogl4i6f6uxc"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/char_blue.png" id="1_uvnfx"]
@@ -55,9 +55,64 @@ tracks/0/keys = {
 "values": [Rect2(16, 136, 25, 32), Rect2(74, 136, 21, 32), Rect2(131, 135, 17, 33), Rect2(184, 135, 23, 30), Rect2(241, 136, 21, 32), Rect2(299, 136, 18, 32), Rect2(354, 135, 22, 33), Rect2(408, 135, 25, 30), Rect2(16, 136, 25, 32)]
 }
 
+[sub_resource type="Animation" id="Animation_htcer"]
+resource_name = "Jump"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(16, 195, 20, 29), Rect2(75, 190, 18, 34), Rect2(128, 187, 23, 34), Rect2(184, 187, 23, 34), Rect2(240, 187, 23, 34), Rect2(296, 187, 23, 34), Rect2(346, 185, 29, 31), Rect2(402, 185, 29, 28), Rect2(16, 195, 20, 29)]
+}
+
+[sub_resource type="Animation" id="Animation_dd0ac"]
+resource_name = "Fall"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(12, 241, 26, 30), Rect2(72, 242, 25, 35), Rect2(128, 242, 25, 35), Rect2(184, 242, 25, 35), Rect2(240, 243, 25, 34), Rect2(296, 245, 24, 35), Rect2(354, 253, 18, 27), Rect2(410, 250, 19, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_0u5uq"]
+resource_name = "Fall Still"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(72, 242, 25, 35), Rect2(128, 242, 25, 35), Rect2(184, 242, 25, 35)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtuoh"]
 _data = {
+&"Fall": SubResource("Animation_dd0ac"),
+&"Fall Still": SubResource("Animation_0u5uq"),
 &"Idle": SubResource("Animation_a3d8c"),
+&"Jump": SubResource("Animation_htcer"),
 &"RESET": SubResource("Animation_xpcdj"),
 &"Walk": SubResource("Animation_mtuoh")
 }

@@ -14,6 +14,7 @@ config/name="Wilds Of Kalevala"
 config/tags=PackedStringArray("2d", "awesome", "platformer")
 run/main_scene="uid://dsqj4dxsb7nqo"
 config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=30
 config/icon="res://icon.svg"
 
 [input]
