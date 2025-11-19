@@ -1,7 +1,7 @@
 extends Control
 
 const GAME_SCENE_PATH = "res://Scenes/Areas/Area1.tscn" 
-const CREDITS_SCENE_PATH = "res://Scenes/Credits.tscn" 
+const CREDITS_SCENE_PATH = "res://Scenes/Areas/Credits.tscn" 
 
 func _on_new_game_button_pressed():
 	print("Starting New Game...")
