@@ -127,9 +127,10 @@ theme = SubResource("Theme_81bqp")
 script = ExtResource("1_yhler")
 
 [node name="1" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -174.655)
+scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(570.13, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -138,27 +139,28 @@ base_scroll_speed = 5.0
 [node name="Sprite2D" type="Sprite2D" parent="1"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(228.39943, 75.714)
-scale = Vector2(0.89358026, 0.8955077)
+position = Vector2(343.03568, 35.948227)
+scale = Vector2(1.3399832, 1.5066965)
 texture = ExtResource("2_e5km7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="1"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(685.71423, 75.714294)
-scale = Vector2(0.89358026, 0.8955077)
+position = Vector2(1029.285, 36.30536)
+scale = Vector2(1.3399832, 1.5066965)
 texture = ExtResource("2_e5km7")
 
 [node name="Sprite2D3" type="Sprite2D" parent="1"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(1143.2142, 75.714294)
-scale = Vector2(0.89358026, 0.8955077)
+position = Vector2(2949.2852, 36.30571)
+scale = Vector2(1.3399832, 1.5066965)
 texture = ExtResource("2_e5km7")
 
 [node name="2" type="Parallax2D" parent="."]
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 261.99997)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -168,27 +170,28 @@ base_scroll_speed = 6.0
 texture_filter = 1
 texture_repeat = 3
 position = Vector2(229.28572, 141.42857)
-scale = Vector2(0.89358026, 0.8955077)
+scale = Vector2(1.788, 1.792)
 texture = ExtResource("3_xnmdk")
 
-[node name="Sprite2D2" type="Sprite2D" parent="2"]
+[node name="Sprite2D4" type="Sprite2D" parent="2"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(685.7143, 145)
-scale = Vector2(0.89358026, 0.8955077)
+position = Vector2(1143.929, 135.967)
+scale = Vector2(1.788, 1.792)
 texture = ExtResource("3_xnmdk")
 
-[node name="Sprite2D3" type="Sprite2D" parent="2"]
+[node name="Sprite2D5" type="Sprite2D" parent="2"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(1143.9286, 141.42857)
-scale = Vector2(0.89358026, 0.8955077)
+position = Vector2(2049.2861, 135.96701)
+scale = Vector2(1.788, 1.792)
 texture = ExtResource("3_xnmdk")
 
 [node name="3" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -302.035)
+scroll_offset = Vector2(0, -40.035027)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -216,9 +219,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("4_mumj5")
 
 [node name="4" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -208.06)
+scroll_offset = Vector2(0, 330.93997)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -246,9 +250,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("5_mio8p")
 
 [node name="5" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -190.48)
+scroll_offset = Vector2(0, 71.51999)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -276,9 +281,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("6_48viw")
 
 [node name="6" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -200.785)
+scroll_offset = Vector2(0, 61.214973)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -306,9 +312,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("7_81bqp")
 
 [node name="7" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -80.525)
+scroll_offset = Vector2(0, 181.475)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -336,9 +343,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("8_01ras")
 
 [node name="8" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, -56.145)
+scroll_offset = Vector2(0, 205.85501)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -366,9 +374,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("9_68acp")
 
 [node name="9" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, 52.62)
+scroll_offset = Vector2(0, 314.61993)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -396,9 +405,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("10_0h1mk")
 
 [node name="10" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, 48.595)
+scroll_offset = Vector2(0, 310.59497)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -426,9 +436,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("11_5wwuu")
 
 [node name="11" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, 57.4)
+scroll_offset = Vector2(0, 319.39996)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -456,9 +467,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("12_ta18w")
 
 [node name="12" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
-scroll_offset = Vector2(0, 25.87)
+scroll_offset = Vector2(0, 287.86993)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -486,8 +498,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("13_s6qx4")
 
 [node name="13" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 261.99997)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -518,8 +532,10 @@ texture = ExtResource("14_yiuoa")
 offset = Vector2(0, 11.45)
 
 [node name="14" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 261.99997)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -547,8 +563,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("15_nqc82")
 
 [node name="15" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 261.99997)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -576,8 +594,10 @@ scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("16_gf6si")
 
 [node name="16" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 261.99997)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
@@ -608,15 +628,15 @@ texture = ExtResource("17_c3do1")
 texture_filter = 1
 texture_repeat = 2
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.381
-anchor_top = 0.33200002
-anchor_right = 0.381
-anchor_bottom = 0.33200002
-offset_left = 8.319977
-offset_top = -79.04001
-offset_right = 283.31998
-offset_bottom = 306.96
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -193.0
+offset_right = 137.5
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
