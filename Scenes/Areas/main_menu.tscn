@@ -127,7 +127,6 @@ theme = SubResource("Theme_81bqp")
 script = ExtResource("1_yhler")
 
 [node name="1" type="Parallax2D" parent="."]
-visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
@@ -139,25 +138,334 @@ base_scroll_speed = 5.0
 [node name="Sprite2D" type="Sprite2D" parent="1"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(343.03568, 35.948227)
-scale = Vector2(1.3399832, 1.5066965)
+position = Vector2(342.85712, 54.519653)
+scale = Vector2(1.3392856, 1.5066963)
 texture = ExtResource("2_e5km7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="1"]
 texture_filter = 1
 texture_repeat = 3
-position = Vector2(1029.285, 36.30536)
-scale = Vector2(1.3399832, 1.5066965)
+position = Vector2(1028.572, 54.52)
+scale = Vector2(1.3392856, 1.5066963)
 texture = ExtResource("2_e5km7")
 
-[node name="Sprite2D3" type="Sprite2D" parent="1"]
+[node name="17" type="Parallax2D" parent="."]
 texture_filter = 1
-texture_repeat = 3
-position = Vector2(2949.2852, 36.30571)
-scale = Vector2(1.3399832, 1.5066965)
-texture = ExtResource("2_e5km7")
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 6.0
+
+[node name="Sprite2D" type="Sprite2D" parent="17"]
+texture_filter = 1
+position = Vector2(342.857, 106.298)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("3_xnmdk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="17"]
+texture_filter = 1
+position = Vector2(1028.572, 106.298)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("3_xnmdk")
+
+[node name="18" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="18"]
+texture_filter = 1
+position = Vector2(342.857, 92.448)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("4_mumj5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="18"]
+texture_filter = 1
+position = Vector2(1028.571, 92.448)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("4_mumj5")
+
+[node name="19" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="19"]
+texture_filter = 1
+position = Vector2(342.857, 89.183)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("5_mio8p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="19"]
+texture_filter = 1
+position = Vector2(1028.5713, 89.183)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("5_mio8p")
+
+[node name="20" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 9.0
+
+[node name="Sprite2D" type="Sprite2D" parent="20"]
+texture_filter = 1
+position = Vector2(342.857, 118.671)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("6_48viw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="20"]
+texture_filter = 1
+position = Vector2(1028.572, 118.671)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("6_48viw")
+
+[node name="21" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="21"]
+texture_filter = 1
+position = Vector2(342.857, 120.194)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("7_81bqp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="21"]
+texture_filter = 1
+position = Vector2(1028.572, 120.194)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("7_81bqp")
+
+[node name="22" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 11.0
+
+[node name="Sprite2D" type="Sprite2D" parent="22"]
+texture_filter = 1
+position = Vector2(342.857, 150.549)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("8_01ras")
+
+[node name="Sprite2D2" type="Sprite2D" parent="22"]
+texture_filter = 1
+position = Vector2(1028.5714, 150.549)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("8_01ras")
+
+[node name="23" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 12.0
+
+[node name="Sprite2D" type="Sprite2D" parent="23"]
+texture_filter = 1
+position = Vector2(343.214, 158.396)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("9_68acp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="23"]
+texture_filter = 1
+position = Vector2(1028.5715, 158.396)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("9_68acp")
+
+[node name="24" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 13.0
+
+[node name="Sprite2D" type="Sprite2D" parent="24"]
+texture_filter = 1
+position = Vector2(343.21432, 163.0911)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("10_0h1mk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="24"]
+texture_filter = 1
+position = Vector2(1028.9283, 163.0911)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("10_0h1mk")
+
+[node name="25" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 14.0
+
+[node name="Sprite2D" type="Sprite2D" parent="25"]
+texture_filter = 1
+position = Vector2(342.857, 186.496)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("11_5wwuu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="25"]
+texture_filter = 1
+position = Vector2(1028.571, 186.496)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("11_5wwuu")
+
+[node name="26" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="26"]
+texture_filter = 1
+position = Vector2(342.857, 182.611)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("12_ta18w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="26"]
+texture_filter = 1
+position = Vector2(1028.5713, 182.611)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("12_ta18w")
+
+[node name="27" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 16.0
+
+[node name="Sprite2D" type="Sprite2D" parent="27"]
+texture_filter = 1
+position = Vector2(342.857, 183.036)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("13_s6qx4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="27"]
+texture_filter = 1
+position = Vector2(1028.5714, 183.036)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("13_s6qx4")
+
+[node name="28" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 17.0
+
+[node name="Sprite2D" type="Sprite2D" parent="28"]
+texture_filter = 1
+position = Vector2(342.857, 178.321)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("14_yiuoa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="28"]
+texture_filter = 1
+position = Vector2(1028.571, 178.321)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("14_yiuoa")
+
+[node name="29" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 18.0
+
+[node name="Sprite2D" type="Sprite2D" parent="29"]
+texture_filter = 1
+position = Vector2(342.85715, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("15_nqc82")
+
+[node name="Sprite2D2" type="Sprite2D" parent="29"]
+texture_filter = 1
+position = Vector2(1028.5714, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("15_nqc82")
+
+[node name="30" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 19.0
+
+[node name="Sprite2D" type="Sprite2D" parent="30"]
+texture_filter = 1
+position = Vector2(342.85715, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("16_gf6si")
+
+[node name="Sprite2D2" type="Sprite2D" parent="30"]
+texture_filter = 1
+position = Vector2(1028.5714, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("16_gf6si")
+
+[node name="31" type="Parallax2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 5
+script = ExtResource("2_81bqp")
+base_scroll_speed = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="31"]
+texture_filter = 1
+position = Vector2(342.85715, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("17_c3do1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="31"]
+texture_filter = 1
+position = Vector2(1028.5714, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("17_c3do1")
 
 [node name="2" type="Parallax2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 261.99997)
@@ -280,31 +588,31 @@ position = Vector2(1143.9286, 141.42857)
 scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("6_48viw")
 
-[node name="6" type="Parallax2D" parent="."]
+[node name="6" type="Parallax2D" parent="5"]
 visible = false
 texture_filter = 1
-scale = Vector2(2.8, 2.8)
+scale = Vector2(0.99999994, 0.99999994)
 scroll_offset = Vector2(0, 61.214973)
 repeat_size = Vector2(512, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
 base_scroll_speed = 10.0
 
-[node name="Sprite2D" type="Sprite2D" parent="6"]
+[node name="Sprite2D" type="Sprite2D" parent="5/6"]
 texture_filter = 1
 texture_repeat = 3
 position = Vector2(229.28572, 141.42857)
 scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("7_81bqp")
 
-[node name="Sprite2D2" type="Sprite2D" parent="6"]
+[node name="Sprite2D2" type="Sprite2D" parent="5/6"]
 texture_filter = 1
 texture_repeat = 3
 position = Vector2(685.7143, 145)
 scale = Vector2(0.89358026, 0.8955077)
 texture = ExtResource("7_81bqp")
 
-[node name="Sprite2D3" type="Sprite2D" parent="6"]
+[node name="Sprite2D3" type="Sprite2D" parent="5/6"]
 texture_filter = 1
 texture_repeat = 3
 position = Vector2(1143.9286, 141.42857)
