@@ -120,12 +120,10 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(9.65, 9.65)
 script = ExtResource("1_a3d8c")
 speed = 5
 jump_power = 7
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.5, 3.5)
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("3_xpcdj")
@@ -146,5 +144,4 @@ region_enabled = true
 region_rect = Rect2(18, 24, 22, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_cvnsp")

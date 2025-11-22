@@ -15,13 +15,21 @@ config/tags=PackedStringArray("2d", "awesome", "platformer")
 run/main_scene="uid://i782m1kre42x"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=30
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Sprites/default_bus_layout.tres"
+
+[autoload]
+
+TransitionScreen="*res://Scenes/Areas/transition_screen.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=4
 window/stretch/mode="viewport"
 
 [editor_plugins]

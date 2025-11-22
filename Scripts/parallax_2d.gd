@@ -27,8 +27,3 @@ func _process(delta):
 		
 		# 2. Apply movement (using negative for scrolling left)
 		layer.position.x -= speed * delta
-		
-		# 3. Handle Clipping/Infinite Loop
-		# When the layer moves one tile width left, reset its position to keep the offset small.
-		if layer.position.x <= -TILE_WIDTH:
-			layer.position.x += TILE_WIDTH

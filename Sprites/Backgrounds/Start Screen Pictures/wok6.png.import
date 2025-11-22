@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnmolpo6t56x1"
-path="res://.godot/imported/background_layer_1.png-b458eeec35e6c11bc0642d1f29c88742.ctex"
+uid="uid://bugp8ev21mxru"
+path="res://.godot/imported/wok6.png-59bce815720488e3d444b5a13b0c9f7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilemaps/background_layer_1.png"
-dest_files=["res://.godot/imported/background_layer_1.png-b458eeec35e6c11bc0642d1f29c88742.ctex"]
+source_file="res://Sprites/Backgrounds/Start Screen Pictures/wok6.png"
+dest_files=["res://.godot/imported/wok6.png-59bce815720488e3d444b5a13b0c9f7d.ctex"]
 
 [params]
 
