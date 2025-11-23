@@ -1,5 +1,6 @@
-extends CharacterBody2D
 class_name PlayerController
+extends CharacterBody2D
+
 
 
 @export var speed = 10
@@ -31,3 +32,23 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	move_and_slide()
+
+@export var max_health = 3
+var current_health = 0
+var has_sword = false
+var is_attacking = false
+
+func _ready():
+	current_health = max_health
+	# Initialize UI here (we can connect this later)
+
+func take_damage(amount):
+	current_health -= amount
+	print("Player Health: ", current_health)
+	if current_health <= 0:
+		die()
+
+func die():
+	print("I remember... A sweet bliss.")
+	# Reload scene or show game over screen
+	get_tree().reload_current_scene()

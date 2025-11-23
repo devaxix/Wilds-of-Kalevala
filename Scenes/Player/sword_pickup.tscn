@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp711j6w34k50"]
+
+[ext_resource type="Script" uid="uid://cnyxqfxh1oqxe" path="res://Scripts/sword_pickup.gd" id="1_edxbr"]
+
+[node name="SwordPickup" type="Area2D"]
+script = ExtResource("1_edxbr")
