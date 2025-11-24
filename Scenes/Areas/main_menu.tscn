@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=45 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -25,6 +25,19 @@
 [ext_resource type="Texture2D" uid="uid://b804ubwbr2b2r" path="res://Sprites/Backgrounds/Start Screen Pictures/wok4.png" id="24_c3do1"]
 [ext_resource type="Texture2D" uid="uid://bnxqpgjt0kvmh" path="res://Sprites/Backgrounds/Start Screen Pictures/wok5.png" id="25_rx35d"]
 [ext_resource type="Texture2D" uid="uid://bugp8ev21mxru" path="res://Sprites/Backgrounds/Start Screen Pictures/wok6.png" id="25_yiuoa"]
+[ext_resource type="Texture2D" uid="uid://u2ilo60ok4k5" path="res://Sprites/Start Menu Textures/Play Idle.png" id="26_rx35d"]
+[ext_resource type="Texture2D" uid="uid://b38n63nvqrjq3" path="res://Sprites/Start Menu Textures/Remember Gray.png" id="27_cv8qq"]
+[ext_resource type="Texture2D" uid="uid://se63jt6xgl4" path="res://Sprites/Start Menu Textures/Settings Idle.png" id="28_16qtj"]
+[ext_resource type="Texture2D" uid="uid://dy53ssxat65nx" path="res://Sprites/Start Menu Textures/Play Hover.png" id="28_tgxka"]
+[ext_resource type="Texture2D" uid="uid://bdvssp8co4qyo" path="res://Sprites/Start Menu Textures/Credits Idle.png" id="29_pj71e"]
+[ext_resource type="Texture2D" uid="uid://bqhuqxrniqky0" path="res://Sprites/Start Menu Textures/Remember Hover.png" id="30_x5ig7"]
+[ext_resource type="Texture2D" uid="uid://c8cu34bhhvaw0" path="res://Sprites/Start Menu Textures/Settings Hover.png" id="32_oyiba"]
+[ext_resource type="Texture2D" uid="uid://dtw25x35ri1yk" path="res://Sprites/Start Menu Textures/Credits Hover.png" id="34_fbj6v"]
+[ext_resource type="Texture2D" uid="uid://dbqmwvgpvk5g7" path="res://Sprites/Start Menu Textures/x (2).png" id="34_nbpup"]
+[ext_resource type="AudioStream" uid="uid://bfxag6dbodfr1" path="res://Music/orchestra theme concept 1.mp3" id="36_oyiba"]
+[ext_resource type="Script" uid="uid://b522qpfff444i" path="res://Scripts/close_buttoneffect.gd" id="36_x5ig7"]
+[ext_resource type="Texture2D" uid="uid://3k67y4qee56c" path="res://Sprites/Start Menu Textures/audio.png" id="37_fbj6v"]
+[ext_resource type="Texture2D" uid="uid://ds8b7rofpf5km" path="res://Sprites/Start Menu Textures/no audio.png" id="38_kcicc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68acp"]
 content_margin_left = 4.0
@@ -356,7 +369,6 @@ scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("12_ta18w")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layers for background/11"]
-visible = false
 texture_filter = 1
 position = Vector2(1028.5713, 182.611)
 scale = Vector2(1.3392857, 1.5066966)
@@ -378,7 +390,6 @@ scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("13_s6qx4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layers for background/12"]
-visible = false
 texture_filter = 1
 position = Vector2(1028.5714, 183.036)
 scale = Vector2(1.3392857, 1.5066966)
@@ -400,7 +411,6 @@ scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("14_yiuoa")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layers for background/13"]
-visible = false
 texture_filter = 1
 position = Vector2(1028.571, 178.321)
 scale = Vector2(1.3392857, 1.5066966)
@@ -502,79 +512,107 @@ grow_vertical = 2
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("21_yiuoa")
-metadata/_edit_group_ = true
 
 [node name="Wok2" type="Sprite2D" parent="layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("22_nqc82")
-metadata/_edit_group_ = true
 
 [node name="Wok3" type="Sprite2D" parent="layers for logo"]
 visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("23_gf6si")
-metadata/_edit_group_ = true
 
 [node name="Wok4" type="Sprite2D" parent="layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("24_c3do1")
-metadata/_edit_group_ = true
 
 [node name="Wok5" type="Sprite2D" parent="layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_rx35d")
-metadata/_edit_group_ = true
 
 [node name="Wok6" type="Sprite2D" parent="layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_yiuoa")
-metadata/_edit_group_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="NewGameButt" type="TextureButton" parent="Buttons"]
 texture_filter = 1
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -28.0
-offset_right = 121.0
-offset_bottom = 403.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 25
-alignment = 1
+offset_left = 819.5
+offset_top = 547.0
+offset_right = 1100.5
+offset_bottom = 617.0
+texture_normal = ExtResource("26_rx35d")
+texture_hover = ExtResource("28_tgxka")
+stretch_mode = 3
+script = ExtResource("36_x5ig7")
 
-[node name="NewGameButt" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "-Begin-"
-
-[node name="LoadGameButt" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
+[node name="LoadGameButt" type="TextureButton" parent="Buttons"]
+offset_left = 819.5
+offset_top = 642.0
+offset_right = 1100.5
+offset_bottom = 713.0
 disabled = true
-text = "-Remember-"
+texture_normal = ExtResource("27_cv8qq")
+texture_pressed = ExtResource("30_x5ig7")
+texture_hover = ExtResource("30_x5ig7")
+stretch_mode = 3
+script = ExtResource("36_x5ig7")
 
-[node name="SettingsButt" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "-Settings!-"
+[node name="SettingsButt" type="TextureButton" parent="Buttons"]
+offset_left = 819.5
+offset_top = 739.0
+offset_right = 1100.5
+offset_bottom = 811.0
+texture_normal = ExtResource("28_16qtj")
+texture_pressed = ExtResource("32_oyiba")
+texture_hover = ExtResource("32_oyiba")
+stretch_mode = 3
+script = ExtResource("36_x5ig7")
 
-[node name="CreditsButt" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "-Credits :3-"
+[node name="CreditsButt" type="TextureButton" parent="Buttons"]
+offset_left = 819.5
+offset_top = 835.0
+offset_right = 1100.5
+offset_bottom = 907.0
+texture_normal = ExtResource("29_pj71e")
+texture_pressed = ExtResource("34_fbj6v")
+texture_hover = ExtResource("34_fbj6v")
+stretch_mode = 3
+script = ExtResource("36_x5ig7")
 
-[connection signal="pressed" from="VBoxContainer/NewGameButt" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/LoadGameButt" to="." method="_on_load_game_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/SettingsButt" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/CreditsButt" to="." method="_on_credits_button_pressed"]
+[node name="Close Button" type="TextureButton" parent="Buttons"]
+offset_left = 1826.0
+offset_top = 24.0
+offset_right = 1883.0
+offset_bottom = 77.0
+texture_normal = ExtResource("34_nbpup")
+script = ExtResource("36_x5ig7")
+
+[node name="MusicToggle" type="TextureButton" parent="Buttons"]
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 107.0
+offset_bottom = 78.0
+toggle_mode = true
+texture_normal = ExtResource("37_fbj6v")
+texture_pressed = ExtResource("38_kcicc")
+script = ExtResource("36_x5ig7")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_oyiba")
+volume_db = 24.0
+autoplay = true
+max_distance = 4096.0
+
+[connection signal="pressed" from="Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Buttons/LoadGameButt" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="Buttons/SettingsButt" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Buttons/CreditsButt" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Buttons/Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="toggled" from="Buttons/MusicToggle" to="." method="_on_music_toggle_toggled"]

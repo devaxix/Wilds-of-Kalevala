@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfxag6dbodfr1"
+path="res://.godot/imported/orchestra theme concept 1.mp3-d08cfdb90332719bfbac9d32748dbad2.mp3str"
+
+[deps]
+
+source_file="res://Music/orchestra theme concept 1.mp3"
+dest_files=["res://.godot/imported/orchestra theme concept 1.mp3-d08cfdb90332719bfbac9d32748dbad2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
