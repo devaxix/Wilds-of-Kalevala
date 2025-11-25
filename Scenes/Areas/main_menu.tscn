@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=47 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bnxqpgjt0kvmh" path="res://Sprites/Backgrounds/Start Screen Pictures/wok5.png" id="25_rx35d"]
 [ext_resource type="Texture2D" uid="uid://bugp8ev21mxru" path="res://Sprites/Backgrounds/Start Screen Pictures/wok6.png" id="25_yiuoa"]
 [ext_resource type="Texture2D" uid="uid://u2ilo60ok4k5" path="res://Sprites/Start Menu Textures/Play Idle.png" id="26_rx35d"]
+[ext_resource type="Script" uid="uid://evfnv5wg6lbh" path="res://Scenes/Areas/buttons.gd" id="27_5ot25"]
 [ext_resource type="Texture2D" uid="uid://b38n63nvqrjq3" path="res://Sprites/Start Menu Textures/Remember Gray.png" id="27_cv8qq"]
 [ext_resource type="Texture2D" uid="uid://se63jt6xgl4" path="res://Sprites/Start Menu Textures/Settings Idle.png" id="28_16qtj"]
 [ext_resource type="Texture2D" uid="uid://dy53ssxat65nx" path="res://Sprites/Start Menu Textures/Play Hover.png" id="28_tgxka"]
@@ -34,10 +35,11 @@
 [ext_resource type="Texture2D" uid="uid://c8cu34bhhvaw0" path="res://Sprites/Start Menu Textures/Settings Hover.png" id="32_oyiba"]
 [ext_resource type="Texture2D" uid="uid://dtw25x35ri1yk" path="res://Sprites/Start Menu Textures/Credits Hover.png" id="34_fbj6v"]
 [ext_resource type="Texture2D" uid="uid://dbqmwvgpvk5g7" path="res://Sprites/Start Menu Textures/x (2).png" id="34_nbpup"]
-[ext_resource type="AudioStream" uid="uid://bfxag6dbodfr1" path="res://Music/orchestra theme concept 1.mp3" id="36_oyiba"]
 [ext_resource type="Script" uid="uid://b522qpfff444i" path="res://Scripts/close_buttoneffect.gd" id="36_x5ig7"]
 [ext_resource type="Texture2D" uid="uid://3k67y4qee56c" path="res://Sprites/Start Menu Textures/audio.png" id="37_fbj6v"]
+[ext_resource type="AudioStream" uid="uid://bv1ll3iby8m68" path="res://Music/forest echo.mp3" id="38_fbj6v"]
 [ext_resource type="Texture2D" uid="uid://ds8b7rofpf5km" path="res://Sprites/Start Menu Textures/no audio.png" id="38_kcicc"]
+[ext_resource type="AudioStream" uid="uid://2tpa8ncuyr75" path="res://Music/computer-mouse-click-351398.mp3" id="39_qairv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68acp"]
 content_margin_left = 4.0
@@ -539,7 +541,19 @@ position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_yiuoa")
 
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("38_fbj6v")
+volume_db = -14.136
+autoplay = true
+max_distance = 4096.0
+
 [node name="Buttons" type="Node2D" parent="."]
+script = ExtResource("27_5ot25")
+
+[node name="clickingsound" type="AudioStreamPlayer" parent="Buttons"]
+stream = ExtResource("39_qairv")
+volume_db = -14.221
+parameters/looping = false
 
 [node name="NewGameButt" type="TextureButton" parent="Buttons"]
 texture_filter = 1
@@ -604,15 +618,7 @@ texture_normal = ExtResource("37_fbj6v")
 texture_pressed = ExtResource("38_kcicc")
 script = ExtResource("36_x5ig7")
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("36_oyiba")
-volume_db = 24.0
-autoplay = true
-max_distance = 4096.0
-
 [connection signal="pressed" from="Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="Buttons/LoadGameButt" to="." method="_on_load_game_button_pressed"]
-[connection signal="pressed" from="Buttons/SettingsButt" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButt" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Buttons/Close Button" to="." method="_on_close_button_pressed"]
 [connection signal="toggled" from="Buttons/MusicToggle" to="." method="_on_music_toggle_toggled"]
