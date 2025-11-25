@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 # WALL JUMP SETTINGS
 @export var wall_slide_gravity = 100
-@export var wall_jump_push = 500
+@export var wall_jump_push = 800
 @export var wall_jump_force = -400
 
 @export var game_ui : CanvasLayer 
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 		elif has_wall_jump_memory and is_on_wall():
 			velocity.y = wall_jump_force 
 			velocity.x = -look_dir_x * wall_jump_push
-			wall_jump_lock = 0.2 
+			wall_jump_lock = 0.8
 
 	# 5. MOVEMENT
 	direction = Input.get_axis("Move Left", "Move Right")
