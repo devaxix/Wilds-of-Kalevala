@@ -169,8 +169,7 @@ scale = Vector2(9.65, 9.65)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_a3d8c")
-speed = 25
-jump_power = 20
+jump_power = -499
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("3_xpcdj")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1pojt52uqbqp"]
 
-[ext_resource type="Script" uid="uid://n40fkcyj2n4h" path="res://Scenes/Areas/game_ui.gd" id="1_bfrbo"]
+[ext_resource type="Script" uid="uid://n40fkcyj2n4h" path="res://Scripts/game_ui.gd" id="1_bfrbo"]
 [ext_resource type="Texture2D" uid="uid://duytw0jx0frt1" path="res://Sprites/Character/redheart.png" id="2_bfrbo"]
 
 [node name="GameUI" type="CanvasLayer"]
