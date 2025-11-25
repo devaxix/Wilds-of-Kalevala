@@ -5,8 +5,10 @@ extends Node2D
 @export var Sprite : Sprite2D
 
 func _process(_delta):
+	if player_controller.is_attacking:
+		return # Stop reading the rest of this function!
+
 	# 1. --- SPRITE FLIP (Separate and independent) ---
-	# This should always run at the start of _process
 	if player_controller.direction == 1:
 		Sprite.flip_h = false
 	elif player_controller.direction == -1:
@@ -16,7 +18,7 @@ func _process(_delta):
 	
 	# Check if the player is NOT on the floor (i.e., airborne)
 	# ASSUMPTION: PlayerController is a CharacterBody2D or exposes this function.
-	if not player_controller.is_on_floor(): 
+	if not player_controller.is_on_floor():
 		
 		# Character is moving UP (Jumping) - velocity.y is negative
 		if player_controller.velocity.y < 0.0:
@@ -35,8 +37,10 @@ func _process(_delta):
 		if abs(player_controller.velocity.x) > 0.0:
 			# Character is walking
 			if animation_player.current_animation != "Walk":
-				animation_player.play("Walk") 
+				animation_player.play("Walk")
 		else:
 			# Character is idle
 			if animation_player.current_animation != "Idle":
 				animation_player.play("Idle")
+
+	

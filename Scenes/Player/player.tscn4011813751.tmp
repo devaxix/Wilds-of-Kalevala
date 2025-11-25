@@ -4,38 +4,34 @@
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/char_blue.png" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="3_xpcdj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpcdj"]
-size = Vector2(23.989637, 33.678757)
-
 [sub_resource type="Animation" id="Animation_jlvik"]
 resource_name = "Attack"
-length = 0.5
+length = 0.6
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SwordHitbox/SwordShape:disabled")
-tracks/0/interp = 1
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(10, 80, 29, 32), Rect2(64, 78, 28, 34), Rect2(123, 80, 29, 32), Rect2(179, 80, 43, 32), Rect2(243, 81, 23, 31), Rect2(299, 81, 18, 31), Rect2(10, 80, 29, 32)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
-tracks/1/interp = 0
+tracks/1/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(10, 80, 29, 32), Rect2(64, 78, 28, 34), Rect2(123, 80, 29, 32), Rect2(179, 80, 43, 32), Rect2(243, 81, 23, 31), Rect2(299, 81, 18, 31)]
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_dd0ac"]
@@ -74,9 +70,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_a3d8c"]
 resource_name = "Idle"
-length = 0.6
+length = 1.5
 loop_mode = 1
-step = 0.1
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -84,10 +80,10 @@ tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(18, 24, 22, 32), Rect2(74, 24, 22, 32), Rect2(130, 24, 22, 32), Rect2(186, 25, 22, 31), Rect2(242, 25, 22, 31), Rect2(298, 25, 22, 31)]
+"values": [Rect2(18, 24, 22, 32), Rect2(74, 24, 22, 32), Rect2(130, 24, 22, 32), Rect2(186, 25, 22, 31), Rect2(242, 25, 22, 31), Rect2(298, 25, 22, 31), Rect2(18, 24, 22, 32)]
 }
 
 [sub_resource type="Animation" id="Animation_htcer"]
@@ -125,7 +121,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SwordHitbox/SwordShape:disabled")
+tracks/1/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -164,6 +160,10 @@ _data = {
 &"Walk": SubResource("Animation_mtuoh")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpcdj"]
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(9.65, 9.65)
 collision_layer = 2
@@ -172,6 +172,12 @@ script = ExtResource("1_a3d8c")
 speed = 25
 jump_power = 20
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mtuoh")
+}
+autoplay = "Idle"
+
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("3_xpcdj")
 player_controller = NodePath("..")
@@ -179,7 +185,7 @@ animation_player = NodePath("../AnimationPlayer")
 Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
-position = Vector2(0, 0.103626944)
+position = Vector2(0.103626944, 0)
 texture = ExtResource("1_uvnfx")
 region_enabled = true
 region_rect = Rect2(18, 24, 22, 32)
@@ -188,18 +194,11 @@ region_rect = Rect2(18, 24, 22, 32)
 shape = SubResource("CapsuleShape2D_cvnsp")
 
 [node name="SwordHitbox" type="Area2D" parent="."]
-collision_layer = 5
-collision_mask = 4
+collision_layer = 4
 
-[node name="SwordShape" type="CollisionShape2D" parent="SwordHitbox"]
-position = Vector2(15.362695, -0.25906774)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox"]
+position = Vector2(11.398964, 0.41450778)
 shape = SubResource("RectangleShape2D_xpcdj")
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_mtuoh")
-}
-
-[connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
