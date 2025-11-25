@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1pojt52uqbqp"]
+
+[ext_resource type="Script" uid="uid://n40fkcyj2n4h" path="res://Scenes/Areas/game_ui.gd" id="1_bfrbo"]
+[ext_resource type="Texture2D" uid="uid://duytw0jx0frt1" path="res://Sprites/Character/redheart.png" id="2_bfrbo"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_bfrbo")
+full_heart = ExtResource("2_bfrbo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1781.0
+offset_bottom = 422.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bfrbo")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bfrbo")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bfrbo")

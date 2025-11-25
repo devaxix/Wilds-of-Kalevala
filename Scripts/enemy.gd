@@ -15,12 +15,12 @@ var state = WALK
 @onready var anim_player = $AnimationPlayer
 @onready var attack_area = $AttackArea
 @onready var detection_area = $DetectionArea 
-@onready var wall_check = $WallCheck # <--- NEW SENSOR
+@onready var wall_check = $WallCheck
 
 func _ready():
 	current_health = max_health
 	anim_player.play("Walk")
-	# Ensure raycast points the right way at start
+	# FIX: Sync the raycast immediately
 	update_raycast_direction()
 
 func _physics_process(delta):
@@ -36,17 +36,16 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-	# --- VISUAL FLIPPING ---
-	if velocity.x > 0:
+	# Visual Flipping
+	if direction == 1:
 		scale.x = start_scale 
-	elif velocity.x < 0:
+	elif direction == -1:
 		scale.x = -start_scale 
 
 func move_logic():
 	velocity.x = direction * speed
 	
-	# --- NEW WALL CHECK ---
-	# We ask the RayCast: "Are you hitting a wall?"
+	# Wall Check Logic
 	if wall_check.is_colliding():
 		start_idle_wait()
 
@@ -54,9 +53,7 @@ func start_idle_wait():
 	state = IDLE_WAIT
 	velocity.x = 0
 	anim_player.play("Idle")
-	
 	await get_tree().create_timer(2.0).timeout
-	
 	flip_direction()
 	state = WALK
 	anim_player.play("Walk")
@@ -66,16 +63,20 @@ func flip_direction():
 	update_raycast_direction()
 
 func update_raycast_direction():
-	# Make sure the sensor points the way we are walking
+	# Ensure the raycast always points forward
 	if direction > 0:
 		wall_check.target_position.x = abs(wall_check.target_position.x)
 	else:
 		wall_check.target_position.x = -abs(wall_check.target_position.x)
 
-# --- DETECTION LOGIC (Same as before) ---
+# --- DETECTION LOGIC (This was missing!) ---
 func check_for_player():
+	# 1. Get everyone inside the detection area
+	# Ensure you have a node named "DetectionArea" and the variable is set up!
 	var bodies = detection_area.get_overlapping_bodies()
+	
 	for body in bodies:
+		# Check for Player by Name
 		if body.name == "Player":
 			start_attack(body)
 			return 
@@ -83,48 +84,32 @@ func check_for_player():
 func start_attack(target):
 	state = ATTACK
 	
+	# Face the player immediately
 	var direction_to_player = target.global_position.x - global_position.x
 	
 	if direction_to_player > 0:
-		scale.x = start_scale
-		direction = 1 
+		scale.x = start_scale # Face Right
+		direction = 1 # Update walk direction
 	else:
-		scale.x = -start_scale
+		scale.x = -start_scale # Face Left
 		direction = -1
-	
-	# Update the raycast immediately so we don't turn around after attacking
-	update_raycast_direction()
 
-	if randi() % 2 == 0:
+	# Random Attack
+	var random_pick = randi() % 2
+	if random_pick == 0:
 		anim_player.play("Attack 1")
 	else:
 		anim_player.play("Attack 2")
 	
 	await anim_player.animation_finished
+	
 	state = WALK
 	anim_player.play("Walk")
 
-# --- DAMAGE LOGIC (Same as before) ---
-func take_damage(amount):
-	if state == DIE: return
-	current_health -= amount
-	if current_health <= 0:
-		die()
-	else:
-		state = HURT
-		anim_player.play("Hurt")
-		await anim_player.animation_finished
-		state = WALK
-		anim_player.play("Walk")
-
-func die():
-	state = DIE
-	anim_player.play("Die")
-	$BodyCollision.set_deferred("disabled", true)
-	await anim_player.animation_finished
-	await get_tree().create_timer(2.0).timeout
-	queue_free()
-
-func _on_attack_area_body_entered(body: Node2D):
-	if body.name == "Player":
+func _on_sword_hitbox_body_entered(body):
+	# Debug Print: See what we are hitting!
+	print("Sword hit: ", body.name) 
+	
+	if body.has_method("take_damage"):
+		print("Dealing damage to enemy!")
 		body.take_damage(1)

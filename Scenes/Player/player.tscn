@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hogl4i6f6uxc"]
+[gd_scene load_steps=14 format=3 uid="uid://hogl4i6f6uxc"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/char_blue.png" id="1_uvnfx"]
@@ -88,6 +88,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Rect2(18, 24, 22, 32)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_mtuoh"]
 resource_name = "Walk"
@@ -107,8 +119,39 @@ tracks/0/keys = {
 "values": [Rect2(16, 136, 25, 32), Rect2(74, 136, 21, 32), Rect2(131, 135, 17, 33), Rect2(184, 135, 23, 30), Rect2(241, 136, 21, 32), Rect2(299, 136, 18, 32), Rect2(354, 135, 22, 33), Rect2(408, 135, 25, 30), Rect2(16, 136, 25, 32)]
 }
 
+[sub_resource type="Animation" id="Animation_jlvik"]
+resource_name = "Attack"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(10, 80, 29, 32), Rect2(64, 78, 28, 34), Rect2(123, 80, 29, 32), Rect2(179, 80, 43, 32), Rect2(243, 81, 23, 31), Rect2(299, 81, 18, 31), Rect2(10, 80, 29, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtuoh"]
 _data = {
+&"Attack": SubResource("Animation_jlvik"),
 &"Fall": SubResource("Animation_dd0ac"),
 &"Fall Still": SubResource("Animation_0u5uq"),
 &"Idle": SubResource("Animation_a3d8c"),
@@ -118,6 +161,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpcdj"]
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(9.65, 9.65)
@@ -141,9 +186,20 @@ libraries = {
 autoplay = "Idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator"]
+position = Vector2(0.103626944, 0)
 texture = ExtResource("1_uvnfx")
 region_enabled = true
 region_rect = Rect2(18, 24, 22, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cvnsp")
+
+[node name="SwordHitbox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox"]
+position = Vector2(11.398964, 0.41450778)
+shape = SubResource("RectangleShape2D_xpcdj")
+disabled = true
+
+[connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

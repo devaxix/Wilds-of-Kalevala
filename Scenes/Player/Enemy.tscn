@@ -306,6 +306,7 @@ script = ExtResource("1_jj8qi")
 shape = SubResource("CapsuleShape2D_jvte1")
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CapsuleShape2D_ilcl4")
@@ -334,6 +335,6 @@ scale = Vector2(2.26, 2.26)
 shape = SubResource("RectangleShape2D_6khg0")
 
 [node name="WallCheck" type="RayCast2D" parent="."]
-target_position = Vector2(22.37, 0)
+target_position = Vector2(15, 0)
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
