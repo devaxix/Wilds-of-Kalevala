@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgrxwdllc1eip"
+path="res://.godot/imported/enter game noise 2.mp3-f51e2fa1239049a0a9368dad6f9d7fcc.mp3str"
+
+[deps]
+
+source_file="res://Music/enter game noise 2.mp3"
+dest_files=["res://.godot/imported/enter game noise 2.mp3-f51e2fa1239049a0a9368dad6f9d7fcc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

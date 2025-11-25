@@ -270,10 +270,6 @@ layout_mode = 2
 position = Vector2(-515.00024, 812.9999)
 scale = Vector2(6.385, 6.385)
 
-[node name="Enemy2" parent="." instance=ExtResource("14_lx0ev")]
-position = Vector2(1376.0002, 812.99994)
-scale = Vector2(6.385, 6.385)
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 visible = false
 

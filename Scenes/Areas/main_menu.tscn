@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=55 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://u2ilo60ok4k5" path="res://Sprites/Start Menu Textures/Play Idle.png" id="26_rx35d"]
 [ext_resource type="Script" uid="uid://evfnv5wg6lbh" path="res://Scenes/Areas/buttons.gd" id="27_5ot25"]
 [ext_resource type="Texture2D" uid="uid://b38n63nvqrjq3" path="res://Sprites/Start Menu Textures/Remember Gray.png" id="27_cv8qq"]
+[ext_resource type="AudioStream" uid="uid://cgrxwdllc1eip" path="res://Music/enter game noise 2.mp3" id="28_5ot25"]
 [ext_resource type="Texture2D" uid="uid://se63jt6xgl4" path="res://Sprites/Start Menu Textures/Settings Idle.png" id="28_16qtj"]
 [ext_resource type="Texture2D" uid="uid://dy53ssxat65nx" path="res://Sprites/Start Menu Textures/Play Hover.png" id="28_tgxka"]
 [ext_resource type="Texture2D" uid="uid://bdvssp8co4qyo" path="res://Sprites/Start Menu Textures/Credits Idle.png" id="29_pj71e"]
@@ -40,6 +41,10 @@
 [ext_resource type="AudioStream" uid="uid://bv1ll3iby8m68" path="res://Music/forest echo.mp3" id="38_fbj6v"]
 [ext_resource type="Texture2D" uid="uid://ds8b7rofpf5km" path="res://Sprites/Start Menu Textures/no audio.png" id="38_kcicc"]
 [ext_resource type="AudioStream" uid="uid://2tpa8ncuyr75" path="res://Music/computer-mouse-click-351398.mp3" id="39_qairv"]
+[ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/menu-selection-102220.mp3" id="41_5ot25"]
+[ext_resource type="Texture2D" uid="uid://c0ypjo6lsjukj" path="res://Scripts/settingscreen.png" id="43_2qs0u"]
+[ext_resource type="Texture2D" uid="uid://dvw6bqf1e2nch" path="res://Scripts/mute icon cropped.png" id="44_n8qpf"]
+[ext_resource type="Texture2D" uid="uid://df0gc6ns0p6wv" path="res://Scripts/full icon cropped.png" id="45_7rqx6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68acp"]
 content_margin_left = 4.0
@@ -134,6 +139,115 @@ Button/styles/hover = SubResource("StyleBoxFlat_5wwuu")
 Button/styles/normal = SubResource("StyleBoxFlat_ta18w")
 Button/styles/pressed = SubResource("StyleBoxFlat_s6qx4")
 
+[sub_resource type="Animation" id="Animation_apimg"]
+resource_name = "SlideInSettings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuContent:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingScreen:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1500), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SettingScreen:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_n8qpf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenuContent:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingScreen:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1500)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SettingScreen:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rqx6"]
+_data = {
+&"RESET": SubResource("Animation_n8qpf"),
+&"SlideInSettings": SubResource("Animation_apimg")
+}
+
 [node name="Main Menu" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -157,7 +271,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(922, 0)
 repeat_times = 3
 script = ExtResource("2_81bqp")
-base_scroll_speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/1"]
 texture_filter = 1
@@ -173,7 +286,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/2"]
 texture_filter = 1
@@ -194,7 +306,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 7.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/3"]
 texture_filter = 1
@@ -215,7 +326,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 8.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/4"]
 texture_filter = 1
@@ -236,7 +346,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 9.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/5"]
 texture_filter = 1
@@ -257,7 +366,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/6"]
 texture_filter = 1
@@ -278,7 +386,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 11.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/7"]
 texture_filter = 1
@@ -299,7 +406,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 12.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/8"]
 texture_filter = 1
@@ -320,7 +426,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 13.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/9"]
 texture_filter = 1
@@ -341,7 +446,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 14.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/10"]
 texture_filter = 1
@@ -362,7 +466,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/11"]
 texture_filter = 1
@@ -383,7 +486,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 16.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/12"]
 texture_filter = 1
@@ -404,7 +506,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 17.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/13"]
 texture_filter = 1
@@ -425,7 +526,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 18.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/14"]
 texture_filter = 1
@@ -452,7 +552,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 19.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/15"]
 texture_filter = 1
@@ -479,7 +578,6 @@ scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
 repeat_times = 5
 script = ExtResource("2_81bqp")
-base_scroll_speed = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/16"]
 texture_filter = 1
@@ -499,7 +597,29 @@ position = Vector2(1714.346, 161.663)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("17_c3do1")
 
-[node name="layers for logo" type="Control" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("38_fbj6v")
+volume_db = -14.136
+autoplay = true
+max_distance = 4096.0
+bus = &"Music"
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("41_5ot25")
+volume_db = -26.0
+bus = &"SFX"
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_qairv")
+volume_db = -24.148
+bus = &"SFX"
+
+[node name="MainMenuContent" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="layers for logo" type="Control" parent="MainMenuContent"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -510,52 +630,47 @@ offset_right = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Wok1" type="Sprite2D" parent="layers for logo"]
+[node name="Wok1" type="Sprite2D" parent="MainMenuContent/layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("21_yiuoa")
 
-[node name="Wok2" type="Sprite2D" parent="layers for logo"]
+[node name="Wok2" type="Sprite2D" parent="MainMenuContent/layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("22_nqc82")
 
-[node name="Wok3" type="Sprite2D" parent="layers for logo"]
+[node name="Wok3" type="Sprite2D" parent="MainMenuContent/layers for logo"]
 visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("23_gf6si")
 
-[node name="Wok4" type="Sprite2D" parent="layers for logo"]
+[node name="Wok4" type="Sprite2D" parent="MainMenuContent/layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("24_c3do1")
 
-[node name="Wok5" type="Sprite2D" parent="layers for logo"]
+[node name="Wok5" type="Sprite2D" parent="MainMenuContent/layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_rx35d")
 
-[node name="Wok6" type="Sprite2D" parent="layers for logo"]
+[node name="Wok6" type="Sprite2D" parent="MainMenuContent/layers for logo"]
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_yiuoa")
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("38_fbj6v")
-volume_db = -14.136
-autoplay = true
-max_distance = 4096.0
-
-[node name="Buttons" type="Node2D" parent="."]
+[node name="Buttons" type="Node2D" parent="MainMenuContent"]
 script = ExtResource("27_5ot25")
 
-[node name="clickingsound" type="AudioStreamPlayer" parent="Buttons"]
-stream = ExtResource("39_qairv")
-volume_db = -14.221
+[node name="clickingsound" type="AudioStreamPlayer" parent="MainMenuContent/Buttons"]
+stream = ExtResource("28_5ot25")
+volume_db = -1.817
+bus = &"SFX"
 parameters/looping = false
 
-[node name="NewGameButt" type="TextureButton" parent="Buttons"]
+[node name="NewGameButt" type="TextureButton" parent="MainMenuContent/Buttons"]
 texture_filter = 1
 offset_left = 819.5
 offset_top = 547.0
@@ -566,7 +681,7 @@ texture_hover = ExtResource("28_tgxka")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
 
-[node name="LoadGameButt" type="TextureButton" parent="Buttons"]
+[node name="LoadGameButt" type="TextureButton" parent="MainMenuContent/Buttons"]
 offset_left = 819.5
 offset_top = 642.0
 offset_right = 1100.5
@@ -578,7 +693,7 @@ texture_hover = ExtResource("30_x5ig7")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
 
-[node name="SettingsButt" type="TextureButton" parent="Buttons"]
+[node name="SettingsButt" type="TextureButton" parent="MainMenuContent/Buttons"]
 offset_left = 819.5
 offset_top = 739.0
 offset_right = 1100.5
@@ -589,7 +704,7 @@ texture_hover = ExtResource("32_oyiba")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
 
-[node name="CreditsButt" type="TextureButton" parent="Buttons"]
+[node name="CreditsButt" type="TextureButton" parent="MainMenuContent/Buttons"]
 offset_left = 819.5
 offset_top = 835.0
 offset_right = 1100.5
@@ -600,7 +715,7 @@ texture_hover = ExtResource("34_fbj6v")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
 
-[node name="Close Button" type="TextureButton" parent="Buttons"]
+[node name="Close Button" type="TextureButton" parent="MainMenuContent/Buttons"]
 offset_left = 1826.0
 offset_top = 24.0
 offset_right = 1883.0
@@ -608,7 +723,7 @@ offset_bottom = 77.0
 texture_normal = ExtResource("34_nbpup")
 script = ExtResource("36_x5ig7")
 
-[node name="MusicToggle" type="TextureButton" parent="Buttons"]
+[node name="MusicToggle" type="TextureButton" parent="MainMenuContent/Buttons"]
 offset_left = 56.0
 offset_top = 24.0
 offset_right = 107.0
@@ -618,7 +733,105 @@ texture_normal = ExtResource("37_fbj6v")
 texture_pressed = ExtResource("38_kcicc")
 script = ExtResource("36_x5ig7")
 
-[connection signal="pressed" from="Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="Buttons/CreditsButt" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="Buttons/Close Button" to="." method="_on_close_button_pressed"]
-[connection signal="toggled" from="Buttons/MusicToggle" to="." method="_on_music_toggle_toggled"]
+[node name="SettingScreen" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_top = -1500.0
+offset_right = 40.0
+offset_bottom = -1460.0
+
+[node name="TextureRect" type="TextureRect" parent="SettingScreen"]
+custom_minimum_size = Vector2(0, -1000)
+layout_mode = 0
+offset_left = 101.99999
+offset_top = 4.9999847
+offset_right = 2022.0
+offset_bottom = 1145.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("43_2qs0u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SettingScreen"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_7rqx6")
+}
+
+[node name="MusicSlider" type="HSlider" parent="SettingScreen"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 477.0
+offset_right = 986.0
+offset_bottom = 510.0
+min_value = -40.0
+max_value = 6.0
+
+[node name="SFXSlider" type="HSlider" parent="SettingScreen"]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 550.0
+offset_right = 985.0
+offset_bottom = 578.0
+min_value = -40.0
+max_value = 6.0
+
+[node name="MusicMuteIcon" type="TextureRect" parent="SettingScreen"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 478.0
+offset_right = 770.0
+offset_bottom = 513.0
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("44_n8qpf")
+
+[node name="MusicFullIcon" type="TextureRect" parent="SettingScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.6980002
+anchor_bottom = 2.6260002
+offset_left = 998.0
+offset_top = 481.0
+offset_right = 894.07996
+offset_bottom = 410.96
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("45_7rqx6")
+
+[node name="SFXMuteIcon" type="TextureRect" parent="SettingScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 741.00006
+offset_top = 549.0
+offset_right = 729.00006
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.745, 0.745)
+texture = ExtResource("44_n8qpf")
+
+[node name="SFXFullIcon" type="TextureRect" parent="SettingScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.7140002
+anchor_bottom = 2.476
+offset_left = 998.00006
+offset_top = 549.0
+offset_right = 893.44
+offset_bottom = 484.96
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("45_7rqx6")
+
+[connection signal="mouse_entered" from="MainMenuContent/Buttons/NewGameButt" to="." method="_on_button_hovered"]
+[connection signal="pressed" from="MainMenuContent/Buttons/NewGameButt" to="." method="_on_new_game_butt_pressed"]
+[connection signal="pressed" from="MainMenuContent/Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
+[connection signal="mouse_entered" from="MainMenuContent/Buttons/LoadGameButt" to="." method="_on_button_hovered"]
+[connection signal="mouse_entered" from="MainMenuContent/Buttons/SettingsButt" to="." method="_on_button_hovered"]
+[connection signal="pressed" from="MainMenuContent/Buttons/SettingsButt" to="." method="_on_settings_butt_pressed"]
+[connection signal="mouse_entered" from="MainMenuContent/Buttons/CreditsButt" to="." method="_on_button_hovered"]
+[connection signal="pressed" from="MainMenuContent/Buttons/CreditsButt" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="MainMenuContent/Buttons/Close Button" to="." method="_on_button_hovered"]
+[connection signal="pressed" from="MainMenuContent/Buttons/Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="mouse_entered" from="MainMenuContent/Buttons/MusicToggle" to="." method="_on_button_hovered"]
+[connection signal="toggled" from="MainMenuContent/Buttons/MusicToggle" to="." method="_on_music_toggle_toggled"]
+[connection signal="value_changed" from="SettingScreen/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SettingScreen/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

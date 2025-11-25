@@ -16,6 +16,7 @@ var state = WALK
 @onready var attack_area = $AttackArea
 @onready var detection_area = $DetectionArea 
 @onready var wall_check = $WallCheck # <--- NEW SENSOR
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	current_health = max_health
