@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpesx50f33f18"
-path="res://.godot/imported/char_blue.png-97c7c028e7d2f24a33f099e151a52f9d.ctex"
+uid="uid://dh0fqtnqu1c63"
+path="res://.godot/imported/Idle-Sheet.png-f7a0f58a8315e5742a5107531dc43e01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character/char_blue.png"
-dest_files=["res://.godot/imported/char_blue.png-97c7c028e7d2f24a33f099e151a52f9d.ctex"]
+source_file="res://Sprites/Character/Girl/Idle-Sheet.png"
+dest_files=["res://.godot/imported/Idle-Sheet.png-f7a0f58a8315e5742a5107531dc43e01.ctex"]
 
 [params]
 

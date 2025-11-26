@@ -281,6 +281,8 @@ shape = SubResource("RectangleShape2D_lx0ev")
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_lwdtn")
+volume_db = 15.0
+autoplay = true
 parameters/looping = true
 
 [node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
