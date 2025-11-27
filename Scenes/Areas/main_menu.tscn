@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=59 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ijqvpk2d0ki" path="res://Sprites/Backgrounds/Winter background 17L/14.png" id="15_nqc82"]
 [ext_resource type="Texture2D" uid="uid://dolpuv04t8yfs" path="res://Sprites/Backgrounds/Winter background 17L/15.png" id="16_gf6si"]
 [ext_resource type="Texture2D" uid="uid://bu6g248p0ot5x" path="res://Sprites/Backgrounds/Winter background 17L/16.png" id="17_c3do1"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="19_kcicc"]
 [ext_resource type="Texture2D" uid="uid://5ewngui8m08l" path="res://Sprites/Backgrounds/Start Screen Pictures/wok1.png" id="21_yiuoa"]
 [ext_resource type="Texture2D" uid="uid://b44hxv8flnmh1" path="res://Sprites/Backgrounds/Start Screen Pictures/wok2.png" id="22_nqc82"]
 [ext_resource type="Texture2D" uid="uid://1jr0o27xg2ty" path="res://Sprites/Backgrounds/Start Screen Pictures/wok3.png" id="23_gf6si"]
@@ -132,6 +133,132 @@ Button/styles/hover = SubResource("StyleBoxFlat_5wwuu")
 Button/styles/normal = SubResource("StyleBoxFlat_ta18w")
 Button/styles/pressed = SubResource("StyleBoxFlat_s6qx4")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2qs0u"]
+shader = ExtResource("19_kcicc")
+shader_parameter/speed = 1.2
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.07000000169506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nulcw"]
+shader = ExtResource("19_kcicc")
+shader_parameter/speed = 1.2
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.05000000074506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcicc"]
+shader = ExtResource("19_kcicc")
+shader_parameter/speed = 0.8
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.08000000217006001
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qairv"]
+shader = ExtResource("19_kcicc")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.07000000169506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ot25"]
+shader = ExtResource("19_kcicc")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="Curve" id="Curve_fbj6v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9719108, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kcicc"]
+curve = SubResource("Curve_fbj6v")
+
+[sub_resource type="Gradient" id="Gradient_qairv"]
+offsets = PackedFloat32Array(0.34862384, 0.559633)
+colors = PackedColorArray(1, 1, 1, 0.3647059, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ot25"]
+gradient = SubResource("Gradient_qairv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nulcw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1080, 1, 1)
+gravity = Vector3(-10, 100, 0)
+scale_max = 5.0
+color_initial_ramp = SubResource("GradientTexture1D_5ot25")
+alpha_curve = SubResource("CurveTexture_kcicc")
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
+
+[sub_resource type="Animation" id="Animation_kcicc"]
+resource_name = "Idle"
+length = 10.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.03, 1.03), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qairv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ot25"]
+_data = {
+&"Idle": SubResource("Animation_kcicc"),
+&"RESET": SubResource("Animation_qairv")
+}
+
 [node name="Main Menu" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -153,7 +280,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(922, 0)
-repeat_times = 3
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 5.0
 
@@ -169,7 +296,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 6.0
 
@@ -190,7 +317,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 7.0
 
@@ -211,7 +338,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 8.0
 
@@ -232,7 +359,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 9.0
 
@@ -253,7 +380,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 10.0
 
@@ -274,20 +401,22 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 11.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Layers for background/7"]
+[node name="Sprite2D2" type="Sprite2D" parent="Layers for background/7"]
 texture_filter = 1
-position = Vector2(342.857, 150.549)
+material = SubResource("ShaderMaterial_2qs0u")
+position = Vector2(1028.5714, 150.549)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("8_01ras")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Layers for background/7"]
+[node name="Sprite2D" type="Sprite2D" parent="Layers for background/7"]
+visible = false
 texture_filter = 1
-position = Vector2(1028.5714, 150.549)
-scale = Vector2(1.3392857, 1.5066966)
+position = Vector2(342.85696, 150.54898)
+scale = Vector2(1.3392856, 1.5066965)
 texture = ExtResource("8_01ras")
 
 [node name="8" type="Parallax2D" parent="Layers for background"]
@@ -295,7 +424,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 12.0
 
@@ -316,7 +445,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 13.0
 
@@ -337,17 +466,19 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 14.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/10"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_nulcw")
 position = Vector2(342.857, 186.496)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("11_5wwuu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layers for background/10"]
+visible = false
 texture_filter = 1
 position = Vector2(1028.571, 186.496)
 scale = Vector2(1.3392857, 1.5066966)
@@ -358,7 +489,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 15.0
 
@@ -379,17 +510,19 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 16.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/12"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_kcicc")
 position = Vector2(342.857, 183.036)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("13_s6qx4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layers for background/12"]
+visible = false
 texture_filter = 1
 position = Vector2(1028.5714, 183.036)
 scale = Vector2(1.3392857, 1.5066966)
@@ -400,7 +533,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 17.0
 
@@ -421,7 +554,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 18.0
 
@@ -448,7 +581,7 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 19.0
 
@@ -475,27 +608,38 @@ texture_filter = 1
 scale = Vector2(2.8, 2.8)
 scroll_offset = Vector2(0, 87.34497)
 repeat_size = Vector2(685.72, 0)
-repeat_times = 5
+repeat_times = 13
 script = ExtResource("2_81bqp")
 base_scroll_speed = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Layers for background/16"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_qairv")
 position = Vector2(342.85715, 161.6625)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("17_c3do1")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Layers for background/16"]
+visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_5ot25")
 position = Vector2(1028.5714, 161.6625)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("17_c3do1")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Layers for background/16"]
+visible = false
 texture_filter = 1
 position = Vector2(1714.346, 161.663)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("17_c3do1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(1062.63, -1)
+amount = 1200
+lifetime = 20.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_nulcw")
 
 [node name="layers for logo" type="Control" parent="."]
 texture_filter = 1
@@ -503,8 +647,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_right = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -538,6 +680,12 @@ texture = ExtResource("25_rx35d")
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_yiuoa")
+
+[node name="Idle" type="AnimationPlayer" parent="layers for logo"]
+libraries = {
+&"": SubResource("AnimationLibrary_5ot25")
+}
+autoplay = "Idle"
 
 [node name="Buttons" type="Node2D" parent="."]
 
