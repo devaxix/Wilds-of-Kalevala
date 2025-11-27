@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cyboia0e6ypec"]
+[gd_scene load_steps=28 format=4 uid="uid://cyboia0e6ypec"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_xevsr"]
 [ext_resource type="Texture2D" uid="uid://n8yubdxqir8b" path="res://Sprites/Backgrounds/Autumn Background 2/back.png" id="5_xevsr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_pufs3"]
 [ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="14_254ap"]
 [ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="15_8xhuv"]
+[ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="16_ae0ff"]
 [ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="16_bpwf4"]
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_t3eff"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_4xecm"]
@@ -335,3 +336,7 @@ environment = SubResource("Environment_b6jro")
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(0, 977.445)
+
+[node name="LevelExit" parent="." instance=ExtResource("16_ae0ff")]
+position = Vector2(6832, 672)
+next_level_path = "uid://dbeh7cvoqcfie"
