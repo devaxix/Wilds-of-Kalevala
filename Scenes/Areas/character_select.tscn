@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwsq4skxytcxj"]
+
+[ext_resource type="Script" uid="uid://clps5ruccnujy" path="res://Scripts/character_select.gd" id="1_hgaam"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgaam")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -616.0
+offset_top = 76.0
+offset_right = 582.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="BoyButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 121
+text = "Masculine"
+
+[node name="GirlButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 121
+text = "Feminine"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 320.0
+offset_right = 1668.0
+offset_bottom = 573.0
+theme_override_font_sizes/font_size = 91
+text = "I remember how I looked like....
+				I looked..."
+
+[connection signal="pressed" from="HBoxContainer/BoyButton" to="." method="_on_boy_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/GirlButton" to="." method="_on_girl_button_pressed"]

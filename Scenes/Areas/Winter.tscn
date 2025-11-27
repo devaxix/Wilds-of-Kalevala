@@ -1,26 +1,26 @@
-[gd_scene load_steps=29 format=4 uid="uid://dsqj4dxsb7nqo"]
+[gd_scene load_steps=29 format=4 uid="uid://dbeh7cvoqcfie"]
 
-[ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_b6jro"]
-[ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="1_fy23r"]
-[ext_resource type="Texture2D" uid="uid://brkl1m3kscpio" path="res://Sprites/Backgrounds/Background for Scene 1/2.png" id="2_qex3a"]
-[ext_resource type="Texture2D" uid="uid://db8nlwxeddbi3" path="res://Sprites/Backgrounds/Background for Scene 1/3.png" id="3_kf2cf"]
-[ext_resource type="Texture2D" uid="uid://eg1g8ul5oefx" path="res://Sprites/Backgrounds/Background for Scene 1/4.png" id="4_parya"]
-[ext_resource type="Texture2D" uid="uid://dls0w84vs8mg3" path="res://Sprites/Backgrounds/Background for Scene 1/5.png" id="5_rhtpg"]
-[ext_resource type="Texture2D" uid="uid://db17rsa6a7wvn" path="res://Sprites/Backgrounds/Background for Scene 1/6.png" id="6_lx0ev"]
-[ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="8_emm07"]
-[ext_resource type="Texture2D" uid="uid://bgegstv8n0fko" path="res://Sprites/Tileset/spring_tiles.png" id="8_lx0ev"]
-[ext_resource type="Texture2D" uid="uid://cu6fxh1vvb0qe" path="res://Sprites/Tileset/summer_tiles.png" id="9_lwdtn"]
-[ext_resource type="Texture2D" uid="uid://dyphq4tu5d1pi" path="res://Sprites/Tileset/winter_tiles.png" id="10_r6rcv"]
-[ext_resource type="Texture2D" uid="uid://ejriwjqcn27m" path="res://Sprites/Tileset/autumn_tiles.png" id="11_b6jro"]
-[ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_pccjv"]
-[ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="14_lx0ev"]
-[ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="15_lwdtn"]
-[ext_resource type="PackedScene" uid="uid://b1pojt52uqbqp" path="res://Scenes/Areas/GameUI.tscn" id="15_r6rcv"]
-[ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="16_r6rcv"]
-[ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="17_b6jro"]
+[ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_rr04j"]
+[ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="2_72o4i"]
+[ext_resource type="Texture2D" uid="uid://brkl1m3kscpio" path="res://Sprites/Backgrounds/Background for Scene 1/2.png" id="3_n6wfr"]
+[ext_resource type="Texture2D" uid="uid://db8nlwxeddbi3" path="res://Sprites/Backgrounds/Background for Scene 1/3.png" id="4_i3n6d"]
+[ext_resource type="Texture2D" uid="uid://eg1g8ul5oefx" path="res://Sprites/Backgrounds/Background for Scene 1/4.png" id="5_bpoeh"]
+[ext_resource type="Texture2D" uid="uid://dls0w84vs8mg3" path="res://Sprites/Backgrounds/Background for Scene 1/5.png" id="6_vgp7q"]
+[ext_resource type="Texture2D" uid="uid://db17rsa6a7wvn" path="res://Sprites/Backgrounds/Background for Scene 1/6.png" id="7_efe4w"]
+[ext_resource type="PackedScene" uid="uid://b1pojt52uqbqp" path="res://Scenes/Areas/GameUI.tscn" id="8_pluyx"]
+[ext_resource type="Texture2D" uid="uid://bgegstv8n0fko" path="res://Sprites/Tileset/spring_tiles.png" id="9_hou1f"]
+[ext_resource type="Texture2D" uid="uid://cu6fxh1vvb0qe" path="res://Sprites/Tileset/summer_tiles.png" id="10_33pns"]
+[ext_resource type="Texture2D" uid="uid://dyphq4tu5d1pi" path="res://Sprites/Tileset/winter_tiles.png" id="11_yiq65"]
+[ext_resource type="Texture2D" uid="uid://ejriwjqcn27m" path="res://Sprites/Tileset/autumn_tiles.png" id="12_peabj"]
+[ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_3gbwr"]
+[ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="14_riqyx"]
+[ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="15_1vvxh"]
+[ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="16_fpkai"]
+[ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_yqga2"]
+[ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_3syx0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
-texture = ExtResource("8_lx0ev")
+texture = ExtResource("9_hou1f")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -53,7 +53,7 @@ texture = ExtResource("8_lx0ev")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0at3v"]
-texture = ExtResource("9_lwdtn")
+texture = ExtResource("10_33pns")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -86,7 +86,7 @@ texture = ExtResource("9_lwdtn")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5u0mf"]
-texture = ExtResource("10_r6rcv")
+texture = ExtResource("11_yiq65")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -119,7 +119,7 @@ texture = ExtResource("10_r6rcv")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52gsm"]
-texture = ExtResource("11_b6jro")
+texture = ExtResource("12_peabj")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -159,7 +159,7 @@ sources/2 = SubResource("TileSetAtlasSource_5u0mf")
 sources/3 = SubResource("TileSetAtlasSource_52gsm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ixcd"]
-texture = ExtResource("13_pccjv")
+texture = ExtResource("13_3gbwr")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -210,7 +210,7 @@ glow_bloom = 0.5
 glow_blend_mode = 1
 
 [node name="Area1" type="Node2D"]
-script = ExtResource("1_b6jro")
+script = ExtResource("1_rr04j")
 
 [node name="Layer Hub" type="Node2D" parent="."]
 
@@ -222,7 +222,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 1"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("1_fy23r")
+texture = ExtResource("2_72o4i")
 
 [node name="Layer 2" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.5, 1)
@@ -232,7 +232,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 2"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("2_qex3a")
+texture = ExtResource("3_n6wfr")
 
 [node name="Layer 3" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.6, 1)
@@ -242,7 +242,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 3"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("3_kf2cf")
+texture = ExtResource("4_i3n6d")
 
 [node name="Layer 4" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.7, 1)
@@ -252,7 +252,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 4"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("4_parya")
+texture = ExtResource("5_bpoeh")
 
 [node name="Layer 5" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.8, 1)
@@ -262,7 +262,7 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 5"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("5_rhtpg")
+texture = ExtResource("6_vgp7q")
 
 [node name="Layer 6" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.9, 1)
@@ -272,15 +272,14 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 6"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.3333333)
-texture = ExtResource("6_lx0ev")
+texture = ExtResource("7_efe4w")
 
-[node name="GameUI" parent="." instance=ExtResource("15_r6rcv")]
+[node name="GameUI" parent="." instance=ExtResource("8_pluyx")]
 offset = Vector2(-600, 0)
 scale = Vector2(0.15, 0.15)
 transform = Transform2D(0.15, 0, 0, 0.15, -600, 0)
 
 [node name="Normal Map" type="TileMapLayer" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(0, 758.875)
 scale = Vector2(6.69, 6.69)
@@ -293,7 +292,7 @@ scale = Vector2(6.69, 6.69)
 tile_map_data = PackedByteArray("AAAZAPv/AAACAAEAAAAZAPz/AAACAAEAAAAfAP7/AAACAAEAAAAfAP//AAACAAEAAAAZAPr/AAADAAAAAAAfAP3/AAADAAAAAAA=")
 tile_set = SubResource("TileSet_d1xsq")
 
-[node name="Pause Menu" parent="." instance=ExtResource("8_emm07")]
+[node name="Pause Menu" parent="." instance=ExtResource("14_riqyx")]
 visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -302,7 +301,7 @@ visible = false
 position = Vector2(3305, 1072)
 shape = SubResource("RectangleShape2D_emm07")
 
-[node name="Enemy" parent="." instance=ExtResource("14_lx0ev")]
+[node name="Enemy" parent="." instance=ExtResource("15_1vvxh")]
 position = Vector2(-515.00024, 812.9999)
 scale = Vector2(6.385, 6.385)
 
@@ -315,16 +314,16 @@ scale = Vector2(12.38, 12.38)
 shape = SubResource("RectangleShape2D_lx0ev")
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_lwdtn")
+stream = ExtResource("16_fpkai")
 volume_db = 15.0
 autoplay = true
 parameters/looping = true
 
-[node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
+[node name="MemoryOrb" parent="." instance=ExtResource("17_yqga2")]
 position = Vector2(2192, 800)
 scale = Vector2(0.23, 0.23)
 
-[node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
+[node name="WallJumpOrb" parent="." instance=ExtResource("18_3syx0")]
 position = Vector2(3168, 696)
 scale = Vector2(0.23, 0.23)
 

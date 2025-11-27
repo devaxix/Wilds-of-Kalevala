@@ -2,14 +2,14 @@ class_name PlayerController
 extends CharacterBody2D
 
 # --- VARIABLES ---
-@export var speed = 900
-@export var jump_power = -1200
+@export var speed = 1200 # Increased speed slightly
+@export var jump_power = -400
 @export var max_health = 3
 @export var knockback_force = 300
 
 # WALL JUMP SETTINGS
 @export var wall_slide_gravity = 100
-@export var wall_jump_push = 800
+@export var wall_jump_push = 500
 @export var wall_jump_force = -400
 
 @export var game_ui : CanvasLayer 
@@ -17,6 +17,7 @@ extends CharacterBody2D
 # --- NODES ---
 @onready var sprite = $PlayerAnimator/Sprite2D
 @onready var animation_player = $AnimationPlayer
+@onready var wall_jump_check = $WallJumpCheck # <--- This caused the crash! Make sure the node exists!
 
 # --- STATE ---
 var current_health = 3
@@ -41,11 +42,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# 1. GRAVITY
 	if not is_on_floor():
-		# Wall Slide Logic
-		if has_wall_jump_memory and is_on_wall() and velocity.y > 0:
-			velocity.y = wall_slide_gravity
-		else:
-			velocity.y += 980 * delta # Standard Gravity
+		velocity.y += 980 * delta
 
 	# 2. HURT LOCK
 	if is_hurt:
@@ -53,22 +50,32 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return 
 
-	# 3. UPDATE LOOK DIRECTION
-	if velocity.x != 0:
-		look_dir_x = sign(velocity.x)
-
-	# 4. JUMP & WALL JUMP
-	if Input.is_action_just_pressed("Jump"):
-		if is_on_floor():
-			velocity.y = jump_power
-		elif has_wall_jump_memory and is_on_wall():
-			velocity.y = wall_jump_force 
-			velocity.x = -look_dir_x * wall_jump_push
-			wall_jump_lock = 0.8
-
-	# 5. MOVEMENT
+	# 3. UPDATE DIRECTION & SENSORS
 	direction = Input.get_axis("Move Left", "Move Right")
 	
+	if velocity.x != 0:
+		look_dir_x = sign(velocity.x)
+	
+	# Flip the RayCast to face the direction we are moving
+	if direction != 0:
+		wall_jump_check.target_position.x = 15 * direction
+
+	# 4. WALL SLIDE LOGIC
+	# Only slide if we are falling, have the memory, and the RayCast sees a wall
+	if has_wall_jump_memory and wall_jump_check.is_colliding() and not is_on_floor() and velocity.y > 0:
+		velocity.y = wall_slide_gravity
+
+	# 5. JUMP & WALL JUMP
+	if Input.is_action_just_pressed("Jump"):
+		if is_on_floor():
+			velocity.y = jump_power # Normal Jump
+		elif has_wall_jump_memory and wall_jump_check.is_colliding():
+			# Wall Jump
+			velocity.y = wall_jump_force 
+			velocity.x = -look_dir_x * wall_jump_push
+			wall_jump_lock = 0.2 
+
+	# 6. MOVEMENT (With Wall Jump Lock)
 	if wall_jump_lock > 0:
 		wall_jump_lock -= delta
 	
@@ -76,14 +83,14 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * speed
 			
-			# FLIP HITBOX (Crucial for hitting enemies behind you!)
+			# FLIP SWORD HITBOX
 			if has_node("SwordHitbox"):
 				if direction > 0: $SwordHitbox.scale.x = 1
 				else: $SwordHitbox.scale.x = -1
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 
-	# 6. ATTACK
+	# 7. ATTACK
 	if Input.is_action_just_pressed("Attack") and has_sword_memory and not is_attacking:
 		attack()
 
@@ -123,7 +130,7 @@ func take_damage(amount, enemy_pos = Vector2.ZERO):
 func apply_knockback(enemy_pos):
 	is_hurt = true
 	is_attacking = false
-	if sprite: sprite.modulate = Color(1, 0, 0) # RED
+	if sprite: sprite.modulate = Color(1, 0, 0)
 	
 	var dir = (enemy_pos.x - global_position.x)
 	if dir > 0: velocity.x = -knockback_force
@@ -132,19 +139,15 @@ func apply_knockback(enemy_pos):
 	
 	await get_tree().create_timer(0.4).timeout
 	is_hurt = false
-	if sprite: sprite.modulate = Color(1, 1, 1) # WHITE
+	if sprite: sprite.modulate = Color(1, 1, 1)
 
 func die():
 	print("Player Died.")
 	get_tree().reload_current_scene()
 
-# --- COMBAT SIGNAL (This kills the Skeleton) ---
+# --- SIGNALS ---
 func _on_sword_hitbox_area_entered(area: Area2D) -> void:
-	print("⚔️ HIT AREA: ", area.name)
-	
-	# Hit the Hurtbox?
 	if area.has_method("take_damage"):
 		area.take_damage(1)
-	# Hit the Enemy Root?
 	elif area.get_parent().has_method("take_damage"):
 		area.get_parent().take_damage(1)
