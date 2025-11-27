@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwsq4skxytcxj"]
+[gd_scene load_steps=4 format=3 uid="uid://cwsq4skxytcxj"]
 
 [ext_resource type="Script" uid="uid://clps5ruccnujy" path="res://Scripts/character_select.gd" id="1_hgaam"]
+[ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="2_d5ws1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuwwd"]
+font = ExtResource("2_d5ws1")
+font_size = 96
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -27,9 +32,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -616.0
+offset_left = -576.0
 offset_top = 76.0
-offset_right = 582.0
+offset_right = 622.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -37,23 +42,26 @@ theme_override_constants/separation = 50
 
 [node name="BoyButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d5ws1")
 theme_override_font_sizes/font_size = 121
 text = "Masculine"
 
 [node name="GirlButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d5ws1")
 theme_override_font_sizes/font_size = 121
 text = "Feminine"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 320.0
-offset_right = 1668.0
-offset_bottom = 573.0
+offset_left = 272.0
+offset_top = 280.0
+offset_right = 1652.0
+offset_bottom = 541.0
 theme_override_font_sizes/font_size = 91
 text = "I remember how I looked like....
 				I looked..."
+label_settings = SubResource("LabelSettings_wuwwd")
 
 [connection signal="pressed" from="HBoxContainer/BoyButton" to="." method="_on_boy_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/GirlButton" to="." method="_on_girl_button_pressed"]

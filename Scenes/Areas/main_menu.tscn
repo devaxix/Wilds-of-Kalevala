@@ -575,7 +575,8 @@ position = Vector2(1714.291, 161.663)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("16_gf6si")
 
-[node name="TextureRect" type="TextureRect" parent="Layers for background"]
+[node name="Noise" type="TextureRect" parent="Layers for background"]
+visible = false
 modulate = Color(0.6156863, 0.5568628, 0.78431374, 0.19607843)
 material = SubResource("CanvasItemMaterial_kcicc")
 anchors_preset = 15
