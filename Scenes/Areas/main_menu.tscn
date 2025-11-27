@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=56 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -219,45 +219,6 @@ turbulence_enabled = true
 turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.020000001
 turbulence_influence_max = 0.080000006
-
-[sub_resource type="Animation" id="Animation_kcicc"]
-resource_name = "Idle"
-length = 10.0
-loop_mode = 1
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 10),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.03, 1.03), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qairv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ot25"]
-_data = {
-&"Idle": SubResource("Animation_kcicc"),
-&"RESET": SubResource("Animation_qairv")
-}
 
 [node name="Main Menu" type="Control"]
 texture_filter = 1
@@ -680,12 +641,6 @@ texture = ExtResource("25_rx35d")
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_yiuoa")
-
-[node name="Idle" type="AnimationPlayer" parent="layers for logo"]
-libraries = {
-&"": SubResource("AnimationLibrary_5ot25")
-}
-autoplay = "Idle"
 
 [node name="Buttons" type="Node2D" parent="."]
 
