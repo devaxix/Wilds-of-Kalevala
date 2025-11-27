@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=59 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -168,6 +168,17 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/phase_offset = 0.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kcicc"]
+blend_mode = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qairv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5ot25"]
+width = 1920
+height = 1073
+noise = SubResource("FastNoiseLite_qairv")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qairv"]
 shader = ExtResource("19_kcicc")
@@ -563,6 +574,18 @@ texture_filter = 1
 position = Vector2(1714.291, 161.663)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("16_gf6si")
+
+[node name="TextureRect" type="TextureRect" parent="Layers for background"]
+modulate = Color(0.6156863, 0.5568628, 0.78431374, 0.19607843)
+material = SubResource("CanvasItemMaterial_kcicc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_5ot25")
 
 [node name="16" type="Parallax2D" parent="Layers for background"]
 texture_filter = 1
