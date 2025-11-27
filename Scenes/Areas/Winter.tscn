@@ -1,15 +1,18 @@
-[gd_scene load_steps=29 format=4 uid="uid://dbeh7cvoqcfie"]
+[gd_scene load_steps=32 format=4 uid="uid://dbeh7cvoqcfie"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_rr04j"]
-[ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="2_72o4i"]
-[ext_resource type="Texture2D" uid="uid://brkl1m3kscpio" path="res://Sprites/Backgrounds/Background for Scene 1/2.png" id="3_n6wfr"]
-[ext_resource type="Texture2D" uid="uid://db8nlwxeddbi3" path="res://Sprites/Backgrounds/Background for Scene 1/3.png" id="4_i3n6d"]
-[ext_resource type="Texture2D" uid="uid://eg1g8ul5oefx" path="res://Sprites/Backgrounds/Background for Scene 1/4.png" id="5_bpoeh"]
-[ext_resource type="Texture2D" uid="uid://dls0w84vs8mg3" path="res://Sprites/Backgrounds/Background for Scene 1/5.png" id="6_vgp7q"]
-[ext_resource type="Texture2D" uid="uid://db17rsa6a7wvn" path="res://Sprites/Backgrounds/Background for Scene 1/6.png" id="7_efe4w"]
+[ext_resource type="Texture2D" uid="uid://da0kae7dfv0j1" path="res://Sprites/Backgrounds/Winter Last Scene Background/1.png" id="2_i3n6d"]
+[ext_resource type="Texture2D" uid="uid://drxqn68pe7xxg" path="res://Sprites/Backgrounds/Winter Last Scene Background/2.png" id="3_bpoeh"]
+[ext_resource type="Texture2D" uid="uid://fgm6ugr73530" path="res://Sprites/Backgrounds/Winter Last Scene Background/3.png" id="4_vgp7q"]
+[ext_resource type="Texture2D" uid="uid://dx2dub7bmt4gh" path="res://Sprites/Backgrounds/Winter Last Scene Background/4.png" id="5_efe4w"]
+[ext_resource type="Texture2D" uid="uid://n7j8bajeqm6q" path="res://Sprites/Backgrounds/Winter Last Scene Background/5.png" id="6_pluyx"]
+[ext_resource type="Texture2D" uid="uid://batf5nb74otur" path="res://Sprites/Backgrounds/Winter Last Scene Background/6.png" id="7_hou1f"]
+[ext_resource type="Texture2D" uid="uid://dclwsvp5obsw6" path="res://Sprites/Backgrounds/Winter Last Scene Background/7.png" id="8_33pns"]
 [ext_resource type="PackedScene" uid="uid://b1pojt52uqbqp" path="res://Scenes/Areas/GameUI.tscn" id="8_pluyx"]
 [ext_resource type="Texture2D" uid="uid://bgegstv8n0fko" path="res://Sprites/Tileset/spring_tiles.png" id="9_hou1f"]
+[ext_resource type="Texture2D" uid="uid://b4bt1r2cce81y" path="res://Sprites/Backgrounds/Winter Last Scene Background/8.png" id="9_yiq65"]
 [ext_resource type="Texture2D" uid="uid://cu6fxh1vvb0qe" path="res://Sprites/Tileset/summer_tiles.png" id="10_33pns"]
+[ext_resource type="Texture2D" uid="uid://cvdkep8bxmvah" path="res://Sprites/Backgrounds/Winter Last Scene Background/9.png" id="10_peabj"]
 [ext_resource type="Texture2D" uid="uid://dyphq4tu5d1pi" path="res://Sprites/Tileset/winter_tiles.png" id="11_yiq65"]
 [ext_resource type="Texture2D" uid="uid://ejriwjqcn27m" path="res://Sprites/Tileset/autumn_tiles.png" id="12_peabj"]
 [ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_3gbwr"]
@@ -215,66 +218,97 @@ script = ExtResource("1_rr04j")
 [node name="Layer Hub" type="Node2D" parent="."]
 
 [node name="Layer 1" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.4, 1)
+scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 1"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("2_72o4i")
+texture = ExtResource("2_i3n6d")
 
 [node name="Layer 2" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.5, 1)
+scroll_scale = Vector2(0.15, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 2"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("3_n6wfr")
+texture = ExtResource("3_bpoeh")
 
 [node name="Layer 3" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.6, 1)
+scroll_scale = Vector2(0.2, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 3"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("4_i3n6d")
+texture = ExtResource("4_vgp7q")
 
 [node name="Layer 4" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.7, 1)
+scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 4"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("5_bpoeh")
+texture = ExtResource("5_efe4w")
 
 [node name="Layer 5" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.8, 1)
+scroll_scale = Vector2(0.35, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 5"]
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
-texture = ExtResource("6_vgp7q")
+texture = ExtResource("6_pluyx")
 
 [node name="Layer 6" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.9, 1)
+scroll_scale = Vector2(0.4, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 6"]
 position = Vector2(960, 540)
-scale = Vector2(3.3333333, 3.3333333)
-texture = ExtResource("7_efe4w")
+scale = Vector2(3.3333333, 3.333333)
+texture = ExtResource("7_hou1f")
+
+[node name="Layer 7" type="Parallax2D" parent="Layer Hub"]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 7"]
+position = Vector2(960, 540)
+scale = Vector2(3.3333333, 3.333333)
+texture = ExtResource("8_33pns")
+
+[node name="Layer 8" type="Parallax2D" parent="Layer Hub"]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 8"]
+position = Vector2(960, 540)
+scale = Vector2(3.3333333, 3.333333)
+texture = ExtResource("9_yiq65")
+
+[node name="Layer 9" type="Parallax2D" parent="Layer Hub"]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 9"]
+position = Vector2(960, 540)
+scale = Vector2(3.3333333, 3.333333)
+texture = ExtResource("10_peabj")
 
 [node name="GameUI" parent="." instance=ExtResource("8_pluyx")]
+visible = false
 offset = Vector2(-600, 0)
 scale = Vector2(0.15, 0.15)
 transform = Transform2D(0.15, 0, 0, 0.15, -600, 0)
@@ -296,8 +330,10 @@ tile_set = SubResource("TileSet_d1xsq")
 visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(3305, 1072)
 shape = SubResource("RectangleShape2D_emm07")
 

@@ -209,7 +209,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="WallJumpCheck" type="RayCast2D" parent="."]
-position = Vector2(0, 13.44)
+position = Vector2(0, 4.285)
 target_position = Vector2(15, 0)
 collision_mask = 8
 
