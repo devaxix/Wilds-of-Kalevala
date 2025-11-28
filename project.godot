@@ -25,6 +25,7 @@ buses/default_bus_layout="res://Sprites/default_bus_layout.tres"
 
 TransitionScreen="*res://Scenes/Areas/transition_screen.tscn"
 GameManager="*res://Scripts/GameManager.gd"
+DialogueManager="*res://Scripts/DialogueManager.gd"
 
 [display]
 

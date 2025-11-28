@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0qdvds1rlqoj"]
+
+[ext_resource type="Script" uid="uid://dsfnyakffd44x" path="res://Scripts/text_box.gd" id="1_b0wcy"]
+[ext_resource type="Texture2D" uid="uid://7c8yf3mqi22h" path="res://Sprites/Dialogue Box/free-to-use-nine-patch-rect-textures-v0-jlv0yj89wj1a1.webp" id="1_cq7ga"]
+[ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="2_b0wcy"]
+[ext_resource type="Texture2D" uid="uid://bnl1lgb7y1dbj" path="res://Sprites/Dialogue Box/medium/ctc_retro_textbox_1.png" id="3_ovvv6"]
+[ext_resource type="AudioStream" uid="uid://bw20wbvyo7hko" path="res://Music/Text Box Sounds/audiomass-output-2_GQGjQzPA.mp3" id="4_0v10n"]
+
+[sub_resource type="Animation" id="Animation_k58f2"]
+resource_name = "indicator_bob"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect/IndicatorPosition/NextIndicator:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-4.7683716e-07, 7.999999), Vector2(0, 5), Vector2(-4.7683716e-07, 7.999999)]
+}
+
+[sub_resource type="Animation" id="Animation_jevxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect/IndicatorPosition/NextIndicator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.7683716e-07, 7.999999)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sputf"]
+_data = {
+&"RESET": SubResource("Animation_jevxy"),
+&"indicator_bob": SubResource("Animation_k58f2")
+}
+
+[node name="TextBox" type="MarginContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -136.0
+offset_right = 272.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_b0wcy")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_cq7ga")
+region_rect = Rect2(400, 147, 128, 106)
+patch_margin_left = 36
+patch_margin_top = 40
+patch_margin_right = 36
+patch_margin_bottom = 40
+
+[node name="IndicatorPosition" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextIndicator" type="TextureRect" parent="NinePatchRect/IndicatorPosition"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 7.999999
+offset_right = 25.0
+offset_bottom = 52.0
+scale = Vector2(0.495, 0.495)
+texture = ExtResource("3_ovvv6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(250, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b0wcy")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+autowrap_trim_flags = 128
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LetterSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0v10n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sputf")
+}
+autoplay = "indicator_bob"
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

@@ -16,3 +16,5 @@ func _on_girl_button_pressed():
 func _on_start_game_pressed():
 	# Load the level as normal
 	TransitionScreen.transition_to_scene("res://Scenes/Areas/Area1.tscn")
+
+var player_name : String = "Hero"

@@ -5,7 +5,7 @@ const CREDITS_SCENE_PATH = "res://Scenes/Areas/Credits.tscn"
 
 func _on_new_game_button_pressed():
 	# This calls the function in your Autoload to handle everything
-	TransitionScreen.transition_to_scene("res://Scenes/Areas/character_select.tscn")
+	TransitionScreen.transition_to_scene("res://Scenes/Areas/intro_cutscene.tscn")
 
 func _on_credits_button_pressed():
 	TransitionScreen.transition_to_scene(CREDITS_SCENE_PATH)

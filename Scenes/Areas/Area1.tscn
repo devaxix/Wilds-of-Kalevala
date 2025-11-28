@@ -3053,7 +3053,7 @@ position = Vector2(3305, 1072)
 shape = SubResource("RectangleShape2D_emm07")
 
 [node name="Enemy" parent="." instance=ExtResource("14_lx0ev")]
-position = Vector2(-515.00024, 812.9999)
+position = Vector2(1912, 815.99994)
 scale = Vector2(6.385, 6.385)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -3087,5 +3087,4 @@ position = Vector2(0, 977.445)
 [node name="LevelExit" parent="." instance=ExtResource("27_lfkt4")]
 position = Vector2(6880.0005, 744)
 scale = Vector2(22.47, 22.47)
-collision_mask = 3
 next_level_path = "uid://favsoqxjmbpc"

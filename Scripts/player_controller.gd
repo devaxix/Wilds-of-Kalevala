@@ -40,9 +40,16 @@ func _ready():
 		game_ui.update_hearts(current_health)
 
 func _physics_process(delta: float) -> void:
-	# 1. GRAVITY
+	# 1. GRAVITY (Keep this so you don't float away!)
 	if not is_on_floor():
 		velocity.y += 980 * delta
+
+	# --- NEW: DIALOGUE FREEZE ---
+	# If dialogue is open, stop moving and don't read inputs
+	if DialogueManager.is_dialogue_active:
+		velocity.x = move_toward(velocity.x, 0, 10) # Slow to a stop
+		move_and_slide()
+		return # STOP HERE!
 
 	# 2. HURT LOCK
 	if is_hurt:

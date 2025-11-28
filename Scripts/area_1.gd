@@ -5,7 +5,23 @@ extends Node2D
 
 func _ready():
 	spawn_player()
-
+	# ... your spawning logic ...
+	
+	# Wait a split second so the player sees the level load
+	await get_tree().create_timer(0.7).timeout
+	
+	# Define your lines!
+	var lines: Array[String] = [
+		"Ah... my head...",
+		"I hit it pretty hard...",
+		"Wait...",
+		"What was my name again?"
+	]
+	
+	# Start the dialogue above the Spawn Point
+	# (You can use the player's position if you have a reference to them)
+	DialogueManager.start_dialogue($PlayerSpawnPoint.global_position, lines)
+	
 func spawn_player():
 	# 1. Load the scene file we chose in the menu
 	var player_scene = load(GameManager.selected_character_path)

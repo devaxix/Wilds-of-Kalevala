@@ -24,4 +24,4 @@ func _on_girl_button_pressed():
 
 func start_game():
 	# Transition to the actual level
-	TransitionScreen.transition_to_scene(LEVEL_1_PATH)
+	TransitionScreen.transition_to_scene("res://Scenes/Areas/Area1.tscn")
