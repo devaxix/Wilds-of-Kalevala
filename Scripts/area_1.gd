@@ -12,9 +12,7 @@ func _ready():
 	
 	# Define your lines!
 	var lines: Array[String] = [
-		"Ah... my head...",
-		"I hit it pretty hard...",
-		"Wait...",
+		
 		"What was my name again?"
 	]
 	

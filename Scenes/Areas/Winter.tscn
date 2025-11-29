@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=4 uid="uid://dbeh7cvoqcfie"]
+[gd_scene load_steps=39 format=4 uid="uid://dbeh7cvoqcfie"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_rr04j"]
 [ext_resource type="Texture2D" uid="uid://da0kae7dfv0j1" path="res://Sprites/Backgrounds/Winter Last Scene Background/1.png" id="2_i3n6d"]
 [ext_resource type="Texture2D" uid="uid://drxqn68pe7xxg" path="res://Sprites/Backgrounds/Winter Last Scene Background/2.png" id="3_bpoeh"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="4_efe4w"]
 [ext_resource type="Texture2D" uid="uid://fgm6ugr73530" path="res://Sprites/Backgrounds/Winter Last Scene Background/3.png" id="4_vgp7q"]
 [ext_resource type="Texture2D" uid="uid://dx2dub7bmt4gh" path="res://Sprites/Backgrounds/Winter Last Scene Background/4.png" id="5_efe4w"]
 [ext_resource type="Texture2D" uid="uid://n7j8bajeqm6q" path="res://Sprites/Backgrounds/Winter Last Scene Background/5.png" id="6_pluyx"]
@@ -22,6 +23,66 @@
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_yqga2"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_3syx0"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="22_bpoeh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pluyx"]
+shader = ExtResource("4_efe4w")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.07000000169506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hou1f"]
+shader = ExtResource("4_efe4w")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.10000000312006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33pns"]
+shader = ExtResource("4_efe4w")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.06000000122006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yiq65"]
+shader = ExtResource("4_efe4w")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.06000000122006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_peabj"]
+shader = ExtResource("4_efe4w")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("9_hou1f")
@@ -244,6 +305,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 3"]
+material = SubResource("ShaderMaterial_pluyx")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("4_vgp7q")
@@ -264,6 +326,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 5"]
+material = SubResource("ShaderMaterial_hou1f")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("6_pluyx")
@@ -274,6 +337,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 6"]
+material = SubResource("ShaderMaterial_33pns")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("7_hou1f")
@@ -284,6 +348,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 7"]
+material = SubResource("ShaderMaterial_yiq65")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("8_33pns")
@@ -304,6 +369,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 9"]
+material = SubResource("ShaderMaterial_peabj")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("10_peabj")

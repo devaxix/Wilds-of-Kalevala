@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var max_health: int = 3
 var current_health: int = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var direction = 1 
+@export var direction: int = 1 # 1 = Right, -1 = Left
+
 
 @onready var start_scale = abs(scale.x)
 
@@ -20,6 +21,12 @@ var state = WALK
 func _ready():
 	current_health = max_health
 	anim_player.play("Walk")
+	
+	# NEW: Ensure he looks the correct way immediately on spawn
+	if direction == 1:
+		scale.x = start_scale
+	else:
+		scale.x = -start_scale
 
 func _physics_process(delta):
 	if not is_on_floor():

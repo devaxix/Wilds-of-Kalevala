@@ -5,7 +5,21 @@ const GAME_SCENE = "res://Scenes/Areas/Area1.tscn"
 
 # 1. The Opening Story (Updated!)
 var intro_lines: Array[String] = [
-	
+	"Ouch...",
+	"My head... it's throbbing.",
+	"Wait... what was that warmth?",
+	"It smells like home...",
+	".......",
+	"I... I can't remember.",
+	"How did I get here? What was I chasing?",
+	"A flash of white... No, it's gone now.",
+	"This place... it's not familiar. What forest is this?",
+	"What was my name?",
+	"It's quiet... too quiet.",
+	"But... I feel something.",
+	"A gentle pull, right in my chest.",
+	"Like the forest is waiting for me.",
+	"If I follow it, maybe I'll remember.",
 	"Maybe... I'll find my name there."
 ]
 

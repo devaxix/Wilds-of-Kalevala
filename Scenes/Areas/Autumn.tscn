@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=4 uid="uid://cyboia0e6ypec"]
+[gd_scene load_steps=31 format=4 uid="uid://cyboia0e6ypec"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_xevsr"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="3_bvg2g"]
 [ext_resource type="Texture2D" uid="uid://n8yubdxqir8b" path="res://Sprites/Backgrounds/Autumn Background 2/back.png" id="5_xevsr"]
 [ext_resource type="Texture2D" uid="uid://dt8x8jhoe6yfb" path="res://Sprites/Backgrounds/Autumn Background 2/middle.png" id="6_6bpah"]
 [ext_resource type="Texture2D" uid="uid://doimjrwl8qsls" path="res://Sprites/Backgrounds/Autumn Background 2/front.png" id="7_i770q"]
@@ -16,6 +17,30 @@
 [ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="16_bpwf4"]
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_t3eff"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_4xecm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xevsr"]
+shader = ExtResource("3_bvg2g")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.05000000074506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bpah"]
+shader = ExtResource("3_bvg2g")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("9_114uf")
@@ -262,6 +287,7 @@ repeat_size = Vector2(1917.33, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 2"]
+material = SubResource("ShaderMaterial_xevsr")
 position = Vector2(959.99994, 539.99994)
 scale = Vector2(7.0588226, 6.7499995)
 texture = ExtResource("6_6bpah")
@@ -272,6 +298,7 @@ repeat_size = Vector2(1917.33, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 3"]
+material = SubResource("ShaderMaterial_6bpah")
 position = Vector2(959.99994, 539.99994)
 scale = Vector2(7.0588226, 6.7499995)
 texture = ExtResource("7_i770q")

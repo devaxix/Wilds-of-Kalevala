@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=4 uid="uid://favsoqxjmbpc"]
+[gd_scene load_steps=32 format=4 uid="uid://favsoqxjmbpc"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_7eltc"]
 [ext_resource type="Texture2D" uid="uid://b5lw4wl7maqmh" path="res://Sprites/Backgrounds/Summer Background/1.Backround.png" id="2_omsia"]
 [ext_resource type="Texture2D" uid="uid://b4oxfy12ghcne" path="res://Sprites/Backgrounds/Summer Background/2.Trees_back.png" id="3_2en5k"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="3_7eltc"]
 [ext_resource type="Texture2D" uid="uid://co7qlxibswnr6" path="res://Sprites/Backgrounds/Summer Background/3.Trees_front.png" id="4_7eltc"]
 [ext_resource type="Texture2D" uid="uid://0oxvf5o5818o" path="res://Sprites/Backgrounds/Summer Background/4.Ground.png" id="5_xgsv1"]
 [ext_resource type="PackedScene" uid="uid://b1pojt52uqbqp" path="res://Scenes/Areas/GameUI.tscn" id="8_nvsn2"]
@@ -17,6 +18,30 @@
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="17_2en5k"]
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_fj0ah"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_t8x0o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgsv1"]
+shader = ExtResource("3_7eltc")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f8anx"]
+shader = ExtResource("3_7eltc")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("9_fnj0q")
@@ -263,6 +288,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 2"]
+material = SubResource("ShaderMaterial_xgsv1")
 position = Vector2(959.9999, 540)
 scale = Vector2(5.9999995, 5.9999995)
 texture = ExtResource("3_2en5k")
@@ -273,6 +299,7 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 3"]
+material = SubResource("ShaderMaterial_f8anx")
 position = Vector2(959.9999, 540)
 scale = Vector2(5.9999995, 5.9999995)
 texture = ExtResource("4_7eltc")
