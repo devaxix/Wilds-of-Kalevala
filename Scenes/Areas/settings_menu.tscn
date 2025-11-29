@@ -1,0 +1,115 @@
+[gd_scene load_steps=18 format=3 uid="uid://0ny6wpntv22k"]
+
+[ext_resource type="Texture2D" uid="uid://cxuo43lroinwu" path="res://Sprites/Start Menu Textures/Settings.png" id="1_hedyv"]
+[ext_resource type="Script" uid="uid://bu5are7jybd2l" path="res://Scripts/settings_menu.gd" id="1_hgqjo"]
+[ext_resource type="Texture2D" uid="uid://dbqmwvgpvk5g7" path="res://Sprites/Start Menu Textures/x (2).png" id="3_d1ty4"]
+[ext_resource type="Script" uid="uid://b522qpfff444i" path="res://Scripts/close_buttoneffect.gd" id="4_15fgv"]
+[ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="5_myc3p"]
+[ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="6_b4mgi"]
+[ext_resource type="Script" uid="uid://bnjlckjxsk3kn" path="res://Scripts/Settings/master_slider.gd" id="7_d1ty4"]
+[ext_resource type="Script" uid="uid://do158ecsojcw4" path="res://Scripts/Settings/fullscreen.gd" id="8_15fgv"]
+[ext_resource type="Texture2D" uid="uid://3k67y4qee56c" path="res://Sprites/Start Menu Textures/audio.png" id="9_b4mgi"]
+[ext_resource type="Texture2D" uid="uid://ds8b7rofpf5km" path="res://Sprites/Start Menu Textures/no audio.png" id="10_sl6di"]
+[ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="11_sl6di"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddvh8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl6di"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yhhi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42k61"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftkw1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avqak"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgqjo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hedyv")
+
+[node name="Volume Slider" type="HSlider" parent="."]
+modulate = Color(0.8, 0.95686275, 0.99215686, 1)
+layout_mode = 0
+offset_left = 744.00006
+offset_top = 488.0
+offset_right = 839.37
+offset_bottom = 504.0
+scale = Vector2(2.4, 2.4)
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("7_d1ty4")
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 760.0
+offset_right = 1081.0
+offset_bottom = 813.0
+texture_normal = ExtResource("3_d1ty4")
+script = ExtResource("4_15fgv")
+hover_sound = ExtResource("5_myc3p")
+click_sound = ExtResource("6_b4mgi")
+click_volume_db = 20.0
+
+[node name="MuteToggle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 472.0
+offset_right = 723.0
+offset_bottom = 526.0
+scale = Vector2(1.32, 1.32)
+toggle_mode = true
+texture_normal = ExtResource("9_b4mgi")
+texture_pressed = ExtResource("10_sl6di")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 526.0
+offset_right = 773.0
+offset_bottom = 566.0
+scale = Vector2(2.64, 2.64)
+alignment = 1
+
+[node name="FullscreenButton" type="CheckButton" parent="HBoxContainer"]
+modulate = Color(0.6, 0.63529414, 0.8784314, 1)
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ddvh8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sl6di")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7yhhi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_42k61")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ftkw1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_avqak")
+script = ExtResource("8_15fgv")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_sl6di")
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="MuteToggle" to="." method="_on_mute_toggle_toggled"]
+[connection signal="toggled" from="HBoxContainer/FullscreenButton" to="." method="_on_fullscreen_toggle_toggled"]

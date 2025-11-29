@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=100 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -19,10 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://b5ijqvpk2d0ki" path="res://Sprites/Backgrounds/Winter background 17L/14.png" id="15_nqc82"]
 [ext_resource type="Texture2D" uid="uid://dolpuv04t8yfs" path="res://Sprites/Backgrounds/Winter background 17L/15.png" id="16_gf6si"]
 [ext_resource type="Texture2D" uid="uid://bu6g248p0ot5x" path="res://Sprites/Backgrounds/Winter background 17L/16.png" id="17_c3do1"]
+[ext_resource type="Texture2D" uid="uid://u0eu1chuktrd" path="res://Sprites/Fox/run_spritesheet.png" id="18_n8qpf"]
+[ext_resource type="Texture2D" uid="uid://c83t2oshxdcrb" path="res://Sprites/Fox/firefox_sleep_idle_spritesheet.png" id="19_7rqx6"]
 [ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="19_kcicc"]
+[ext_resource type="Texture2D" uid="uid://lsiilbh4tdi8" path="res://Sprites/Fox/wake_up_spritesheet.png" id="20_tl2nk"]
+[ext_resource type="Script" uid="uid://beavhohp0r1i3" path="res://Scripts/menu_fox.gd" id="21_7rqx6"]
 [ext_resource type="Texture2D" uid="uid://5ewngui8m08l" path="res://Sprites/Backgrounds/Start Screen Pictures/wok1.png" id="21_yiuoa"]
 [ext_resource type="Texture2D" uid="uid://b44hxv8flnmh1" path="res://Sprites/Backgrounds/Start Screen Pictures/wok2.png" id="22_nqc82"]
-[ext_resource type="Texture2D" uid="uid://1jr0o27xg2ty" path="res://Sprites/Backgrounds/Start Screen Pictures/wok3.png" id="23_gf6si"]
 [ext_resource type="Texture2D" uid="uid://b804ubwbr2b2r" path="res://Sprites/Backgrounds/Start Screen Pictures/wok4.png" id="24_c3do1"]
 [ext_resource type="Texture2D" uid="uid://bnxqpgjt0kvmh" path="res://Sprites/Backgrounds/Start Screen Pictures/wok5.png" id="25_rx35d"]
 [ext_resource type="Texture2D" uid="uid://bugp8ev21mxru" path="res://Sprites/Backgrounds/Start Screen Pictures/wok6.png" id="25_yiuoa"]
@@ -31,14 +34,18 @@
 [ext_resource type="Texture2D" uid="uid://se63jt6xgl4" path="res://Sprites/Start Menu Textures/Settings Idle.png" id="28_16qtj"]
 [ext_resource type="Texture2D" uid="uid://dy53ssxat65nx" path="res://Sprites/Start Menu Textures/Play Hover.png" id="28_tgxka"]
 [ext_resource type="Texture2D" uid="uid://bdvssp8co4qyo" path="res://Sprites/Start Menu Textures/Credits Idle.png" id="29_pj71e"]
+[ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="30_5ot25"]
 [ext_resource type="Texture2D" uid="uid://bqhuqxrniqky0" path="res://Sprites/Start Menu Textures/Remember Hover.png" id="30_x5ig7"]
+[ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="31_nulcw"]
 [ext_resource type="Texture2D" uid="uid://c8cu34bhhvaw0" path="res://Sprites/Start Menu Textures/Settings Hover.png" id="32_oyiba"]
 [ext_resource type="Texture2D" uid="uid://dtw25x35ri1yk" path="res://Sprites/Start Menu Textures/Credits Hover.png" id="34_fbj6v"]
 [ext_resource type="Texture2D" uid="uid://dbqmwvgpvk5g7" path="res://Sprites/Start Menu Textures/x (2).png" id="34_nbpup"]
-[ext_resource type="AudioStream" uid="uid://bfxag6dbodfr1" path="res://Music/orchestra theme concept 1.mp3" id="36_oyiba"]
 [ext_resource type="Script" uid="uid://b522qpfff444i" path="res://Scripts/close_buttoneffect.gd" id="36_x5ig7"]
 [ext_resource type="Texture2D" uid="uid://3k67y4qee56c" path="res://Sprites/Start Menu Textures/audio.png" id="37_fbj6v"]
 [ext_resource type="Texture2D" uid="uid://ds8b7rofpf5km" path="res://Sprites/Start Menu Textures/no audio.png" id="38_kcicc"]
+[ext_resource type="AudioStream" uid="uid://bv1ll3iby8m68" path="res://Music/forest echo.mp3" id="41_nulcw"]
+[ext_resource type="AudioStream" uid="uid://bx6rrmgvdqmcx" path="res://Music/Start Menu Sounds/computer-mouse-click-351398(1).mp3" id="42_nulcw"]
+[ext_resource type="PackedScene" uid="uid://0ny6wpntv22k" path="res://Scenes/Areas/settings_menu.tscn" id="47_tl2nk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68acp"]
 content_margin_left = 4.0
@@ -169,16 +176,275 @@ shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/phase_offset = 0.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kcicc"]
-blend_mode = 1
+[sub_resource type="AtlasTexture" id="AtlasTexture_m28al"]
+atlas = ExtResource("18_n8qpf")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_qairv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_msqqj"]
+atlas = ExtResource("18_n8qpf")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5ot25"]
-width = 1920
-height = 1073
-noise = SubResource("FastNoiseLite_qairv")
-seamless = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gdog"]
+atlas = ExtResource("18_n8qpf")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpf3e"]
+atlas = ExtResource("18_n8qpf")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnmvd"]
+atlas = ExtResource("19_7rqx6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pivau"]
+atlas = ExtResource("19_7rqx6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7vji"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy3hx"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohupj"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1mge"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xxe1"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyrlk"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oeox"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq6hp"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv4h7"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxoef"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnsdx"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cx31"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uno2t"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl8ue"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sb78"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13p2b"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pvcw"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svu2r"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha75o"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v74h6"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pisol"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c2nt"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46qfg"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvl5g"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3yoh"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e45wc"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irc2s"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wmw5"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j262e"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kdfo"]
+atlas = ExtResource("20_tl2nk")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wv4rx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m28al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msqqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gdog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpf3e")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnmvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pivau")
+}],
+"loop": true,
+"name": &"Sleep",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7vji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy3hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohupj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1mge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xxe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyrlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oeox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq6hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv4h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxoef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnsdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cx31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uno2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl8ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sb78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13p2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pvcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svu2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha75o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v74h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pisol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c2nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46qfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvl5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3yoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e45wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irc2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wmw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j262e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kdfo")
+}],
+"loop": false,
+"name": &"Wake",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qairv"]
 shader = ExtResource("19_kcicc")
@@ -241,6 +507,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme = SubResource("Theme_81bqp")
 script = ExtResource("1_yhler")
 
@@ -521,6 +788,30 @@ position = Vector2(1028.571, 178.321)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("14_yiuoa")
 
+[node name="Fox" type="Parallax2D" parent="Layers for background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+script = ExtResource("2_81bqp")
+base_scroll_speed = 17.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Layers for background/Fox"]
+texture_filter = 1
+position = Vector2(342.85696, 178.321)
+scale = Vector2(1.3392856, 1.5066965)
+texture = ExtResource("14_yiuoa")
+
+[node name="MenuFox" type="AnimatedSprite2D" parent="Layers for background/Fox/Sprite2D"]
+position = Vector2(74.66681, 86.60295)
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_wv4rx")
+animation = &"Sleep"
+autoplay = "Sleep"
+script = ExtResource("21_7rqx6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Layers for background/Fox/Sprite2D/MenuFox"]
+scale = Vector2(3.965, 3.965)
+
 [node name="14" type="Parallax2D" parent="Layers for background"]
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
@@ -575,19 +866,6 @@ position = Vector2(1714.291, 161.663)
 scale = Vector2(1.3392857, 1.5066966)
 texture = ExtResource("16_gf6si")
 
-[node name="Noise" type="TextureRect" parent="Layers for background"]
-visible = false
-modulate = Color(0.6156863, 0.5568628, 0.78431374, 0.19607843)
-material = SubResource("CanvasItemMaterial_kcicc")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("NoiseTexture2D_5ot25")
-
 [node name="16" type="Parallax2D" parent="Layers for background"]
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
@@ -623,7 +901,7 @@ texture = ExtResource("17_c3do1")
 position = Vector2(1062.63, -1)
 amount = 1200
 lifetime = 20.0
-preprocess = 30.0
+preprocess = 10.0
 process_material = SubResource("ParticleProcessMaterial_nulcw")
 
 [node name="layers for logo" type="Control" parent="."]
@@ -634,6 +912,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Wok1" type="Sprite2D" parent="layers for logo"]
 position = Vector2(960, 540)
@@ -644,12 +923,6 @@ texture = ExtResource("21_yiuoa")
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("22_nqc82")
-
-[node name="Wok3" type="Sprite2D" parent="layers for logo"]
-visible = false
-position = Vector2(960, 540)
-scale = Vector2(1, 1.0009267)
-texture = ExtResource("23_gf6si")
 
 [node name="Wok4" type="Sprite2D" parent="layers for logo"]
 position = Vector2(960, 540)
@@ -678,6 +951,9 @@ texture_normal = ExtResource("26_rx35d")
 texture_hover = ExtResource("28_tgxka")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
+hover_sound = ExtResource("30_5ot25")
+click_sound = ExtResource("31_nulcw")
+click_volume_db = 20.0
 
 [node name="LoadGameButt" type="TextureButton" parent="Buttons"]
 offset_left = 819.5
@@ -690,6 +966,9 @@ texture_pressed = ExtResource("30_x5ig7")
 texture_hover = ExtResource("30_x5ig7")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
+hover_sound = ExtResource("30_5ot25")
+click_sound = ExtResource("31_nulcw")
+click_volume_db = 20.0
 
 [node name="SettingsButt" type="TextureButton" parent="Buttons"]
 offset_left = 819.5
@@ -701,6 +980,9 @@ texture_pressed = ExtResource("32_oyiba")
 texture_hover = ExtResource("32_oyiba")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
+hover_sound = ExtResource("30_5ot25")
+click_sound = ExtResource("31_nulcw")
+click_volume_db = 20.0
 
 [node name="CreditsButt" type="TextureButton" parent="Buttons"]
 offset_left = 819.5
@@ -712,6 +994,9 @@ texture_pressed = ExtResource("34_fbj6v")
 texture_hover = ExtResource("34_fbj6v")
 stretch_mode = 3
 script = ExtResource("36_x5ig7")
+hover_sound = ExtResource("30_5ot25")
+click_sound = ExtResource("31_nulcw")
+click_volume_db = 20.0
 
 [node name="Close Button" type="TextureButton" parent="Buttons"]
 offset_left = 1826.0
@@ -720,6 +1005,9 @@ offset_right = 1883.0
 offset_bottom = 77.0
 texture_normal = ExtResource("34_nbpup")
 script = ExtResource("36_x5ig7")
+hover_sound = ExtResource("30_5ot25")
+click_sound = ExtResource("31_nulcw")
+click_volume_db = 20.0
 
 [node name="MusicToggle" type="TextureButton" parent="Buttons"]
 offset_left = 56.0
@@ -730,12 +1018,27 @@ toggle_mode = true
 texture_normal = ExtResource("37_fbj6v")
 texture_pressed = ExtResource("38_kcicc")
 script = ExtResource("36_x5ig7")
+hover_sound = ExtResource("30_5ot25")
+click_sound = ExtResource("31_nulcw")
+click_volume_db = 20.0
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("36_oyiba")
+stream = ExtResource("41_nulcw")
 autoplay = true
 max_distance = 4096.0
+attenuation = 1.1971848e-05
 
+[node name="BackgroundClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("42_nulcw")
+volume_db = 2.0
+max_distance = 4096.0
+
+[node name="SettingsMenu" parent="." instance=ExtResource("47_tl2nk")]
+visible = false
+layout_mode = 1
+
+[connection signal="screen_entered" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_entered"]
+[connection signal="screen_exited" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_exited"]
 [connection signal="pressed" from="Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Buttons/LoadGameButt" to="." method="_on_load_game_button_pressed"]
 [connection signal="pressed" from="Buttons/SettingsButt" to="." method="_on_settings_button_pressed"]

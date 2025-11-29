@@ -45,18 +45,25 @@ func _unhandled_input(event):
 		event.is_action_pressed("Jump")
 	) and is_dialogue_active and can_advance_line:
 		
-		# --- CHANGED CODE START ---
-		# Instead of instantly deleting, we play the animation
-		if text_box:
-			text_box.close() 
-		# --- CHANGED CODE END ---
+		# 1. LOCK INPUT
+		# Prevent the player from clicking again while we transition
+		can_advance_line = false
 		
+		# 2. CLOSE & WAIT
+		if text_box:
+			# We 'await' the close function so the animation finishes first
+			await text_box.close() 
+		
+		# 3. ADD YOUR DELAY
+		# This adds the 0.5s pause between boxes
+		await get_tree().create_timer(0.3).timeout
+		
+		# 4. NEXT LINE LOGIC
 		current_line_index += 1
 		if current_line_index >= dialogue_lines.size():
 			is_dialogue_active = false
 			current_line_index = 0
-			# Signal that we are fully done
 			dialogue_finished.emit() 
 			return
-		
+			
 		show_text_box()
