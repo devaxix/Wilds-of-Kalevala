@@ -1,6 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgfxr26o1j0ab"]
+[gd_scene load_steps=20 format=3 uid="uid://cgfxr26o1j0ab"]
 
 [ext_resource type="Script" uid="uid://b4cn2gic6sywy" path="res://Scripts/intro_cutscene.gd" id="1_puyb4"]
+[ext_resource type="Texture2D" uid="uid://jv0u5axw222p" path="res://Sprites/Backgrounds/Spring Background/MorningLayer6.png" id="2_brw6b"]
+[ext_resource type="Texture2D" uid="uid://xnegi2je1tde" path="res://Sprites/Backgrounds/Spring Background/MorningLayer5.png" id="3_vhx65"]
+[ext_resource type="Texture2D" uid="uid://tigfnsy7cbmy" path="res://Sprites/Backgrounds/Spring Background/MorningLayer4.png" id="4_dtrap"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="5_rmt17"]
+[ext_resource type="Texture2D" uid="uid://dd7keh5kv2yw6" path="res://Sprites/Backgrounds/Spring Background/MorningLayer3.png" id="6_elf5q"]
+[ext_resource type="Texture2D" uid="uid://c4mnfoiehlpql" path="res://Sprites/Backgrounds/Spring Background/MorningLayer2.png" id="7_5c2bv"]
+[ext_resource type="Texture2D" uid="uid://f0xaf6u72l5j" path="res://Sprites/Backgrounds/Spring Background/MorningLayer1.png" id="8_4gbjy"]
+[ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="9_vhx65"]
+[ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/Boy/char_blue.png" id="10_rmt17"]
+[ext_resource type="Script" uid="uid://b522qpfff444i" path="res://Scripts/close_buttoneffect.gd" id="11_4gbjy"]
+[ext_resource type="Texture2D" uid="uid://dh0fqtnqu1c63" path="res://Sprites/Character/Girl/Idle-Sheet.png" id="11_elf5q"]
+[ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="12_km2k6"]
+[ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="13_xeyg7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_km2k6"]
+shader = ExtResource("5_rmt17")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.30000001262006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xeyg7"]
+shader = ExtResource("5_rmt17")
+shader_parameter/speed = 0.7
+shader_parameter/minStrength = 0.30000001262006
+shader_parameter/maxStrength = 0.20000000787006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glhld"]
+shader = ExtResource("5_rmt17")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.50000002212006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c2bv"]
+atlas = ExtResource("10_rmt17")
+region = Rect2(21, 24, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gbjy"]
+atlas = ExtResource("11_elf5q")
+region = Rect2(24, 16, 18, 16)
 
 [node name="IntroCutscene" type="Control"]
 layout_mode = 3
@@ -11,11 +68,123 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_puyb4")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Layer Hub2" type="Node2D" parent="."]
+modulate = Color(0.01820053, 0.016779462, 0.23451272, 1)
+
+[node name="Layer 1" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 1"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("2_brw6b")
+
+[node name="Layer 2" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 2"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("3_vhx65")
+
+[node name="Layer 3" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 3"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("4_dtrap")
+
+[node name="Layer 4" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 4"]
+material = SubResource("ShaderMaterial_km2k6")
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("6_elf5q")
+
+[node name="Layer 5" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 5"]
+material = SubResource("ShaderMaterial_xeyg7")
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("7_5c2bv")
+
+[node name="Layer 6" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 6"]
+material = SubResource("ShaderMaterial_glhld")
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("8_4gbjy")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -292.0
+offset_right = 110.0
+offset_bottom = -204.99982
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_vhx65")
+theme_override_font_sizes/font_size = 64
+text = "Who am I?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -404.0
+offset_right = -360.0
+offset_bottom = -364.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(24, 24)
+theme_override_constants/separation = 0
+
+[node name="BoyButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5c2bv")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("11_4gbjy")
+click_scale = Vector2(0.9, 0.9)
+hover_sound = ExtResource("12_km2k6")
+click_sound = ExtResource("13_xeyg7")
+click_volume_db = 20.0
+
+[node name="GirlButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_4gbjy")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("11_4gbjy")

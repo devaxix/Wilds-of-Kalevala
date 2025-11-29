@@ -29,7 +29,7 @@ func show_text_box():
 	
 	# NEW: Add to a temporary CanvasLayer to force it on top!
 	var layer = CanvasLayer.new()
-	layer.layer = 100 # Very high number
+	layer.layer = 128 # Very high number
 	get_tree().root.add_child(layer)
 	layer.add_child(text_box)
 	

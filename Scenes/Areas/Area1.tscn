@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dsqj4dxsb7nqo"]
+[gd_scene load_steps=45 format=4 uid="uid://dsqj4dxsb7nqo"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_b6jro"]
 [ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="1_fy23r"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c4mnfoiehlpql" path="res://Sprites/Backgrounds/Spring Background/MorningLayer2.png" id="12_ijv2f"]
 [ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_pccjv"]
 [ext_resource type="Texture2D" uid="uid://f0xaf6u72l5j" path="res://Sprites/Backgrounds/Spring Background/MorningLayer1.png" id="13_r2qs6"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="14_ijv2f"]
 [ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="14_lx0ev"]
 [ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="15_lwdtn"]
 [ext_resource type="PackedScene" uid="uid://b1pojt52uqbqp" path="res://Scenes/Areas/GameUI.tscn" id="15_r6rcv"]
@@ -27,6 +28,42 @@
 [ext_resource type="Texture2D" uid="uid://cyu0ubuaut2gr" path="res://Sprites/Tileset/oak_woods_tileset.png" id="19_jem53"]
 [ext_resource type="Texture2D" uid="uid://dwcve7ynmgwiv" path="res://Sprites/Tileset/Tiles.png" id="20_wst1w"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="27_lfkt4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2qs6"]
+shader = ExtResource("14_ijv2f")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.30000001262006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlhvw"]
+shader = ExtResource("14_ijv2f")
+shader_parameter/speed = 0.7
+shader_parameter/minStrength = 0.30000001262006
+shader_parameter/maxStrength = 0.20000000787006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtggk"]
+shader = ExtResource("14_ijv2f")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.50000002212006
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("8_lx0ev")
@@ -3021,6 +3058,71 @@ repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer 6"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("13_r2qs6")
+
+[node name="Layer Hub2" type="Node2D" parent="Layer Hub2"]
+
+[node name="Layer 1" type="Parallax2D" parent="Layer Hub2/Layer Hub2"]
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer Hub2/Layer 1"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("8_7y5bs")
+
+[node name="Layer 2" type="Parallax2D" parent="Layer Hub2/Layer Hub2"]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer Hub2/Layer 2"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("9_jem53")
+
+[node name="Layer 3" type="Parallax2D" parent="Layer Hub2/Layer Hub2"]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer Hub2/Layer 3"]
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("10_wst1w")
+
+[node name="Layer 4" type="Parallax2D" parent="Layer Hub2/Layer Hub2"]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer Hub2/Layer 4"]
+material = SubResource("ShaderMaterial_r2qs6")
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("11_lfkt4")
+
+[node name="Layer 5" type="Parallax2D" parent="Layer Hub2/Layer Hub2"]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer Hub2/Layer 5"]
+material = SubResource("ShaderMaterial_vlhvw")
+position = Vector2(960.00024, 540)
+scale = Vector2(0.59999985, 0.60000014)
+texture = ExtResource("12_ijv2f")
+
+[node name="Layer 6" type="Parallax2D" parent="Layer Hub2/Layer Hub2"]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer Hub2/Layer Hub2/Layer 6"]
+material = SubResource("ShaderMaterial_gtggk")
 position = Vector2(960.00024, 540)
 scale = Vector2(0.59999985, 0.60000014)
 texture = ExtResource("13_r2qs6")
