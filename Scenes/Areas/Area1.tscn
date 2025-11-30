@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dsqj4dxsb7nqo"]
+[gd_scene load_steps=47 format=4 uid="uid://dsqj4dxsb7nqo"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_b6jro"]
 [ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="1_fy23r"]
@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://cyu0ubuaut2gr" path="res://Sprites/Tileset/oak_woods_tileset.png" id="19_jem53"]
 [ext_resource type="Texture2D" uid="uid://dwcve7ynmgwiv" path="res://Sprites/Tileset/Tiles.png" id="20_wst1w"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="27_lfkt4"]
+[ext_resource type="PackedScene" uid="uid://cavdv6o45voju" path="res://Scenes/Areas/DashOrb.tscn" id="29_vlhvw"]
+[ext_resource type="PackedScene" uid="uid://rislb48q84vo" path="res://Scenes/Areas/DoubleJumpOrb.tscn" id="30_gtggk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2qs6"]
 shader = ExtResource("14_ijv2f")
@@ -3172,21 +3174,29 @@ autoplay = true
 max_distance = 4096.0
 parameters/looping = true
 
-[node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
-position = Vector2(2192, 800)
-scale = Vector2(0.23, 0.23)
-
-[node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
-position = Vector2(3168, 696)
-scale = Vector2(0.23, 0.23)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b6jro")
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(0, 977.445)
 
+[node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
+position = Vector2(1103, 919)
+scale = Vector2(0.23, 0.23)
+
+[node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
+position = Vector2(651, 913)
+scale = Vector2(0.23, 0.23)
+
 [node name="LevelExit" parent="." instance=ExtResource("27_lfkt4")]
 position = Vector2(6880.0005, 744)
 scale = Vector2(22.47, 22.47)
 next_level_path = "uid://favsoqxjmbpc"
+
+[node name="DashOrb" parent="." instance=ExtResource("29_vlhvw")]
+position = Vector2(818, 917)
+scale = Vector2(0.23, 0.23)
+
+[node name="DoubleJumpOrb" parent="." instance=ExtResource("30_gtggk")]
+position = Vector2(985, 922)
+scale = Vector2(0.23, 0.23)

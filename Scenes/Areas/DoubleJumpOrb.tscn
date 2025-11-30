@@ -1,49 +1,49 @@
-[gd_scene load_steps=16 format=3 uid="uid://c208qpbdhvk6a"]
+[gd_scene load_steps=16 format=3 uid="uid://rislb48q84vo"]
 
-[ext_resource type="Script" uid="uid://bnua4sfrviiur" path="res://Scripts/AbilityOrb.gd" id="1_fils4"]
-[ext_resource type="Texture2D" uid="uid://xvv7bqwg7rnm" path="res://Sprites/Light Orbs/5.png" id="2_fils4"]
+[ext_resource type="Script" uid="uid://bnua4sfrviiur" path="res://Scripts/AbilityOrb.gd" id="1_ja86r"]
+[ext_resource type="Texture2D" uid="uid://xvv7bqwg7rnm" path="res://Sprites/Light Orbs/5.png" id="2_62edq"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fils4"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_otls5"]
 blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fils4"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1ckh"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(512, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4fyk"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmwte"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(1536, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0atpb"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(2048, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13rkl"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(2560, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p55js"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(3072, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_et766"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(3584, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txlny"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(4096, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk2cg"]
-atlas = ExtResource("2_fils4")
+atlas = ExtResource("2_62edq")
 region = Rect2(4608, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j1ckh"]
@@ -86,19 +86,20 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fils4"]
 
-[node name="MemoryOrb" type="Area2D"]
+[node name="DoubleJumpOrb" type="Area2D"]
 collision_mask = 3
-script = ExtResource("1_fils4")
+script = ExtResource("1_ja86r")
+ability_to_give = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(0.76095283, 1.5267541, 2.184344, 1)
+self_modulate = Color(1.807007, 0, 3.6007304, 1)
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_fils4")
+material = SubResource("CanvasItemMaterial_otls5")
 sprite_frames = SubResource("SpriteFrames_j1ckh")
 animation = &"Spin"
 autoplay = "Spin"
-frame = 7
-frame_progress = 0.35427576
+frame = 5
+frame_progress = 0.21880639
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

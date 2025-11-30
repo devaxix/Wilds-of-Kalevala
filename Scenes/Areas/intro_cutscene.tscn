@@ -188,3 +188,6 @@ texture_normal = SubResource("AtlasTexture_4gbjy")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("11_4gbjy")
+hover_sound = ExtResource("12_km2k6")
+click_sound = ExtResource("13_xeyg7")
+click_volume_db = 20.0

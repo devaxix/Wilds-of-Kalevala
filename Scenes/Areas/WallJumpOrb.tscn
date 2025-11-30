@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://xg73dfp5s2km"]
 
-[ext_resource type="Script" uid="uid://fu56ptuvnl8e" path="res://Scripts/wall_jump_orb.gd" id="1_otls5"]
+[ext_resource type="Script" uid="uid://bnua4sfrviiur" path="res://Scripts/AbilityOrb.gd" id="1_otls5"]
 [ext_resource type="Texture2D" uid="uid://xvv7bqwg7rnm" path="res://Sprites/Light Orbs/5.png" id="2_shm6e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_otls5"]
@@ -89,6 +89,7 @@ animations = [{
 [node name="WallJumpOrb" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_otls5")
+ability_to_give = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1.5079151, 1.2027756, 0, 1)
@@ -97,8 +98,8 @@ material = SubResource("CanvasItemMaterial_otls5")
 sprite_frames = SubResource("SpriteFrames_j1ckh")
 animation = &"Spin"
 autoplay = "Spin"
-frame = 7
-frame_progress = 0.35427576
+frame = 5
+frame_progress = 0.21880639
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
