@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dsqj4dxsb7nqo"]
+[gd_scene load_steps=58 format=4 uid="uid://dsqj4dxsb7nqo"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_b6jro"]
 [ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="1_fy23r"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="27_lfkt4"]
 [ext_resource type="PackedScene" uid="uid://cavdv6o45voju" path="res://Scenes/Areas/DashOrb.tscn" id="29_vlhvw"]
 [ext_resource type="PackedScene" uid="uid://rislb48q84vo" path="res://Scenes/Areas/DoubleJumpOrb.tscn" id="30_gtggk"]
+[ext_resource type="AudioStream" uid="uid://cht8jwieqm6r3" path="res://Music/Spring/Rain Spring.mp3" id="31_gtggk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2qs6"]
 shader = ExtResource("14_ijv2f")
@@ -2936,6 +2937,56 @@ glow_intensity = 0.13
 glow_bloom = 0.5
 glow_blend_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlhvw"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_gtggk"]
+_limits = [0.0, 0.3, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 1.7576435, 0, 0, Vector2(0.5, 0.3), 0.0, 0.0, 0, 0, Vector2(0.99998, 0), -1.7467003, -1.7467003, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_igm4n"]
+curve = SubResource("Curve_gtggk")
+
+[sub_resource type="Gradient" id="Gradient_otybp"]
+colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_us102"]
+gradient = SubResource("Gradient_otybp")
+
+[sub_resource type="Curve" id="Curve_g8b4m"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_flpfg"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 15), 0.0, 75.042625, 0, 0, Vector2(0.25130892, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_agcdg"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rjurg"]
+curve_x = SubResource("Curve_g8b4m")
+curve_y = SubResource("Curve_flpfg")
+curve_z = SubResource("Curve_agcdg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xgnn0"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1920, 1, 1)
+gravity = Vector3(0, 3000, 0)
+scale_min = 0.19999999
+scale_over_velocity_curve = SubResource("CurveXYZTexture_rjurg")
+color_initial_ramp = SubResource("GradientTexture1D_us102")
+alpha_curve = SubResource("CurveTexture_igm4n")
+
 [node name="Area1" type="Node2D"]
 script = ExtResource("1_b6jro")
 
@@ -3168,10 +3219,10 @@ position = Vector2(-824, 544.00006)
 scale = Vector2(12.38, 12.38)
 shape = SubResource("RectangleShape2D_lx0ev")
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_lwdtn")
+volume_db = -5.0
 autoplay = true
-max_distance = 4096.0
 parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -3200,3 +3251,20 @@ scale = Vector2(0.23, 0.23)
 [node name="DoubleJumpOrb" parent="." instance=ExtResource("30_gtggk")]
 position = Vector2(985, 922)
 scale = Vector2(0.23, 0.23)
+
+[node name="WeatherLayer" type="CanvasLayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="WeatherLayer"]
+material = SubResource("CanvasItemMaterial_vlhvw")
+position = Vector2(341, 200)
+amount = 1000
+preprocess = 0.5
+process_material = SubResource("ParticleProcessMaterial_xgnn0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.8153955, 0.8153955, 0.8153955, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="CanvasModulate"]
+stream = ExtResource("31_gtggk")
+volume_db = 5.0
+autoplay = true

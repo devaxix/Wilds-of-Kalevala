@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://favsoqxjmbpc"]
+[gd_scene load_steps=35 format=4 uid="uid://favsoqxjmbpc"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_7eltc"]
 [ext_resource type="Texture2D" uid="uid://b5lw4wl7maqmh" path="res://Sprites/Backgrounds/Summer Background/1.Backround.png" id="2_omsia"]
@@ -42,6 +42,16 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/phase_offset = 3.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7eltc"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_xgsv1"]
+colors = PackedColorArray(1, 0.99607843, 0.72156864, 0.78431374, 1, 0.99607843, 0.72156864, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f8anx"]
+gradient = SubResource("Gradient_xgsv1")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("9_fnj0q")
@@ -304,6 +314,25 @@ position = Vector2(959.9999, 540)
 scale = Vector2(5.9999995, 5.9999995)
 texture = ExtResource("4_7eltc")
 
+[node name="Layer 5" type="Parallax2D" parent="Layer Hub2"]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(3300, 0)
+repeat_times = 2
+
+[node name="ColorRect" type="TextureRect" parent="Layer Hub2/Layer 5"]
+material = SubResource("CanvasItemMaterial_7eltc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1418.9011
+offset_top = -770.90094
+offset_right = 1562.9011
+offset_bottom = 2035.9065
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+texture = SubResource("GradientTexture2D_f8anx")
+
 [node name="Layer 4" type="Parallax2D" parent="Layer Hub2"]
 scroll_scale = Vector2(0.8, 1)
 repeat_size = Vector2(1920, 0)
@@ -354,9 +383,9 @@ position = Vector2(-824, 544.00006)
 scale = Vector2(12.38, 12.38)
 shape = SubResource("RectangleShape2D_lx0ev")
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_4h8ee")
-volume_db = 15.0
+volume_db = -5.0
 autoplay = true
 parameters/looping = true
 
@@ -377,3 +406,6 @@ position = Vector2(0, 977.445)
 [node name="LevelExit" parent="." instance=ExtResource("17_2en5k")]
 position = Vector2(6904, 648)
 next_level_path = "uid://cyboia0e6ypec"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 0.99607843, 0.8784314, 1)
