@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=4 uid="uid://cyboia0e6ypec"]
+[gd_scene load_steps=36 format=4 uid="uid://cyboia0e6ypec"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_xevsr"]
 [ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="3_bvg2g"]
 [ext_resource type="Texture2D" uid="uid://n8yubdxqir8b" path="res://Sprites/Backgrounds/Autumn Background 2/back.png" id="5_xevsr"]
 [ext_resource type="Texture2D" uid="uid://dt8x8jhoe6yfb" path="res://Sprites/Backgrounds/Autumn Background 2/middle.png" id="6_6bpah"]
+[ext_resource type="Texture2D" uid="uid://cvgvtidej55w6" path="res://Sprites/Leaf Sprites/ELR_FallLeaf.png" id="6_xevsr"]
 [ext_resource type="Texture2D" uid="uid://doimjrwl8qsls" path="res://Sprites/Backgrounds/Autumn Background 2/front.png" id="7_i770q"]
 [ext_resource type="PackedScene" uid="uid://b1pojt52uqbqp" path="res://Scenes/Areas/GameUI.tscn" id="8_7l5i1"]
 [ext_resource type="Texture2D" uid="uid://bgegstv8n0fko" path="res://Sprites/Tileset/spring_tiles.png" id="9_114uf"]
@@ -41,6 +42,36 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/phase_offset = 3.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6bpah"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_i770q"]
+offsets = PackedFloat32Array(0, 0.13483146, 0.8455056, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xevsr"]
+gradient = SubResource("Gradient_i770q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bvg2g"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(958, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 500, 1)
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -50.000015
+angular_velocity_max = -50.000015
+gravity = Vector3(0, 70, 0)
+scale_min = 2.0
+scale_max = 2.5
+color_ramp = SubResource("GradientTexture1D_xevsr")
+anim_offset_max = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("9_114uf")
@@ -302,6 +333,14 @@ material = SubResource("ShaderMaterial_6bpah")
 position = Vector2(959.99994, 539.99994)
 scale = Vector2(7.0588226, 6.7499995)
 texture = ExtResource("7_i770q")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Layer Hub2/Layer 3/Sprite2D"]
+material = SubResource("CanvasItemMaterial_6bpah")
+position = Vector2(1.8416786, -7.7036943)
+scale = Vector2(0.142, 0.148)
+amount = 70
+texture = ExtResource("6_xevsr")
+process_material = SubResource("ParticleProcessMaterial_bvg2g")
 
 [node name="GameUI" parent="." instance=ExtResource("8_7l5i1")]
 offset = Vector2(-600, 0)

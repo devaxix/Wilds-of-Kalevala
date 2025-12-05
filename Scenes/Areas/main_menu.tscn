@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=101 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dy53ssxat65nx" path="res://Sprites/Start Menu Textures/Play Hover.png" id="28_tgxka"]
 [ext_resource type="Texture2D" uid="uid://bdvssp8co4qyo" path="res://Sprites/Start Menu Textures/Credits Idle.png" id="29_pj71e"]
 [ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="30_5ot25"]
+[ext_resource type="Texture2D" uid="uid://0rx2s4j5hq7t" path="res://Sprites/Backgrounds/Start Screen Pictures/Kalevala with K.png" id="30_tl2nk"]
 [ext_resource type="Texture2D" uid="uid://bqhuqxrniqky0" path="res://Sprites/Start Menu Textures/Remember Hover.png" id="30_x5ig7"]
 [ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="31_nulcw"]
 [ext_resource type="Texture2D" uid="uid://c8cu34bhhvaw0" path="res://Sprites/Start Menu Textures/Settings Hover.png" id="32_oyiba"]
@@ -915,29 +916,39 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Wok1" type="Sprite2D" parent="layers for logo"]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("21_yiuoa")
 
 [node name="Wok2" type="Sprite2D" parent="layers for logo"]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("22_nqc82")
 
 [node name="Wok4" type="Sprite2D" parent="layers for logo"]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("24_c3do1")
 
 [node name="Wok5" type="Sprite2D" parent="layers for logo"]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_rx35d")
 
 [node name="Wok6" type="Sprite2D" parent="layers for logo"]
+visible = false
 position = Vector2(960, 540)
 scale = Vector2(1, 1.0009267)
 texture = ExtResource("25_yiuoa")
+
+[node name="Wok7" type="Sprite2D" parent="layers for logo"]
+position = Vector2(960, 540)
+scale = Vector2(1, 1.0009267)
+texture = ExtResource("30_tl2nk")
 
 [node name="Buttons" type="Node2D" parent="."]
 
