@@ -3,7 +3,7 @@ extends Control
 # --- CONFIGURATION ---
 const GAME_SCENE = "res://Scenes/Areas/Area1.tscn"
 
-# 1. The Opening Story (Updated!)
+# 1. The Opening Story
 var intro_lines: Array[String] = [
 	"Ouch...",
 	"My head... it's throbbing.",
@@ -30,7 +30,12 @@ var confirm_girl_lines: Array[String] = ["Yes... I remember her."]
 # --- NODES ---
 @onready var boy_btn = $HBoxContainer/BoyButton
 @onready var girl_btn = $HBoxContainer/GirlButton
-@onready var title_label = $Label 
+@onready var title_label = $Label
+
+# --- SOUND NODES (Only Owl Remains) ---
+@onready var owl_timer = $Owl_Timer             
+@onready var owl_player = $Owlhooting           
+
 
 func _ready():
 	# 1. HIDE UI
@@ -40,11 +45,14 @@ func _ready():
 	boy_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	girl_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	# 2. CONNECT SIGNALS
+	# 2. CONNECT SIGNALS (Fixes 'Identifier not declared' for buttons)
 	boy_btn.pressed.connect(_on_boy_button_pressed)
 	girl_btn.pressed.connect(_on_girl_button_pressed)
 	
-	# 3. START DIALOGUE
+	# 3. CONNECT THE OWL TIMER (Fixes 'Identifier not declared' for owl timer)
+	owl_timer.timeout.connect(_on_owl_timer_timeout) 
+	
+	# 4. START DIALOGUE
 	DialogueManager.dialogue_finished.connect(_on_intro_finished)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -66,7 +74,7 @@ func _on_intro_finished():
 	boy_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 	girl_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 
-# --- PHASE 3: HANDLE CHOICE ---
+# --- PHASE 3: HANDLE CHOICE (Logic restored) ---
 func _on_boy_button_pressed():
 	choose_character(0, confirm_boy_lines)
 
@@ -78,14 +86,11 @@ func choose_character(index, lines):
 	boy_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	girl_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	# 2. SAVE THE PATH (The Fix!)
-	# We check the index and save the correct string for the spawner to use
+	# 2. SAVE THE PATH
 	if index == 0:
-		# Double check capitalization: "Player.tscn" vs "player.tscn"
 		GameManager.selected_character_path = "res://Scenes/Player/player.tscn"
 	else:
-		# Double check capitalization here too!
-		GameManager.selected_character_path = "res://Scenes/Player/Player_Girl.tscn" 
+		GameManager.selected_character_path = "res://Scenes/Player/Player_Girl.tscn"
 	
 	# 3. Fade Out UI
 	var tween = create_tween()
@@ -105,3 +110,9 @@ func choose_character(index, lines):
 func _on_confirm_finished():
 	DialogueManager.dialogue_finished.disconnect(_on_confirm_finished)
 	TransitionScreen.transition_to_scene(GAME_SCENE)
+
+
+# --- SOUND REPEATER FUNCTION (Required to fix the timer connection error) ---
+func _on_owl_timer_timeout() -> void:
+	# Plays the owl sound every 22 seconds
+	owl_player.play()

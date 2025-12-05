@@ -205,11 +205,14 @@ stream = ExtResource("16_xeyg7")
 volume_db = -13.684
 autoplay = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_glhld")
-
-[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
-wait_time = 10.0
+[node name="Owl_Timer" type="Timer" parent="."]
+wait_time = 22.0
 autostart = true
 
-[connection signal="timeout" from="AudioStreamPlayer/Timer" to="." method="_on_timer_timeout"]
+[node name="Owlhooting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_glhld")
+volume_db = -12.807
+
+[connection signal="pressed" from="HBoxContainer/BoyButton" to="." method="_on_boy_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/GirlButton" to="." method="_on_girl_button_pressed"]
+[connection signal="timeout" from="Owl_Timer" to="." method="_on_owl_timer_timeout"]

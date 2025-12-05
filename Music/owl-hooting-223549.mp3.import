@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/owl-hooting-223549.mp3-18df91e727733246484886
 
 [params]
 
-loop=true
+loop=false
 loop_offset=10.0
 bpm=0.0
 beat_count=0
