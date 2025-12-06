@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2pt0tcxd4ada"
+path="res://.godot/imported/Female ouch 3.mp3-c75c8affcfb6829c27955726f0d85a1a.mp3str"
+
+[deps]
+
+source_file="res://Music/Female ouch 3.mp3"
+dest_files=["res://.godot/imported/Female ouch 3.mp3-c75c8affcfb6829c27955726f0d85a1a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

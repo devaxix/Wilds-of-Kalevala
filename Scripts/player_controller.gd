@@ -24,8 +24,11 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var wall_jump_check = $WallJumpCheck 
 
-# JUMP SOUNDS (NEW!)
+# JUMP SOUNDS (Assuming you still have these)
 @onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3]
+
+# HURT SOUNDS (NEWLY ADDED)
+@onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4]
 
 # --- STATE ---
 var current_health = 3
@@ -43,7 +46,7 @@ var is_hurt = false
 var is_dashing = false 
 var can_dash = true 
 
-# CUTSCENE STATE (New!)
+# CUTSCENE STATE 
 var is_cutscene = false 
 
 # Wall Jump & Double Jump Logic
@@ -58,22 +61,14 @@ func _ready():
 	if game_ui:
 		game_ui.update_hearts(current_health)
 
-	# Load memories from the Global Game Manager
-	# NOTE: Assumes you have a global script named GameManager
-	# has_sword_memory = GameManager.unlocked_sword 
-	# has_wall_jump_memory = GameManager.unlocked_wall_jump 
-	# has_double_jump_memory = GameManager.unlocked_double_jump 
-	# has_dash_memory = GameManager.unlocked_dash 
-	
-	# Update Max Jumps immediately based on load
-	if has_double_jump_memory:
-		max_jumps = 2
+	# Load memories from the Global Game Manager (Commented out)
+	# if has_double_jump_memory:
+	# 	max_jumps = 2
 		
 func _physics_process(delta: float) -> void:
 	if is_cutscene:
 		
 		return
-	# ------------------------------
 
 	# --- DASH PHYSICS ---
 	if is_dashing:
@@ -90,13 +85,6 @@ func _physics_process(delta: float) -> void:
 		# Reset dash if timer is done and we are on floor
 		if not is_dashing and has_node("DashTimer") and $DashTimer.time_left == 0: 
 			can_dash = true
-
-	# --- DIALOGUE FREEZE ---
-	# NOTE: Assumes DialogueManager is available
-	# if DialogueManager.is_dialogue_active:
-	# 	velocity.x = move_toward(velocity.x, 0, 10)
-	# 	move_and_slide()
-	# 	return 
 
 	# 2. HURT LOCK
 	if is_hurt:
@@ -125,13 +113,13 @@ func _physics_process(delta: float) -> void:
 			velocity.y = wall_jump_force 
 			velocity.x = -look_dir_x * wall_jump_push
 			wall_jump_lock = 0.2 
-			play_random_jump_sound() # CALL JUMP SOUND
+			# play_random_jump_sound() 
 			
 		# B. Normal & Double Jump
 		elif jump_count < max_jumps:
 			velocity.y = jump_power
 			jump_count += 1
-			play_random_jump_sound() # CALL JUMP SOUND
+			# play_random_jump_sound() 
 
 	# --- DASH INPUT ---
 	if Input.is_action_just_pressed("Dash") and has_dash_memory and can_dash:
@@ -155,14 +143,23 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-# --- ACTIONS ---
+# --- AUDIO ACTIONS ---
 
-# NEW FUNCTION: Plays a random sound from the array
 func play_random_jump_sound():
 	if not jump_sounds.is_empty():
 		var random_index = randi() % jump_sounds.size()
 		var selected_sound = jump_sounds[random_index]
 		selected_sound.play()
+
+# NEW FUNCTION
+func play_random_hurt_sound():
+	if not hurt_sounds.is_empty():
+		var random_index = randi() % hurt_sounds.size()
+		var selected_sound = hurt_sounds[random_index]
+		selected_sound.play()
+
+
+# --- ACTIONS ---
 
 func start_dash():
 	print("Attempting to Dash...") 
@@ -221,6 +218,9 @@ func take_damage(amount, enemy_pos = Vector2.ZERO):
 	if is_hurt or is_dashing: 
 		return 
 
+	# PLAY RANDOM HURT SOUND HERE (NEW!)
+	play_random_hurt_sound() 
+	
 	current_health -= amount
 	if game_ui: game_ui.update_hearts(current_health)
 	
