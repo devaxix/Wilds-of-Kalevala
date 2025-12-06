@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://0xkba45qjwnx"]
+[gd_scene load_steps=24 format=3 uid="uid://0xkba45qjwnx"]
 
 [ext_resource type="Script" uid="uid://cmbdtlx85r3vj" path="res://Scripts/enemy.gd" id="1_jj8qi"]
 [ext_resource type="Texture2D" uid="uid://d20dr5c2ntsbi" path="res://Sprites/Enemies/Skeleton/White_Walk.png" id="2_3homo"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://2p2tnbco5jn3" path="res://Scripts/hurt_box.gd" id="8_ilcl4"]
 [ext_resource type="AudioStream" uid="uid://dkag0qdxwdfux" path="res://Music/ES_Skeleton Movement, Reverb 01 - Epidemic Sound.mp3" id="9_6khg0"]
 [ext_resource type="AudioStream" uid="uid://bafdroed8yutx" path="res://Music/ES_Dirt, Walking - Epidemic Sound.mp3" id="10_7pb3c"]
+[ext_resource type="AudioStream" uid="uid://duen4xyskudfw" path="res://Music/sword-sound-260274.mp3" id="11_6pitp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvte1"]
 radius = 16.0
@@ -413,6 +414,10 @@ attenuation = 0.5
 [node name="SkeletonFootsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_7pb3c")
 volume_db = -6.385
+attenuation = 0.5
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_6pitp")
 attenuation = 0.5
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

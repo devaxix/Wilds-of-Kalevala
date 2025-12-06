@@ -20,10 +20,12 @@ var state = WALK
 @onready var body_collision = $BodyCollision
 @onready var attack_area = $AttackArea
 
-# ORIGINAL SOUND: The Skeleton's rattle sound
+# Walking Sounds
 @onready var walking_sound = $WalkingSound 
-# NEW SOUND: The Skeleton's footstep sound
 @onready var skeleton_footsteps = $SkeletonFootsteps 
+
+# Attack Sound
+@onready var attack_sound = $AttackSound 
 
 # Store the original position of the sword so we know where to flip it to
 @onready var default_attack_x = attack_area.position.x
@@ -57,7 +59,7 @@ func _physics_process(delta):
 	match state:
 		WALK:
 			move_logic()
-			check_for_player()
+			check_for_player() 
 		ATTACK, IDLE_WAIT:
 			velocity.x = 0
 		HURT:
@@ -98,16 +100,18 @@ func start_idle_wait():
 	state = WALK
 	anim_player.play("Walk")
 
-func check_for_player():
+# --- COMBAT FUNCTIONS ---
+
+func check_for_player(): 
 	var bodies = detection_area.get_overlapping_bodies()
-	for body in bodies:
+	for body in bodies: 
 		if body.is_in_group("player") or body.name == "Player":
 			start_attack(body)
 			return 
 
 func start_attack(target):
 	state = ATTACK
-	# STOP SOUNDS: Stop BOTH walking sounds when transitioning to ATTACK
+	# STOP SOUNDS: Stop all walking sounds when transitioning to ATTACK
 	walking_sound.stop()
 	skeleton_footsteps.stop()
 	
@@ -116,6 +120,13 @@ func start_attack(target):
 	direction = 1 if dir_to_player > 0 else -1
 	
 	anim_player.play("Attack 1" if randi() % 2 == 0 else "Attack 2")
+	
+	# SWORD SOUND DELAY ADJUSTED to 0.3 seconds
+	await get_tree().create_timer(0.3).timeout
+	
+	# Trigger the attack sound 
+	attack_sound.play()
+	
 	await anim_player.animation_finished
 	
 	if is_dying: return
@@ -127,7 +138,7 @@ func take_damage(amount, source_pos = Vector2.ZERO):
 	
 	current_health -= amount
 	
-	# STOP SOUNDS: Stop BOTH sounds immediately upon taking damage
+	# STOP SOUNDS: Stop ALL movement sounds immediately upon taking damage
 	walking_sound.stop()
 	skeleton_footsteps.stop()
 	
@@ -159,7 +170,7 @@ func start_death_sequence():
 	anim_player.stop()
 	anim_player.play("Die")
 	
-	# FINAL STOP SOUNDS: Stop BOTH sounds when the death sequence starts
+	# FINAL STOP SOUNDS: Stop ALL looping sounds when the death sequence starts
 	walking_sound.stop()
 	skeleton_footsteps.stop()
 	
