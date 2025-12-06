@@ -430,7 +430,7 @@ shape = SubResource("RectangleShape2D_lx0ev")
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_xgsv1")
-volume_db = -11.386
+volume_db = -10.474
 autoplay = true
 parameters/looping = true
 
@@ -462,7 +462,7 @@ autoplay = true
 
 [node name="TimedSummerSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_ypvqy")
-volume_db = -23.819
+volume_db = -17.433
 
 [node name="SummerSFXTimer" type="Timer" parent="TimedSummerSFX"]
 wait_time = 10.0
