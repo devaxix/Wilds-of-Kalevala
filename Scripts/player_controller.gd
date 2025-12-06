@@ -40,6 +40,9 @@ var is_hurt = false
 var is_dashing = false     
 var can_dash = true        
 
+# CUTSCENE STATE (New!)
+var is_cutscene = false 
+
 # Wall Jump & Double Jump Logic
 var wall_jump_lock = 0.0
 var jump_count = 0        
@@ -52,7 +55,6 @@ func _ready():
 	if game_ui:
 		game_ui.update_hearts(current_health)
 
-	# --- FIX: THIS IS NOW INSIDE THE FUNCTION ---
 	# Load memories from the Global Game Manager
 	has_sword_memory = GameManager.unlocked_sword
 	has_wall_jump_memory = GameManager.unlocked_wall_jump
@@ -64,6 +66,11 @@ func _ready():
 		max_jumps = 2
 		
 func _physics_process(delta: float) -> void:
+	if is_cutscene:
+		
+		return
+	# ------------------------------
+
 	# --- DASH PHYSICS ---
 	if is_dashing:
 		velocity.y = 0 
@@ -172,32 +179,31 @@ func attack():
 		is_attacking = false
 		animation_player.play("Idle")
 
-# --- MEMORY UNLOCKS (UPDATED WITH SAVING) ---
+# --- MEMORY UNLOCKS ---
 
 func unlock_sword_memory():
 	has_sword_memory = true
-	GameManager.unlocked_sword = true # <--- SAVING
+	GameManager.unlocked_sword = true
 	print("MEMORY UNLOCKED: Sword!")
 
 func unlock_wall_jump_memory():
 	has_wall_jump_memory = true
-	GameManager.unlocked_wall_jump = true # <--- SAVING
+	GameManager.unlocked_wall_jump = true
 	print("MEMORY UNLOCKED: Wall Jump!")
 
 func unlock_double_jump_memory():
 	has_double_jump_memory = true
-	GameManager.unlocked_double_jump = true # <--- SAVING
+	GameManager.unlocked_double_jump = true
 	max_jumps = 2 
 	print("MEMORY UNLOCKED: Double Jump!")
 
 func unlock_dash_memory():
 	has_dash_memory = true
-	GameManager.unlocked_dash = true # <--- SAVING
+	GameManager.unlocked_dash = true
 	print("MEMORY UNLOCKED: Dash!")
 
 # --- DAMAGE LOGIC ---
 func take_damage(amount, enemy_pos = Vector2.ZERO):
-	# INVINCIBILITY CHECK
 	if is_hurt or is_dashing: 
 		return 
 
@@ -232,11 +238,8 @@ func _reload_scene():
 
 func _on_sword_hitbox_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
-		# Direct hit
 		area.take_damage(1, global_position) 
-		
 	elif area.get_parent().has_method("take_damage"):
-		# Hit the hurtbox, tell the parent (Skeleton)
 		area.get_parent().take_damage(1, global_position)
 
 func _on_dash_timer_timeout():

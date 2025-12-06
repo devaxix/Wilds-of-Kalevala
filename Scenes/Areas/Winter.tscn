@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dbeh7cvoqcfie"]
+[gd_scene load_steps=43 format=4 uid="uid://dbeh7cvoqcfie"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_rr04j"]
 [ext_resource type="Texture2D" uid="uid://da0kae7dfv0j1" path="res://Sprites/Backgrounds/Winter Last Scene Background/1.png" id="2_i3n6d"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://ejriwjqcn27m" path="res://Sprites/Tileset/autumn_tiles.png" id="12_peabj"]
 [ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_3gbwr"]
 [ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="14_riqyx"]
-[ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="15_1vvxh"]
 [ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="16_fpkai"]
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_yqga2"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_3syx0"]
@@ -83,6 +82,35 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/phase_offset = 0.0
+
+[sub_resource type="Curve" id="Curve_vgp7q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9719108, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kcicc"]
+curve = SubResource("Curve_vgp7q")
+
+[sub_resource type="Gradient" id="Gradient_efe4w"]
+offsets = PackedFloat32Array(0.34862384, 0.559633)
+colors = PackedColorArray(1, 1, 1, 0.3647059, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ot25"]
+gradient = SubResource("Gradient_efe4w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pluyx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1080, 1, 1)
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 49.99998
+gravity = Vector3(-10, 100, 0)
+scale_max = 5.0
+color_initial_ramp = SubResource("GradientTexture1D_5ot25")
+alpha_curve = SubResource("CurveTexture_kcicc")
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("9_hou1f")
@@ -280,7 +308,7 @@ script = ExtResource("1_rr04j")
 [node name="Layer Hub" type="Node2D" parent="."]
 
 [node name="Layer 1" type="Parallax2D" parent="Layer Hub"]
-scroll_scale = Vector2(0.1, 1)
+scroll_scale = Vector2(0.1, 0)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
@@ -366,13 +394,20 @@ texture = ExtResource("9_yiq65")
 [node name="Layer 9" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(1920, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Layer Hub/Layer 9"]
 material = SubResource("ShaderMaterial_peabj")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("10_peabj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Layer Hub/Layer 9/Sprite2D"]
+position = Vector2(-60.00001, -164.40002)
+amount = 1200
+lifetime = 20.0
+preprocess = 10.0
+process_material = SubResource("ParticleProcessMaterial_pluyx")
 
 [node name="GameUI" parent="." instance=ExtResource("8_pluyx")]
 visible = false
@@ -403,10 +438,6 @@ visible = false
 visible = false
 position = Vector2(3305, 1072)
 shape = SubResource("RectangleShape2D_emm07")
-
-[node name="Enemy" parent="." instance=ExtResource("15_1vvxh")]
-position = Vector2(-515.00024, 812.9999)
-scale = Vector2(6.385, 6.385)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 visible = false

@@ -5,6 +5,14 @@ extends Node2D
 @export var Sprite : Sprite2D
 
 func _process(_delta):
+	# DEBUG: Check if the animator knows we are in a cutscene
+	if player_controller.is_cutscene:
+		# If this prints, the Animator is CORRECTLY stopping.
+		# If you don't see this printing, the link is broken!
+		# print("Animator is asleep...") 
+		return
+	# ------------------------------
+	
 	if player_controller.is_attacking:
 		return # Stop reading the rest of this function!
 
