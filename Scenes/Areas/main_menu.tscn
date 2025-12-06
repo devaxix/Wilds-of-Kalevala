@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=103 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://lsiilbh4tdi8" path="res://Sprites/Fox/wake_up_spritesheet.png" id="20_tl2nk"]
 [ext_resource type="Script" uid="uid://beavhohp0r1i3" path="res://Scripts/menu_fox.gd" id="21_7rqx6"]
 [ext_resource type="Texture2D" uid="uid://5ewngui8m08l" path="res://Sprites/Backgrounds/Start Screen Pictures/wok1.png" id="21_yiuoa"]
+[ext_resource type="AudioStream" uid="uid://b28xl5c6xiymy" path="res://Music/snow-running-94612(1).mp3" id="22_m28al"]
 [ext_resource type="Texture2D" uid="uid://b44hxv8flnmh1" path="res://Sprites/Backgrounds/Start Screen Pictures/wok2.png" id="22_nqc82"]
 [ext_resource type="Texture2D" uid="uid://b804ubwbr2b2r" path="res://Sprites/Backgrounds/Start Screen Pictures/wok4.png" id="24_c3do1"]
 [ext_resource type="Texture2D" uid="uid://bnxqpgjt0kvmh" path="res://Sprites/Backgrounds/Start Screen Pictures/wok5.png" id="25_rx35d"]
@@ -47,6 +48,7 @@
 [ext_resource type="AudioStream" uid="uid://bv1ll3iby8m68" path="res://Music/forest echo.mp3" id="41_nulcw"]
 [ext_resource type="AudioStream" uid="uid://bx6rrmgvdqmcx" path="res://Music/Start Menu Sounds/computer-mouse-click-351398(1).mp3" id="42_nulcw"]
 [ext_resource type="PackedScene" uid="uid://0ny6wpntv22k" path="res://Scenes/Areas/settings_menu.tscn" id="47_tl2nk"]
+[ext_resource type="AudioStream" uid="uid://bm4tyi4m2bgc1" path="res://Music/ES_Gusts, Snow, Leaves, Howling - Epidemic Sound.mp3" id="49_msqqj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68acp"]
 content_margin_left = 4.0
@@ -813,6 +815,13 @@ script = ExtResource("21_7rqx6")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Layers for background/Fox/Sprite2D/MenuFox"]
 scale = Vector2(3.965, 3.965)
 
+[node name="FoxRunSound" type="AudioStreamPlayer2D" parent="Layers for background/Fox/Sprite2D/MenuFox"]
+scale = Vector2(1.0000001, 1)
+stream = ExtResource("22_m28al")
+
+[node name="SoundDelayTimer" type="Timer" parent="Layers for background/Fox/Sprite2D/MenuFox"]
+wait_time = 3.0
+
 [node name="14" type="Parallax2D" parent="Layers for background"]
 texture_filter = 1
 scale = Vector2(2.8, 2.8)
@@ -1048,8 +1057,14 @@ max_distance = 4096.0
 visible = false
 layout_mode = 1
 
+[node name="WindAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("49_msqqj")
+volume_db = -11.895
+autoplay = true
+
 [connection signal="screen_entered" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_entered"]
 [connection signal="screen_exited" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_exited"]
+[connection signal="timeout" from="Layers for background/Fox/Sprite2D/MenuFox/SoundDelayTimer" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_sound_delay_timer_timeout"]
 [connection signal="pressed" from="Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Buttons/LoadGameButt" to="." method="_on_load_game_button_pressed"]
 [connection signal="pressed" from="Buttons/SettingsButt" to="." method="_on_settings_button_pressed"]
