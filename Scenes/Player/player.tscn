@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://hogl4i6f6uxc"]
+[gd_scene load_steps=33 format=3 uid="uid://hogl4i6f6uxc"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/Boy/char_blue.png" id="1_uvnfx"]
@@ -17,6 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://v10oat57yd0s" path="res://Music/male attack 2.mp3" id="15_hnuln"]
 [ext_resource type="AudioStream" uid="uid://djb0oj7ykulls" path="res://Music/male attacking 3.mp3" id="16_aqm4k"]
 [ext_resource type="AudioStream" uid="uid://bpgcaowpmnuca" path="res://Music/male attacking 4.mp3" id="17_rcvs5"]
+[ext_resource type="AudioStream" uid="uid://bkerfu0p1vpxk" path="res://Music/sword sound 1.mp3" id="18_eksi1"]
+[ext_resource type="AudioStream" uid="uid://b6btibml1lm20" path="res://Music/Sword sound 2.mp3" id="19_jincj"]
+[ext_resource type="AudioStream" uid="uid://ctvrc65nbvrry" path="res://Music/Sword sound 3.mp3" id="20_rqdc0"]
+[ext_resource type="AudioStream" uid="uid://3wowuj2c4ndh" path="res://Music/sword sound 4.mp3" id="21_qr1w5"]
+[ext_resource type="AudioStream" uid="uid://vfrof7f7v2u3" path="res://Music/sword sound 5.mp3" id="22_ythyg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 
@@ -272,6 +277,21 @@ stream = ExtResource("16_aqm4k")
 
 [node name="AttackSound4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_rcvs5")
+
+[node name="SwordSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_eksi1")
+
+[node name="SwordSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_jincj")
+
+[node name="SwordSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_rqdc0")
+
+[node name="SwordSound4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_qr1w5")
+
+[node name="SwordSound5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_ythyg")
 
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

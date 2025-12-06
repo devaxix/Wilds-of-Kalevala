@@ -30,8 +30,11 @@ extends CharacterBody2D
 # HURT SOUNDS
 @onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4, $HurtSound5]
 
-# ATTACK SOUNDS (UPDATED for 4 sounds!)
+# ATTACK SOUNDS
 @onready var attack_sounds = [$AttackSound1, $AttackSound2, $AttackSound3, $AttackSound4]
+
+# SWORD SOUNDS (NEWLY ADDED)
+@onready var sword_sounds = [$SwordSound1, $SwordSound2, $SwordSound3, $SwordSound4, $SwordSound5]
 
 # --- STATE ---
 var current_health = 3
@@ -161,6 +164,13 @@ func play_random_attack_sound():
 		var random_index = randi() % attack_sounds.size()
 		var selected_sound = attack_sounds[random_index]
 		selected_sound.play()
+		
+# NEW FUNCTION
+func play_random_sword_sound():
+	if not sword_sounds.is_empty():
+		var random_index = randi() % sword_sounds.size()
+		var selected_sound = sword_sounds[random_index]
+		selected_sound.play()
 
 # --- ACTIONS ---
 
@@ -187,8 +197,10 @@ func start_dash():
 
 func attack():
 	is_attacking = true
-	# Play random attack sound here (NOW USES 4 SOUNDS!)
+	# Play random attack sound (voice/grunt)
 	play_random_attack_sound()
+	# Play random sword sound (slash/hit) (NEW!)
+	play_random_sword_sound() 
 	
 	if animation_player:
 		animation_player.play("Attack")
