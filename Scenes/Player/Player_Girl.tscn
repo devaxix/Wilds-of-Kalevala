@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cntr1cjbwcs5t"]
+[gd_scene load_steps=33 format=3 uid="uid://cntr1cjbwcs5t"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_powln"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="2_rqu0h"]
@@ -17,6 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://bop8go8dl7ko6" path="res://Music/female attack noise 1.mp3" id="15_sexf0"]
 [ext_resource type="AudioStream" uid="uid://bb2yvm0u1kumv" path="res://Music/Female attack noise 2.mp3" id="16_smedx"]
 [ext_resource type="AudioStream" uid="uid://bcflu3onjmrxy" path="res://Music/female attack noise 3.mp3" id="17_vpkm2"]
+[ext_resource type="AudioStream" uid="uid://bkerfu0p1vpxk" path="res://Music/sword sound 1.mp3" id="18_loeyj"]
+[ext_resource type="AudioStream" uid="uid://b6btibml1lm20" path="res://Music/Sword sound 2.mp3" id="19_1rqwo"]
+[ext_resource type="AudioStream" uid="uid://ctvrc65nbvrry" path="res://Music/Sword sound 3.mp3" id="20_5vmfp"]
+[ext_resource type="AudioStream" uid="uid://3wowuj2c4ndh" path="res://Music/sword sound 4.mp3" id="21_sf5ka"]
+[ext_resource type="AudioStream" uid="uid://vfrof7f7v2u3" path="res://Music/sword sound 5.mp3" id="22_ugqae"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 10.777202
@@ -436,7 +441,6 @@ scale = Vector2(6.285, 6.285)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_powln")
-jump_power = -499
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("2_rqu0h")
@@ -513,6 +517,21 @@ stream = ExtResource("16_smedx")
 
 [node name="AttackSound3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_vpkm2")
+
+[node name="FSwordSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_loeyj")
+
+[node name="FSwordSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_1rqwo")
+
+[node name="FSwordSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_5vmfp")
+
+[node name="FSwordSound4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_sf5ka")
+
+[node name="FSwordSound5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_ugqae")
 
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
