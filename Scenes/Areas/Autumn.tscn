@@ -405,4 +405,4 @@ position = Vector2(0, 977.445)
 
 [node name="LevelExit" parent="." instance=ExtResource("16_ae0ff")]
 position = Vector2(6832, 672)
-next_level_path = "uid://dbeh7cvoqcfie"
+next_level_path = "uid://fud04dvvypdq"
