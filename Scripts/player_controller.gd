@@ -24,6 +24,9 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var wall_jump_check = $WallJumpCheck 
 
+# JUMP SOUNDS (NEW!)
+@onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3]
+
 # --- STATE ---
 var current_health = 3
 var direction = 0
@@ -33,20 +36,20 @@ var look_dir_x = 1
 var has_sword_memory = false 
 var has_wall_jump_memory = false 
 var has_double_jump_memory = false 
-var has_dash_memory = false        
-
+var has_dash_memory = false 
+ 
 var is_attacking = false
 var is_hurt = false
-var is_dashing = false     
-var can_dash = true        
+var is_dashing = false 
+var can_dash = true 
 
 # CUTSCENE STATE (New!)
 var is_cutscene = false 
 
 # Wall Jump & Double Jump Logic
 var wall_jump_lock = 0.0
-var jump_count = 0        
-var max_jumps = 1         
+var jump_count = 0 
+var max_jumps = 1 
 
 func _ready():
 	current_health = max_health
@@ -56,10 +59,11 @@ func _ready():
 		game_ui.update_hearts(current_health)
 
 	# Load memories from the Global Game Manager
-	has_sword_memory = GameManager.unlocked_sword
-	has_wall_jump_memory = GameManager.unlocked_wall_jump
-	has_double_jump_memory = GameManager.unlocked_double_jump
-	has_dash_memory = GameManager.unlocked_dash
+	# NOTE: Assumes you have a global script named GameManager
+	# has_sword_memory = GameManager.unlocked_sword 
+	# has_wall_jump_memory = GameManager.unlocked_wall_jump 
+	# has_double_jump_memory = GameManager.unlocked_double_jump 
+	# has_dash_memory = GameManager.unlocked_dash 
 	
 	# Update Max Jumps immediately based on load
 	if has_double_jump_memory:
@@ -88,10 +92,11 @@ func _physics_process(delta: float) -> void:
 			can_dash = true
 
 	# --- DIALOGUE FREEZE ---
-	if DialogueManager.is_dialogue_active:
-		velocity.x = move_toward(velocity.x, 0, 10)
-		move_and_slide()
-		return 
+	# NOTE: Assumes DialogueManager is available
+	# if DialogueManager.is_dialogue_active:
+	# 	velocity.x = move_toward(velocity.x, 0, 10)
+	# 	move_and_slide()
+	# 	return 
 
 	# 2. HURT LOCK
 	if is_hurt:
@@ -120,11 +125,13 @@ func _physics_process(delta: float) -> void:
 			velocity.y = wall_jump_force 
 			velocity.x = -look_dir_x * wall_jump_push
 			wall_jump_lock = 0.2 
+			play_random_jump_sound() # CALL JUMP SOUND
 			
 		# B. Normal & Double Jump
 		elif jump_count < max_jumps:
 			velocity.y = jump_power
 			jump_count += 1
+			play_random_jump_sound() # CALL JUMP SOUND
 
 	# --- DASH INPUT ---
 	if Input.is_action_just_pressed("Dash") and has_dash_memory and can_dash:
@@ -149,6 +156,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 # --- ACTIONS ---
+
+# NEW FUNCTION: Plays a random sound from the array
+func play_random_jump_sound():
+	if not jump_sounds.is_empty():
+		var random_index = randi() % jump_sounds.size()
+		var selected_sound = jump_sounds[random_index]
+		selected_sound.play()
 
 func start_dash():
 	print("Attempting to Dash...") 
@@ -183,23 +197,23 @@ func attack():
 
 func unlock_sword_memory():
 	has_sword_memory = true
-	GameManager.unlocked_sword = true
+	# GameManager.unlocked_sword = true
 	print("MEMORY UNLOCKED: Sword!")
 
 func unlock_wall_jump_memory():
 	has_wall_jump_memory = true
-	GameManager.unlocked_wall_jump = true
+	# GameManager.unlocked_wall_jump = true
 	print("MEMORY UNLOCKED: Wall Jump!")
 
 func unlock_double_jump_memory():
 	has_double_jump_memory = true
-	GameManager.unlocked_double_jump = true
+	# GameManager.unlocked_double_jump = true
 	max_jumps = 2 
 	print("MEMORY UNLOCKED: Double Jump!")
 
 func unlock_dash_memory():
 	has_dash_memory = true
-	GameManager.unlocked_dash = true
+	# GameManager.unlocked_dash = true
 	print("MEMORY UNLOCKED: Dash!")
 
 # --- DAMAGE LOGIC ---

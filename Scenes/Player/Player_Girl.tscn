@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cntr1cjbwcs5t"]
+[gd_scene load_steps=21 format=3 uid="uid://cntr1cjbwcs5t"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_powln"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="2_rqu0h"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dsjalgatromm4" path="res://Sprites/Character/Girl/Jump-End-Sheet.png" id="4_uo1ex"]
 [ext_resource type="Texture2D" uid="uid://dr4gtfrtdk1cg" path="res://Sprites/Character/Girl/Jump-Start-Sheet.png" id="5_0bsmo"]
 [ext_resource type="Texture2D" uid="uid://dd8per34sk20l" path="res://Sprites/Character/Girl/Run-Sheet.png" id="6_0bsmo"]
+[ext_resource type="AudioStream" uid="uid://dp8w2syf5vwlg" path="res://Music/Female Jump 1.mp3" id="8_4hc53"]
+[ext_resource type="AudioStream" uid="uid://23t5aaums3uh" path="res://Music/Female jump 2.mp3" id="9_rxjik"]
+[ext_resource type="AudioStream" uid="uid://cajttes73ihyr" path="res://Music/Female Jump 3.mp3" id="10_v6nom"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 10.777202
@@ -473,6 +476,15 @@ position_smoothing_enabled = true
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="JumpSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4hc53")
+
+[node name="JumpSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_rxjik")
+
+[node name="JumpSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_v6nom")
 
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
