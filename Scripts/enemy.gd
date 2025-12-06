@@ -20,6 +20,11 @@ var state = WALK
 @onready var body_collision = $BodyCollision
 @onready var attack_area = $AttackArea
 
+# ORIGINAL SOUND: The Skeleton's rattle sound
+@onready var walking_sound = $WalkingSound 
+# NEW SOUND: The Skeleton's footstep sound
+@onready var skeleton_footsteps = $SkeletonFootsteps 
+
 # Store the original position of the sword so we know where to flip it to
 @onready var default_attack_x = attack_area.position.x
 
@@ -61,6 +66,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 func move_logic():
+	# START SOUNDS: Ensure BOTH walking sounds are playing when in the WALK state
+	if not walking_sound.is_playing():
+		walking_sound.play()
+	if not skeleton_footsteps.is_playing():
+		skeleton_footsteps.play()
+		
 	velocity.x = direction * speed
 	
 	# Patrol Logic
@@ -68,13 +79,16 @@ func move_logic():
 	   (position.x < start_x - patrol_distance and direction == -1):
 		start_idle_wait()
 		
-	# Wall Logic (Safe to use now!)
+	# Wall Logic
 	if is_on_wall():
 		start_idle_wait()
 
 func start_idle_wait():
 	state = IDLE_WAIT
 	anim_player.play("Idle")
+	# STOP SOUNDS: Stop BOTH walking sounds when transitioning to IDLE_WAIT
+	walking_sound.stop()
+	skeleton_footsteps.stop()
 	
 	await get_tree().create_timer(2.0).timeout
 	
@@ -83,8 +97,6 @@ func start_idle_wait():
 	direction *= -1
 	state = WALK
 	anim_player.play("Walk")
-
-# --- COMBAT ---
 
 func check_for_player():
 	var bodies = detection_area.get_overlapping_bodies()
@@ -95,6 +107,9 @@ func check_for_player():
 
 func start_attack(target):
 	state = ATTACK
+	# STOP SOUNDS: Stop BOTH walking sounds when transitioning to ATTACK
+	walking_sound.stop()
+	skeleton_footsteps.stop()
 	
 	# Determine direction
 	var dir_to_player = target.global_position.x - global_position.x
@@ -111,6 +126,10 @@ func take_damage(amount, source_pos = Vector2.ZERO):
 	if is_dying or state == DIE: return
 	
 	current_health -= amount
+	
+	# STOP SOUNDS: Stop BOTH sounds immediately upon taking damage
+	walking_sound.stop()
+	skeleton_footsteps.stop()
 	
 	if current_health <= 0:
 		start_death_sequence()
@@ -139,6 +158,10 @@ func start_death_sequence():
 	sprite.modulate = Color.WHITE
 	anim_player.stop()
 	anim_player.play("Die")
+	
+	# FINAL STOP SOUNDS: Stop BOTH sounds when the death sequence starts
+	walking_sound.stop()
+	skeleton_footsteps.stop()
 	
 	if has_node("DetectionArea"): $DetectionArea.set_deferred("monitoring", false)
 	if has_node("AttackArea"): $AttackArea.set_deferred("monitoring", false)

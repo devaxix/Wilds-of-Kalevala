@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0xkba45qjwnx"]
+[gd_scene load_steps=23 format=3 uid="uid://0xkba45qjwnx"]
 
 [ext_resource type="Script" uid="uid://cmbdtlx85r3vj" path="res://Scripts/enemy.gd" id="1_jj8qi"]
 [ext_resource type="Texture2D" uid="uid://d20dr5c2ntsbi" path="res://Sprites/Enemies/Skeleton/White_Walk.png" id="2_3homo"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dl0eotxjd0bux" path="res://Sprites/Enemies/Skeleton/White_Attack1.png" id="6_3dpap"]
 [ext_resource type="Texture2D" uid="uid://cg3423xgr5qi0" path="res://Sprites/Enemies/Skeleton/White_Attack2.png" id="7_jvte1"]
 [ext_resource type="Script" uid="uid://2p2tnbco5jn3" path="res://Scripts/hurt_box.gd" id="8_ilcl4"]
+[ext_resource type="AudioStream" uid="uid://dkag0qdxwdfux" path="res://Music/ES_Skeleton Movement, Reverb 01 - Epidemic Sound.mp3" id="9_6khg0"]
+[ext_resource type="AudioStream" uid="uid://bafdroed8yutx" path="res://Music/ES_Dirt, Walking - Epidemic Sound.mp3" id="10_7pb3c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvte1"]
 radius = 16.0
@@ -360,7 +362,6 @@ _data = {
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_jj8qi")
-knockback_force = 300
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jvte1")
@@ -403,5 +404,15 @@ libraries = {
 }
 autoplay = "Idle"
 speed_scale = 1.5
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_6khg0")
+volume_db = 2.737
+attenuation = 0.5
+
+[node name="SkeletonFootsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7pb3c")
+volume_db = -6.385
+attenuation = 0.5
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
