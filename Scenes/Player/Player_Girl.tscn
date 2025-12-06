@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cntr1cjbwcs5t"]
+[gd_scene load_steps=28 format=3 uid="uid://cntr1cjbwcs5t"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_powln"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="2_rqu0h"]
@@ -14,6 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://dyxkt4iossuw0" path="res://Music/female ouch 2.mp3" id="12_l8drd"]
 [ext_resource type="AudioStream" uid="uid://b2pt0tcxd4ada" path="res://Music/Female ouch 3.mp3" id="13_gy27x"]
 [ext_resource type="AudioStream" uid="uid://dxcpvmfhiw6dj" path="res://Music/female ouch 4.mp3" id="14_sexf0"]
+[ext_resource type="AudioStream" uid="uid://bop8go8dl7ko6" path="res://Music/female attack noise 1.mp3" id="15_sexf0"]
+[ext_resource type="AudioStream" uid="uid://bb2yvm0u1kumv" path="res://Music/Female attack noise 2.mp3" id="16_smedx"]
+[ext_resource type="AudioStream" uid="uid://bcflu3onjmrxy" path="res://Music/female attack noise 3.mp3" id="17_vpkm2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 10.777202
@@ -501,6 +504,15 @@ stream = ExtResource("13_gy27x")
 
 [node name="HurtSound4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_sexf0")
+
+[node name="AttackSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_sexf0")
+
+[node name="AttackSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_smedx")
+
+[node name="AttackSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_vpkm2")
 
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

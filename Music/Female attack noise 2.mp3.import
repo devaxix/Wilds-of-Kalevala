@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb2yvm0u1kumv"
+path="res://.godot/imported/Female attack noise 2.mp3-b3da980949bc1fbbab76dd74f84ffe7d.mp3str"
+
+[deps]
+
+source_file="res://Music/Female attack noise 2.mp3"
+dest_files=["res://.godot/imported/Female attack noise 2.mp3-b3da980949bc1fbbab76dd74f84ffe7d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

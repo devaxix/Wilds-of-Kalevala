@@ -24,11 +24,14 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var wall_jump_check = $WallJumpCheck 
 
-# JUMP SOUNDS (Assuming you still have these)
+# JUMP SOUNDS
 @onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3]
 
-# HURT SOUNDS (NEWLY ADDED)
+# HURT SOUNDS
 @onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4]
+
+# ATTACK SOUNDS (NEWLY ADDED)
+@onready var attack_sounds = [$AttackSound1, $AttackSound2, $AttackSound3]
 
 # --- STATE ---
 var current_health = 3
@@ -113,13 +116,13 @@ func _physics_process(delta: float) -> void:
 			velocity.y = wall_jump_force 
 			velocity.x = -look_dir_x * wall_jump_push
 			wall_jump_lock = 0.2 
-			# play_random_jump_sound() 
+			play_random_jump_sound() 
 			
 		# B. Normal & Double Jump
 		elif jump_count < max_jumps:
 			velocity.y = jump_power
 			jump_count += 1
-			# play_random_jump_sound() 
+			play_random_jump_sound() 
 
 	# --- DASH INPUT ---
 	if Input.is_action_just_pressed("Dash") and has_dash_memory and can_dash:
@@ -151,13 +154,18 @@ func play_random_jump_sound():
 		var selected_sound = jump_sounds[random_index]
 		selected_sound.play()
 
-# NEW FUNCTION
 func play_random_hurt_sound():
 	if not hurt_sounds.is_empty():
 		var random_index = randi() % hurt_sounds.size()
 		var selected_sound = hurt_sounds[random_index]
 		selected_sound.play()
 
+# NEW FUNCTION
+func play_random_attack_sound():
+	if not attack_sounds.is_empty():
+		var random_index = randi() % attack_sounds.size()
+		var selected_sound = attack_sounds[random_index]
+		selected_sound.play()
 
 # --- ACTIONS ---
 
@@ -184,6 +192,9 @@ func start_dash():
 
 func attack():
 	is_attacking = true
+	# Play random attack sound here (NEW!)
+	play_random_attack_sound()
+	
 	if animation_player:
 		animation_player.play("Attack")
 		await animation_player.animation_finished
@@ -218,7 +229,7 @@ func take_damage(amount, enemy_pos = Vector2.ZERO):
 	if is_hurt or is_dashing: 
 		return 
 
-	# PLAY RANDOM HURT SOUND HERE (NEW!)
+	# PLAY RANDOM HURT SOUND HERE 
 	play_random_hurt_sound() 
 	
 	current_health -= amount
