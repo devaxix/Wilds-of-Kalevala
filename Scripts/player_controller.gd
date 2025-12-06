@@ -2,7 +2,7 @@ class_name PlayerController
 extends CharacterBody2D
 
 # --- VARIABLES ---
-@export var speed = 900
+@export var speed = 900 
 @export var jump_power = -500
 @export var max_health = 3
 @export var knockback_force = 300
@@ -17,24 +17,27 @@ extends CharacterBody2D
 @export var dash_duration = 0.2
 @export var dash_cooldown = 1.0
 
-@export var game_ui : CanvasLayer
+@export var game_ui : CanvasLayer 
 
 # --- NODES ---
 @onready var sprite = $PlayerAnimator/Sprite2D
 @onready var animation_player = $AnimationPlayer
-@onready var wall_jump_check = $WallJumpCheck
+@onready var wall_jump_check = $WallJumpCheck 
 
-# JUMP SOUNDS (ADJUSTED TO 3 SOUNDS)
-@onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3]
+# JUMP SOUNDS (FIXED to 5 - matching the available nodes in the scene)
+@onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3, $JumpSound4, $JumpSound5]
 
-# HURT SOUNDS (ADJUSTED TO 4 SOUNDS)
-@onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4]
+# HURT SOUNDS (FIXED to 5 - matching the available nodes in the scene)
+@onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4, $HurtSound5]
 
-# ATTACK SOUNDS (Voice/Grunt - ADJUSTED TO 3 SOUNDS)
-@onready var attack_sounds = [$AttackSound1, $AttackSound2, $AttackSound3]
+# ATTACK SOUNDS (FIXED to 4 - matching the available nodes in the scene)
+@onready var attack_sounds = [$AttackSound1, $AttackSound2, $AttackSound3, $AttackSound4]
 
-# FEMALE SWORD SOUNDS (5 SOUNDS - ASSUMES NODES FSwordSound1-5 EXIST)
-@onready var f_sword_sounds = [$FSwordSound1, $FSwordSound2, $FSwordSound3, $FSwordSound4, $FSwordSound5]
+# SWORD SOUNDS (CORRECTED NAME: SwordSound, FIXED to 5)
+@onready var sword_sounds = [$SwordSound1, $SwordSound2, $SwordSound3, $SwordSound4, $SwordSound5]
+
+# FOOTSTEP SOUND NODE (Must be present in scene)
+@onready var footstep_sound = $FootstepSound 
 
 # --- STATE ---
 var current_health = 3
@@ -42,23 +45,23 @@ var direction = 0
 var look_dir_x = 1
 
 # MEMORIES
-var has_sword_memory = false
-var has_wall_jump_memory = false
-var has_double_jump_memory = false
-var has_dash_memory = false
+var has_sword_memory = false 
+var has_wall_jump_memory = false 
+var has_double_jump_memory = false 
+var has_dash_memory = false 
  
 var is_attacking = false
 var is_hurt = false
-var is_dashing = false
-var can_dash = true
+var is_dashing = false 
+var can_dash = true 
 
 # CUTSCENE STATE 
-var is_cutscene = false
+var is_cutscene = false 
 
 # Wall Jump & Double Jump Logic
 var wall_jump_lock = 0.0
-var jump_count = 0
-var max_jumps = 1
+var jump_count = 0 
+var max_jumps = 1 
 
 func _ready():
 	current_health = max_health
@@ -68,15 +71,15 @@ func _ready():
 		game_ui.update_hearts(current_health)
 		
 func _physics_process(delta: float) -> void:
-	if is_cutscene:
+	if is_cutscene: 
 		return
 
 	# --- DASH PHYSICS ---
 	if is_dashing:
-		velocity.y = 0
+		velocity.y = 0 
 		velocity.x = look_dir_x * dash_speed
 		move_and_slide()
-		return
+		return 
 
 	# 1. GRAVITY
 	if not is_on_floor():
@@ -84,14 +87,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		jump_count = 0
 		# Reset dash if timer is done and we are on floor
-		if not is_dashing and has_node("DashTimer") and $DashTimer.time_left == 0:
+		if not is_dashing and has_node("DashTimer") and $DashTimer.time_left == 0: 
 			can_dash = true
 
 	# 2. HURT LOCK
 	if is_hurt:
 		velocity.x = move_toward(velocity.x, 0, 10)
 		move_and_slide()
-		return
+		return 
 
 	# 3. UPDATE DIRECTION & SENSORS
 	direction = Input.get_axis("Move Left", "Move Right")
@@ -100,27 +103,27 @@ func _physics_process(delta: float) -> void:
 		look_dir_x = sign(velocity.x)
 	
 	if direction != 0:
-		$WallJumpCheck.target_position.x = 15 * direction
+		wall_jump_check.target_position.x = 15 * direction
 
 	# 4. WALL SLIDE LOGIC
-	if has_wall_jump_memory and $WallJumpCheck.is_colliding() and not is_on_floor() and velocity.y > 0:
+	if has_wall_jump_memory and wall_jump_check.is_colliding() and not is_on_floor() and velocity.y > 0:
 		velocity.y = wall_slide_gravity
-		jump_count = 0
+		jump_count = 0 
 
 	# 5. JUMP & WALL JUMP & DOUBLE JUMP
 	if Input.is_action_just_pressed("Jump"):
-		# A. Wall Jump
-		if not is_on_floor() and has_wall_jump_memory and $WallJumpCheck.is_colliding():
-			velocity.y = wall_jump_force
-			velocity.x = -look_dir_x * wall_jump_push
-			wall_jump_lock = 0.2
-			play_random_jump_sound()
+		# A. Wall Jump 
+		if not is_on_floor() and has_wall_jump_memory and wall_jump_check.is_colliding():
+			velocity.y = wall_jump_force 
+			velocity.x = -look_dir_x * wall_jump_push 
+			wall_jump_lock = 0.2 
+			play_random_jump_sound() 
 			
 		# B. Normal & Double Jump
 		elif jump_count < max_jumps:
 			velocity.y = jump_power
 			jump_count += 1
-			play_random_jump_sound()
+			play_random_jump_sound() 
 
 	# --- DASH INPUT ---
 	if Input.is_action_just_pressed("Dash") and has_dash_memory and can_dash:
@@ -164,11 +167,17 @@ func play_random_attack_sound():
 		var selected_sound = attack_sounds[random_index]
 		selected_sound.play()
 		
-func play_random_f_sword_sound():
-	if not f_sword_sounds.is_empty():
-		var random_index = randi() % f_sword_sounds.size()
-		var selected_sound = f_sword_sounds[random_index]
+# RENAMED FUNCTION to match new array name
+func play_random_sword_sound():
+	if not sword_sounds.is_empty():
+		var random_index = randi() % sword_sounds.size()
+		var selected_sound = sword_sounds[random_index]
 		selected_sound.play()
+
+func play_footstep_sound():
+	if is_on_floor() and abs(velocity.x) > 10:
+		if is_instance_valid(footstep_sound) and not footstep_sound.is_playing(): 
+			footstep_sound.play()
 
 # --- ACTIONS ---
 
@@ -198,7 +207,7 @@ func attack():
 	# Play random attack sound (voice/grunt)
 	play_random_attack_sound()
 	# Play random sword sound (slash/hit) 
-	play_random_f_sword_sound() 
+	play_random_sword_sound() # <-- Calling the corrected function
 	
 	if animation_player:
 		animation_player.play("Attack")
@@ -207,7 +216,6 @@ func attack():
 		animation_player.play("Idle")
 
 # --- MEMORY UNLOCKS ---
-
 func unlock_sword_memory():
 	has_sword_memory = true
 	# GameManager.unlocked_sword = true
