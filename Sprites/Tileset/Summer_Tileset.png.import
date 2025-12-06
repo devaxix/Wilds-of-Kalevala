@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgegstv8n0fko"
-path="res://.godot/imported/spring_tiles.png-abbf5a49ae405ad47a8a1f12fdbbe56d.ctex"
+uid="uid://bpmchjwvvqhor"
+path="res://.godot/imported/Summer_Tileset.png-f7d5ede494058e78f39cd5b81b246432.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tileset/spring_tiles.png"
-dest_files=["res://.godot/imported/spring_tiles.png-abbf5a49ae405ad47a8a1f12fdbbe56d.ctex"]
+source_file="res://Sprites/Tileset/Summer_Tileset.png"
+dest_files=["res://.godot/imported/Summer_Tileset.png-f7d5ede494058e78f39cd5b81b246432.ctex"]
 
 [params]
 

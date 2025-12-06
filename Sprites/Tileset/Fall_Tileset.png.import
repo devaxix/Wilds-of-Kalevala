@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyphq4tu5d1pi"
-path="res://.godot/imported/winter_tiles.png-f9f6d147e856c1d2d8e6243bbae9b36d.ctex"
+uid="uid://dow7tdgrsvqrf"
+path="res://.godot/imported/Fall_Tileset.png-f1157e2d9b2e0872cecdc82a07666e17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tileset/winter_tiles.png"
-dest_files=["res://.godot/imported/winter_tiles.png-f9f6d147e856c1d2d8e6243bbae9b36d.ctex"]
+source_file="res://Sprites/Tileset/Fall_Tileset.png"
+dest_files=["res://.godot/imported/Fall_Tileset.png-f1157e2d9b2e0872cecdc82a07666e17.ctex"]
 
 [params]
 

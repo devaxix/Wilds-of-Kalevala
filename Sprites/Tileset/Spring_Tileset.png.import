@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccbon2xjxpgvh"
-path="res://.godot/imported/all_tiles.png-e169589e75bed8a428f83318736f64f6.ctex"
+uid="uid://cummbkr22ugo7"
+path="res://.godot/imported/Spring_Tileset.png-9559002c9dd08ac3b50fc9d4870a563f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tileset/all_tiles.png"
-dest_files=["res://.godot/imported/all_tiles.png-e169589e75bed8a428f83318736f64f6.ctex"]
+source_file="res://Sprites/Tileset/Spring_Tileset.png"
+dest_files=["res://.godot/imported/Spring_Tileset.png-9559002c9dd08ac3b50fc9d4870a563f.ctex"]
 
 [params]
 
