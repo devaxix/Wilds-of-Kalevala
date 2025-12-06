@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cyboia0e6ypec"]
+[gd_scene load_steps=43 format=4 uid="uid://cyboia0e6ypec"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_xevsr"]
 [ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="3_bvg2g"]
@@ -22,6 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://bln748w0obwhj" path="res://Music/ES_Crows, Birds, Light Wind - Epidemic Sound.mp3" id="20_i770q"]
 [ext_resource type="AudioStream" uid="uid://beq4g6qbscm74" path="res://Music/ES_Gentle Wind, Leaves Rustling, Acorns Falling, Eurasian Treecreeper, Deciduous Forest, Autumn, Afternoon - Epidemic Sound.mp3" id="21_feudw"]
 [ext_resource type="AudioStream" uid="uid://cqruwsphfpa56" path="res://Music/ES_Wind, Vegetation, Leaves Blowing, Hard Textured, Up Close Details, Autumn - Epidemic Sound.mp3" id="22_ikfvo"]
+[ext_resource type="AudioStream" uid="uid://cegmua62uv7tv" path="res://Music/ES_Wing Flaps 01 - Epidemic Sound.mp3" id="23_7l5i1"]
+[ext_resource type="AudioStream" uid="uid://dxe3gfy51ocfw" path="res://Music/ES_Wing Flaps 02 - Epidemic Sound.mp3" id="24_114uf"]
+[ext_resource type="AudioStream" uid="uid://gvy5608kb3m8" path="res://Music/ES_Wing Flaps 03 - Epidemic Sound.mp3" id="25_ddedw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xevsr"]
 shader = ExtResource("3_bvg2g")
@@ -389,7 +392,7 @@ shape = SubResource("RectangleShape2D_lx0ev")
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6bpah")
-volume_db = -9.756
+volume_db = -10.668
 autoplay = true
 parameters/looping = true
 
@@ -428,5 +431,23 @@ autoplay = true
 
 [node name="LeavesBlowingAmbiance" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_ikfvo")
-volume_db = -20.983
+volume_db = -15.509
 autoplay = true
+
+[node name="RandomSFXTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="RandomSFX1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_7l5i1")
+volume_db = -12.772
+
+[node name="RandomSFX2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_114uf")
+volume_db = -8.211
+
+[node name="RandomSFX3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_ddedw")
+volume_db = -8.211
+
+[connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]

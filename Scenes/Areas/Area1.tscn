@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://dsqj4dxsb7nqo"]
+[gd_scene load_steps=63 format=4 uid="uid://dsqj4dxsb7nqo"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_b6jro"]
 [ext_resource type="Texture2D" uid="uid://b5d1uqy4v84sg" path="res://Sprites/Backgrounds/Background for Scene 1/1.png" id="1_fy23r"]
@@ -31,6 +31,11 @@
 [ext_resource type="PackedScene" uid="uid://cavdv6o45voju" path="res://Scenes/Areas/DashOrb.tscn" id="29_vlhvw"]
 [ext_resource type="PackedScene" uid="uid://rislb48q84vo" path="res://Scenes/Areas/DoubleJumpOrb.tscn" id="30_gtggk"]
 [ext_resource type="AudioStream" uid="uid://cht8jwieqm6r3" path="res://Music/Spring/Rain Spring.mp3" id="31_gtggk"]
+[ext_resource type="AudioStream" uid="uid://cmlcvdotdra1b" path="res://Music/ES_Singing Birds, Distant Traffic - Epidemic Sound.mp3" id="32_igm4n"]
+[ext_resource type="AudioStream" uid="uid://thas45abyhu0" path="res://Music/woodpeckig good.mp3" id="33_flpfg"]
+[ext_resource type="AudioStream" uid="uid://cegmua62uv7tv" path="res://Music/ES_Wing Flaps 01 - Epidemic Sound.mp3" id="34_agcdg"]
+[ext_resource type="AudioStream" uid="uid://dxe3gfy51ocfw" path="res://Music/ES_Wing Flaps 02 - Epidemic Sound.mp3" id="35_rjurg"]
+[ext_resource type="AudioStream" uid="uid://gvy5608kb3m8" path="res://Music/ES_Wing Flaps 03 - Epidemic Sound.mp3" id="36_xgnn0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2qs6"]
 shader = ExtResource("14_ijv2f")
@@ -3221,7 +3226,7 @@ shape = SubResource("RectangleShape2D_lx0ev")
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_lwdtn")
-volume_db = -5.0
+volume_db = -11.386
 autoplay = true
 parameters/looping = true
 
@@ -3266,5 +3271,37 @@ color = Color(0.8153955, 0.8153955, 0.8153955, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="CanvasModulate"]
 stream = ExtResource("31_gtggk")
-volume_db = 5.0
+volume_db = -3.211
 autoplay = true
+
+[node name="SpringBirdAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_igm4n")
+volume_db = -14.596
+autoplay = true
+
+[node name="WoodpeckerAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_flpfg")
+volume_db = -13.685
+
+[node name="WoodpeckerSFXTimer" type="Timer" parent="WoodpeckerAmbiance"]
+wait_time = 13.0
+autostart = true
+
+[node name="RandomSFXTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="RandomSFX1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_agcdg")
+volume_db = -11.885
+
+[node name="RandomSFX2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_rjurg")
+volume_db = -9.123
+
+[node name="RandomSFX3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_xgnn0")
+volume_db = -10.035
+
+[connection signal="timeout" from="WoodpeckerAmbiance/WoodpeckerSFXTimer" to="." method="_on_woodpecker_sfx_timer_timeout"]
+[connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]

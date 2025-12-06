@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://favsoqxjmbpc"]
+[gd_scene load_steps=47 format=4 uid="uid://favsoqxjmbpc"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_7eltc"]
 [ext_resource type="Texture2D" uid="uid://b5lw4wl7maqmh" path="res://Sprites/Backgrounds/Summer Background/1.Backround.png" id="2_omsia"]
@@ -15,10 +15,17 @@
 [ext_resource type="Texture2D" uid="uid://d0wx1wxal44rl" path="res://Sprites/Tileset/winter_tilesclimbable.png" id="13_nrjyd"]
 [ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="14_ppb1h"]
 [ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="15_5v7ck"]
-[ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="16_4h8ee"]
+[ext_resource type="AudioStream" uid="uid://cts7p8ttcm2cm" path="res://Music/bliss (concept).mp3" id="16_xgsv1"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="17_2en5k"]
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_fj0ah"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_t8x0o"]
+[ext_resource type="AudioStream" uid="uid://bonevwnrncl5s" path="res://Music/ES_Forest Summer High Pitched Birds - Epidemic Sound.mp3" id="20_3qng5"]
+[ext_resource type="AudioStream" uid="uid://nj8hjn5djsob" path="res://Music/bee-landing-on-flower-374609.mp3" id="21_ypvqy"]
+[ext_resource type="AudioStream" uid="uid://d2q76rfyy0iuw" path="res://Music/heat-bugs-summer-insect-cicadas-various-clean-77mel-190831-18891.mp3" id="22_tkrm1"]
+[ext_resource type="AudioStream" uid="uid://bisu7kn1u6p66" path="res://Music/ES_Creek, Big Stream, 2m - Epidemic Sound.mp3" id="23_3qng5"]
+[ext_resource type="AudioStream" uid="uid://cegmua62uv7tv" path="res://Music/ES_Wing Flaps 01 - Epidemic Sound.mp3" id="24_fnj0q"]
+[ext_resource type="AudioStream" uid="uid://dxe3gfy51ocfw" path="res://Music/ES_Wing Flaps 02 - Epidemic Sound.mp3" id="25_r5wtb"]
+[ext_resource type="AudioStream" uid="uid://gvy5608kb3m8" path="res://Music/ES_Wing Flaps 03 - Epidemic Sound.mp3" id="26_nbxv8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgsv1"]
 shader = ExtResource("3_7eltc")
@@ -422,8 +429,8 @@ scale = Vector2(12.38, 12.38)
 shape = SubResource("RectangleShape2D_lx0ev")
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_4h8ee")
-volume_db = -5.0
+stream = ExtResource("16_xgsv1")
+volume_db = -11.386
 autoplay = true
 parameters/looping = true
 
@@ -447,3 +454,45 @@ next_level_path = "uid://cyboia0e6ypec"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(1, 0.99607843, 0.8784314, 1)
+
+[node name="BirdAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_3qng5")
+volume_db = -11.86
+autoplay = true
+
+[node name="TimedSummerSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_ypvqy")
+volume_db = -23.819
+
+[node name="SummerSFXTimer" type="Timer" parent="TimedSummerSFX"]
+wait_time = 10.0
+autostart = true
+
+[node name="SummerLoopAmbiance2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_tkrm1")
+volume_db = -21.93
+autoplay = true
+
+[node name="RiverAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_3qng5")
+volume_db = -20.07
+autoplay = true
+
+[node name="RandomSFXTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="RandomSFX1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_fnj0q")
+volume_db = -11.86
+
+[node name="RandomSFX2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_r5wtb")
+volume_db = -8.211
+
+[node name="RandomSFX3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_nbxv8")
+volume_db = -8.21
+
+[connection signal="timeout" from="TimedSummerSFX/SummerSFXTimer" to="." method="_on_summer_sfx_timer_timeout"]
+[connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]

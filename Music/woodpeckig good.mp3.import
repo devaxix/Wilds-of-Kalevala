@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://thas45abyhu0"
+path="res://.godot/imported/woodpeckig good.mp3-2640623b2d26732deb4da89254361a78.mp3str"
+
+[deps]
+
+source_file="res://Music/woodpeckig good.mp3"
+dest_files=["res://.godot/imported/woodpeckig good.mp3-2640623b2d26732deb4da89254361a78.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
