@@ -25,13 +25,13 @@ extends CharacterBody2D
 @onready var wall_jump_check = $WallJumpCheck 
 
 # JUMP SOUNDS
-@onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3]
+@onready var jump_sounds = [$JumpSound1, $JumpSound2, $JumpSound3, $JumpSound4, $JumpSound5]
 
 # HURT SOUNDS
-@onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4]
+@onready var hurt_sounds = [$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4, $HurtSound5]
 
-# ATTACK SOUNDS (NEWLY ADDED)
-@onready var attack_sounds = [$AttackSound1, $AttackSound2, $AttackSound3]
+# ATTACK SOUNDS (UPDATED for 4 sounds!)
+@onready var attack_sounds = [$AttackSound1, $AttackSound2, $AttackSound3, $AttackSound4]
 
 # --- STATE ---
 var current_health = 3
@@ -63,10 +63,6 @@ func _ready():
 		$Camera2D2.reset_smoothing()
 	if game_ui:
 		game_ui.update_hearts(current_health)
-
-	# Load memories from the Global Game Manager (Commented out)
-	# if has_double_jump_memory:
-	# 	max_jumps = 2
 		
 func _physics_process(delta: float) -> void:
 	if is_cutscene:
@@ -160,7 +156,6 @@ func play_random_hurt_sound():
 		var selected_sound = hurt_sounds[random_index]
 		selected_sound.play()
 
-# NEW FUNCTION
 func play_random_attack_sound():
 	if not attack_sounds.is_empty():
 		var random_index = randi() % attack_sounds.size()
@@ -192,7 +187,7 @@ func start_dash():
 
 func attack():
 	is_attacking = true
-	# Play random attack sound here (NEW!)
+	# Play random attack sound here (NOW USES 4 SOUNDS!)
 	play_random_attack_sound()
 	
 	if animation_player:

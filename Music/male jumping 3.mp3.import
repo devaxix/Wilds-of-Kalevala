@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ehe5ftiipixy"
+path="res://.godot/imported/male jumping 3.mp3-44785c7cfec407f7b3171fdef4488722.mp3str"
+
+[deps]
+
+source_file="res://Music/male jumping 3.mp3"
+dest_files=["res://.godot/imported/male jumping 3.mp3-44785c7cfec407f7b3171fdef4488722.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

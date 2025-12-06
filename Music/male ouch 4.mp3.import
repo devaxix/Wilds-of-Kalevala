@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brwtewpva82mm"
+path="res://.godot/imported/male ouch 4.mp3-fb2d55cf93de8f8d7899d2a04feb72cf.mp3str"
+
+[deps]
+
+source_file="res://Music/male ouch 4.mp3"
+dest_files=["res://.godot/imported/male ouch 4.mp3-fb2d55cf93de8f8d7899d2a04feb72cf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://hogl4i6f6uxc"]
+[gd_scene load_steps=28 format=3 uid="uid://hogl4i6f6uxc"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/Boy/char_blue.png" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="3_xpcdj"]
+[ext_resource type="AudioStream" uid="uid://pldell0fsbh5" path="res://Music/male jumping 1.mp3" id="4_jlvik"]
+[ext_resource type="AudioStream" uid="uid://bxw3xrvjivmk" path="res://Music/Male jumping 2.mp3" id="5_gk6dx"]
+[ext_resource type="AudioStream" uid="uid://ehe5ftiipixy" path="res://Music/male jumping 3.mp3" id="6_jhyir"]
+[ext_resource type="AudioStream" uid="uid://d38c676kmjc1g" path="res://Music/male jumping 4.mp3" id="7_74mp2"]
+[ext_resource type="AudioStream" uid="uid://cvs2wabcxdwan" path="res://Music/male jumping 5.mp3" id="8_oikmp"]
+[ext_resource type="AudioStream" uid="uid://cdoimp1q4j0ab" path="res://Music/male ouch 1.mp3" id="9_06tpx"]
+[ext_resource type="AudioStream" uid="uid://3afp3jtfhc3n" path="res://Music/Male ouch 2.mp3" id="10_7g0yx"]
+[ext_resource type="AudioStream" uid="uid://51vdp6giwdcj" path="res://Music/male ouch 3.mp3" id="11_dey5f"]
+[ext_resource type="AudioStream" uid="uid://brwtewpva82mm" path="res://Music/male ouch 4.mp3" id="12_r5xpd"]
+[ext_resource type="AudioStream" uid="uid://lh1u3shxq4w0" path="res://Music/male ouch 5.mp3" id="13_ks1b7"]
+[ext_resource type="AudioStream" uid="uid://bbc45r5q0jvix" path="res://Music/male attacking 1.mp3" id="14_ks1b7"]
+[ext_resource type="AudioStream" uid="uid://v10oat57yd0s" path="res://Music/male attack 2.mp3" id="15_hnuln"]
+[ext_resource type="AudioStream" uid="uid://djb0oj7ykulls" path="res://Music/male attacking 3.mp3" id="16_aqm4k"]
+[ext_resource type="AudioStream" uid="uid://bpgcaowpmnuca" path="res://Music/male attacking 4.mp3" id="17_rcvs5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 
@@ -216,6 +230,48 @@ collision_mask = 8
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="JumpSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jlvik")
+
+[node name="JumpSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gk6dx")
+
+[node name="JumpSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jhyir")
+
+[node name="JumpSound4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_74mp2")
+
+[node name="JumpSound5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_oikmp")
+
+[node name="HurtSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_06tpx")
+
+[node name="HurtSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7g0yx")
+
+[node name="HurtSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_dey5f")
+
+[node name="HurtSound4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_r5xpd")
+
+[node name="HurtSound5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_ks1b7")
+
+[node name="AttackSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_ks1b7")
+
+[node name="AttackSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_hnuln")
+
+[node name="AttackSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_aqm4k")
+
+[node name="AttackSound4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_rcvs5")
 
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

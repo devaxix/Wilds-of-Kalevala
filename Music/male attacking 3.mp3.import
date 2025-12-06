@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djb0oj7ykulls"
+path="res://.godot/imported/male attacking 3.mp3-384d1e62e71011c9cc48752ccded84fb.mp3str"
+
+[deps]
+
+source_file="res://Music/male attacking 3.mp3"
+dest_files=["res://.godot/imported/male attacking 3.mp3-384d1e62e71011c9cc48752ccded84fb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
