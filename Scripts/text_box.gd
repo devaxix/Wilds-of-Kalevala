@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var timer = $LetterDisplayTimer
 @onready var letter_sound = $LetterSound 
 @onready var next_indicator = $NinePatchRect/IndicatorPosition/NextIndicator
+
 const MAX_WIDTH = 256
 
 var text = ""
@@ -21,9 +22,8 @@ func _ready():
 
 func display_text(text_to_display: String):
 	text = text_to_display
-	label.text = text_to_display 
-	
-	await get_tree().process_frame
+	label.text = "" # Start empty!
+	letter_index = 0
 	
 	# 2. POP-UP ANIMATION
 	# Set pivot to center so it grows from the middle
@@ -34,28 +34,27 @@ func display_text(text_to_display: String):
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK)
 	
 	# 3. Reset Indicator
-	next_indicator.visible = false # Hide arrow while typing
+	next_indicator.visible = false 
 	
-	label.text = "" 
-	letter_index = 0
 	display_letter()
 
 func display_letter():
+	# Add one letter to the label
 	label.text += text[letter_index]
 	
 	letter_index += 1
+	
+	# CHECK IF DONE
 	if letter_index >= text.length():
-		# 4. SHOW INDICATOR
-		next_indicator.visible = true # Text done? Show arrow!
-		finished_displaying.emit()
+		finish_displaying_logic()
 		return
 	
-	# (Sound logic stays here...)
+	# SOUND LOGIC
 	if text[letter_index - 1] != " ":
 		letter_sound.pitch_scale = randf_range(0.9, 1.1)
 		letter_sound.play()
 	
-	# (Timing logic stays here...)
+	# TIMING LOGIC (Punctuation Pauses)
 	match text[letter_index]:
 		"!", ".", "?": timer.start(0.6)
 		",": timer.start(0.2)
@@ -65,14 +64,25 @@ func display_letter():
 func _on_letter_display_timer_timeout():
 	display_letter()
 
+# --- SKIP FUNCTION ---
+func skip_typing():
+	# 1. Stop the timer so it doesn't keep trying to add letters
+	timer.stop()
+	
+	# 2. Force the label to show the FULL text immediately
+	label.text = text
+	
+	# 3. Trigger the finish logic
+	finish_displaying_logic()
+
+func finish_displaying_logic():
+	next_indicator.visible = true # Show arrow
+	finished_displaying.emit()
+
 func close():
 	var tween = create_tween()
 	# Scale down to (0, 0)
-	# EASE_IN makes it start slow and zoom out fast
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	
-	# Wait for the animation to finish
 	await tween.finished
-	
-	# Delete the object
 	queue_free()
