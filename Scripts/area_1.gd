@@ -1,11 +1,28 @@
 extends Node2D
 
 @onready var spawn_point = $PlayerSpawnPoint
-@onready var game_ui = $GameUI # Make sure your UI is in the scene!
+@onready var game_ui = $GameUI
+@onready var wind_ambiance = $WindAmbiance
+@onready var crow_ambiance = $CrowAmbiance
+@onready var acorn_ambiance = $AcornAmbiance
+@onready var leaves_blowing_ambiance = $LeavesBlowingAmbiance # New reference for leaves sound!
 
 func _ready():
+	# 1. Start all continuous ambiance sounds
+	if is_instance_valid(wind_ambiance):
+		wind_ambiance.play()
+		
+	if is_instance_valid(crow_ambiance):
+		crow_ambiance.play()
+		
+	if is_instance_valid(acorn_ambiance):
+		acorn_ambiance.play()
+		
+	if is_instance_valid(leaves_blowing_ambiance): # Start the new leaves sound loop
+		leaves_blowing_ambiance.play()
+		
+	# 2. Spawn the Player
 	spawn_player()
-	# ... your spawning logic ...
 	
 	# Wait a split second so the player sees the level load
 	await get_tree().create_timer(0.7).timeout
@@ -17,7 +34,6 @@ func _ready():
 	]
 	
 	# Start the dialogue above the Spawn Point
-	# (You can use the player's position if you have a reference to them)
 	DialogueManager.start_dialogue($PlayerSpawnPoint.global_position, lines)
 	
 func spawn_player():
@@ -33,7 +49,7 @@ func spawn_player():
 	# 4. CRITICAL: Name it "Player" so the Skeleton can find it!
 	player_instance.name = "Player"
 	
-	# 5. Connect the UI manually (since we can't drag-and-drop in inspector anymore)
+	# 5. Connect the UI manually
 	player_instance.game_ui = game_ui
 	
 	# 6. Add it to the world
