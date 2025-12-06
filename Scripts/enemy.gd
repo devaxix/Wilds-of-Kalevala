@@ -27,6 +27,12 @@ var state = WALK
 # Attack Sound
 @onready var attack_sound = $AttackSound 
 
+# Hit Sound
+@onready var hit_sound = $HitSound 
+
+# NEW Death Sound
+@onready var death_sound = $DeathSound 
+
 # Store the original position of the sword so we know where to flip it to
 @onready var default_attack_x = attack_area.position.x
 
@@ -138,6 +144,9 @@ func take_damage(amount, source_pos = Vector2.ZERO):
 	
 	current_health -= amount
 	
+	# Play the hit sound 
+	hit_sound.play()
+	
 	# STOP SOUNDS: Stop ALL movement sounds immediately upon taking damage
 	walking_sound.stop()
 	skeleton_footsteps.stop()
@@ -166,6 +175,10 @@ func take_damage(amount, source_pos = Vector2.ZERO):
 func start_death_sequence():
 	is_dying = true
 	state = DIE
+	
+	# Play the death sound immediately
+	death_sound.play()
+	
 	sprite.modulate = Color.WHITE
 	anim_player.stop()
 	anim_player.play("Die")
