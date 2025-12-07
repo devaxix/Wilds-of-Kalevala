@@ -3748,6 +3748,7 @@ glow_blend_mode = 1
 
 [node name="Area1" type="Node2D"]
 script = ExtResource("1_7eltc")
+level_season = "Summer"
 
 [node name="Layer Hub2" type="Node2D" parent="."]
 

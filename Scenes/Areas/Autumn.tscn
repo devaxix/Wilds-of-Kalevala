@@ -306,6 +306,7 @@ glow_blend_mode = 1
 
 [node name="Area1" type="Node2D"]
 script = ExtResource("1_xevsr")
+level_season = "Autumn"
 
 [node name="Layer Hub2" type="Node2D" parent="."]
 

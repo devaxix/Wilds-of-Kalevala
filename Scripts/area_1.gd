@@ -1,15 +1,18 @@
 extends Node2D
 
+# --- NEW: LEVEL CONFIGURATION ---
+# This creates a dropdown menu in the Inspector.
+# IMPORTANT: You must set this value for each scene (Area1, Summer, Autumn) in the editor!
+@export_enum("Spring", "Summer", "Autumn", "Winter") var level_season: String = "Spring"
+
 @onready var spawn_point = $PlayerSpawnPoint
 @onready var game_ui = $GameUI
 
-# --- HEALTH UI REFERENCES (FIXED PATHS) ---
-# We must look inside GameUI to find the HeartContainer
+# --- HEALTH UI REFERENCES ---
 @onready var heart1 = $GameUI/HeartContainer/Heart1 if has_node("GameUI/HeartContainer/Heart1") else null
 @onready var heart2 = $GameUI/HeartContainer/Heart2 if has_node("GameUI/HeartContainer/Heart2") else null
 @onready var heart3 = $GameUI/HeartContainer/Heart3 if has_node("GameUI/HeartContainer/Heart3") else null
 
-# Load heart textures (Ensure these match your files exactly)
 const FULL_HEART: Texture2D = preload("res://Sprites/heart.png")
 const EMPTY_HEART: Texture2D = preload("res://Sprites/empty heart 1.png")
 
@@ -38,6 +41,12 @@ const EMPTY_HEART: Texture2D = preload("res://Sprites/empty heart 1.png")
 @onready var random_sfx_3 = $RandomSFX3 if has_node("RandomSFX3") else null
 
 func _ready():
+	# --- CRITICAL FIX: Update the Manager ---
+	# This ensures the Player script knows what footstep sound to play!
+	if is_instance_valid(GameManager):
+		GameManager.current_season = level_season
+		print("Level Loaded. Season updated to: ", level_season)
+
 	# 1. Start Ambiance
 	if is_instance_valid(wind_ambiance): wind_ambiance.play()
 	if is_instance_valid(crow_ambiance): crow_ambiance.play()
