@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qw0wnj7p05ge"
+path="res://.godot/imported/ES_Walking, Wet Sludgy Mud - Epidemic Sound.mp3-260858c327dd413e4af79ab854511761.mp3str"
+
+[deps]
+
+source_file="res://Music/ES_Walking, Wet Sludgy Mud - Epidemic Sound.mp3"
+dest_files=["res://.godot/imported/ES_Walking, Wet Sludgy Mud - Epidemic Sound.mp3-260858c327dd413e4af79ab854511761.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

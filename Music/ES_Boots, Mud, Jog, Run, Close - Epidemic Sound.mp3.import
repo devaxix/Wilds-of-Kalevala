@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k8q82c76qfy8"
+path="res://.godot/imported/ES_Boots, Mud, Jog, Run, Close - Epidemic Sound.mp3-b4d667a31f5c3a9b2e3f60c6d035c7fc.mp3str"
+
+[deps]
+
+source_file="res://Music/ES_Boots, Mud, Jog, Run, Close - Epidemic Sound.mp3"
+dest_files=["res://.godot/imported/ES_Boots, Mud, Jog, Run, Close - Epidemic Sound.mp3-b4d667a31f5c3a9b2e3f60c6d035c7fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,11 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://cntr1cjbwcs5t"]
+[gd_scene load_steps=37 format=3 uid="uid://cntr1cjbwcs5t"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_powln"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="2_rqu0h"]
+[ext_resource type="AudioStream" uid="uid://k8q82c76qfy8" path="res://Music/ES_Boots, Mud, Jog, Run, Close - Epidemic Sound.mp3" id="2_ugqae"]
+[ext_resource type="AudioStream" uid="uid://0pb0umidn3i6" path="res://Music/ES_Barefoot, Grass, Sprint, Distant - Epidemic Sound.mp3" id="3_1ketb"]
 [ext_resource type="Texture2D" uid="uid://dh0fqtnqu1c63" path="res://Sprites/Character/Girl/Idle-Sheet.png" id="3_powln"]
+[ext_resource type="AudioStream" uid="uid://7baugefejjb6" path="res://Music/running on leaves.mp3" id="4_rok0s"]
 [ext_resource type="Texture2D" uid="uid://dg2g73e34qqx3" path="res://Sprites/Character/Girl/Attack-01-Sheet.png" id="4_tbx4k"]
 [ext_resource type="Texture2D" uid="uid://dsjalgatromm4" path="res://Sprites/Character/Girl/Jump-End-Sheet.png" id="4_uo1ex"]
 [ext_resource type="Texture2D" uid="uid://dr4gtfrtdk1cg" path="res://Sprites/Character/Girl/Jump-Start-Sheet.png" id="5_0bsmo"]
+[ext_resource type="AudioStream" uid="uid://bbduaop828v7o" path="res://Music/running snow.mp3" id="5_ikon7"]
 [ext_resource type="Texture2D" uid="uid://dd8per34sk20l" path="res://Sprites/Character/Girl/Run-Sheet.png" id="6_0bsmo"]
 [ext_resource type="AudioStream" uid="uid://dp8w2syf5vwlg" path="res://Music/Female Jump 1.mp3" id="8_4hc53"]
 [ext_resource type="AudioStream" uid="uid://23t5aaums3uh" path="res://Music/Female jump 2.mp3" id="9_rxjik"]
@@ -441,6 +445,10 @@ scale = Vector2(6.285, 6.285)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_powln")
+steps_spring = ExtResource("2_ugqae")
+steps_summer = ExtResource("3_1ketb")
+steps_autumn = ExtResource("4_rok0s")
+steps_winter = ExtResource("5_ikon7")
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("2_rqu0h")
