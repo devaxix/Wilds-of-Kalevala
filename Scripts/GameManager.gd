@@ -10,3 +10,5 @@ var unlocked_sword = false
 var unlocked_wall_jump = false
 var unlocked_double_jump = false
 var unlocked_dash = false
+
+var current_season = "Spring" # Default

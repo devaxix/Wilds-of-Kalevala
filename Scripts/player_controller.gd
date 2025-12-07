@@ -29,6 +29,12 @@ signal player_died
 @onready var wall_jump_check = $WallJumpCheck
 @onready var game_manager = get_tree().root.get_node("GameManager")
 
+# --- SEASONAL FOOTSTEPS ---
+@export var steps_spring : AudioStream
+@export var steps_summer : AudioStream # e.g., Grass/Dirt
+@export var steps_autumn : AudioStream # e.g., Leaves
+@export var steps_winter : AudioStream # e.g., Snow
+
 # JUMP SOUNDS 
 @onready var jump_sounds = [
 	$JumpSound1, $JumpSound2, $JumpSound3,
@@ -226,9 +232,39 @@ func play_random_sword_sound():
 		available_sounds[random_index].play()
 
 func play_footstep_sound():
-	if is_instance_valid(footstep_sound) and is_on_floor() and abs(velocity.x) > 10:
-		if not footstep_sound.is_playing():
-			footstep_sound.play()
+	# --- 1. Safety Checks ---
+	if not is_instance_valid(footstep_sound): return
+	if not is_on_floor(): return
+	# Good check: Prevents sound if player is just twitching or sliding slightly
+	if abs(velocity.x) < 10: return 
+	
+	# REMOVED: if footstep_sound.is_playing(): return
+	# Reason: We want the sound to restart instantly if we run fast!
+
+	# --- 2. Determine Sound ---
+	var sound_to_play = steps_spring # Default / Area1 Fallback
+	
+	# Check the Autoload (Make sure capitalization matches your Project Settings!)
+	# Usually Autoloads are global, so you don't need is_instance_valid unless it's a local node.
+	
+	match GameManager.current_season:
+		"Summer":
+			sound_to_play = steps_summer
+		"Autumn":
+			sound_to_play = steps_autumn
+		"Winter":
+			sound_to_play = steps_winter
+		"Spring", "Area1": # Explicitly adding Area1 makes the code easier to read later
+			sound_to_play = steps_spring
+
+	# --- 3. Swap Stream ---
+	if sound_to_play != null:
+		if footstep_sound.stream != sound_to_play:
+			footstep_sound.stream = sound_to_play
+	
+	# --- 4. Play ---
+	footstep_sound.pitch_scale = randf_range(0.9, 1.1)
+	footstep_sound.play()
 
 # --- ACTIONS (All previous logic) ---
 
