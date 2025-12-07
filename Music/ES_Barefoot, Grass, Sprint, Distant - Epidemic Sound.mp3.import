@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0pb0umidn3i6"
+path="res://.godot/imported/ES_Barefoot, Grass, Sprint, Distant - Epidemic Sound.mp3-775dc871dd60e3e6be6a83bc3e09487b.mp3str"
+
+[deps]
+
+source_file="res://Music/ES_Barefoot, Grass, Sprint, Distant - Epidemic Sound.mp3"
+dest_files=["res://.godot/imported/ES_Barefoot, Grass, Sprint, Distant - Epidemic Sound.mp3-775dc871dd60e3e6be6a83bc3e09487b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

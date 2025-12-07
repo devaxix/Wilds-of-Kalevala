@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://fud04dvvypdq"]
+[gd_scene load_steps=35 format=4 uid="uid://fud04dvvypdq"]
 
 [ext_resource type="Texture2D" uid="uid://da0kae7dfv0j1" path="res://Sprites/Backgrounds/Winter Last Scene Background/1.png" id="2_gqdrv"]
 [ext_resource type="Texture2D" uid="uid://drxqn68pe7xxg" path="res://Sprites/Backgrounds/Winter Last Scene Background/2.png" id="3_8xij0"]
@@ -12,11 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://cvdkep8bxmvah" path="res://Sprites/Backgrounds/Winter Last Scene Background/9.png" id="11_0c7fy"]
 [ext_resource type="Texture2D" uid="uid://bgegstv8n0fko" path="res://Sprites/Tileset/spring_tiles.png" id="13_dpiv4"]
 [ext_resource type="Texture2D" uid="uid://cu6fxh1vvb0qe" path="res://Sprites/Tileset/summer_tiles.png" id="14_gryjt"]
+[ext_resource type="AudioStream" uid="uid://djefh4tpqhyr2" path="res://Music/ambient-piano-relaxing-music-347950.mp3" id="15_puucy"]
 [ext_resource type="Texture2D" uid="uid://dyphq4tu5d1pi" path="res://Sprites/Tileset/winter_tiles.png" id="15_y5fo6"]
 [ext_resource type="Texture2D" uid="uid://ejriwjqcn27m" path="res://Sprites/Tileset/autumn_tiles.png" id="16_052qj"]
 [ext_resource type="Script" uid="uid://cjfe8gv43uelm" path="res://Scripts/cutscene_director.gd" id="18_2tyw7"]
 [ext_resource type="PackedScene" uid="uid://7c6wswpdc65p" path="res://Scenes/Areas/FoxActor.tscn" id="18_23k0h"]
-[ext_resource type="AudioStream" uid="uid://cywusoc1kjwp8" path="res://Music/dark theme concept 1.mp3" id="19_3ljan"]
+[ext_resource type="AudioStream" uid="uid://bm4tyi4m2bgc1" path="res://Music/ES_Gusts, Snow, Leaves, Howling - Epidemic Sound.mp3" id="18_lmgqg"]
 
 [sub_resource type="Curve" id="Curve_vgp7q"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9719108, 0.0, 0, 0]
@@ -367,8 +368,8 @@ tile_map_data = PackedByteArray("AAAAAAIAAgADAAAAAAABAAIAAgADAAAAAAACAAIAAgADAAA
 tile_set = SubResource("TileSet_rc4xh")
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_3ljan")
-volume_db = -80.0
+stream = ExtResource("15_puucy")
+volume_db = -8.842
 autoplay = true
 parameters/looping = true
 
@@ -486,3 +487,8 @@ Mom & Dad
 
 THANKS FOR PLAYING!"
 horizontal_alignment = 1
+
+[node name="WinterAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_lmgqg")
+volume_db = 1.825
+autoplay = true
