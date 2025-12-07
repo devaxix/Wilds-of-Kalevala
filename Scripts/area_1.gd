@@ -110,17 +110,3 @@ func spawn_player():
 	player_instance.name = "Player"
 	player_instance.game_ui = game_ui
 	add_child(player_instance)
-
-# --- FIX: USE CORRECT NAME "Camera2D2" ---
-	var camera = player_instance.get_node_or_null("Camera2D2") 
-	if camera:
-		# Top is always 0 (Top of the screen)
-		camera.limit_top = 0
-		# Left is always 0 (Left start of level)
-		camera.limit_left = 0
-		
-		# These two rely on your specific level size
-		camera.limit_bottom = camera_limit_bottom
-		camera.limit_right = camera_limit_right
-		
-		print("Camera limits set to: Bottom ", camera_limit_bottom, " Right ", camera_limit_right)
