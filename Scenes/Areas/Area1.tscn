@@ -4175,12 +4175,14 @@ environment = SubResource("Environment_b6jro")
 position = Vector2(0, 977.445)
 
 [node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
-position = Vector2(1103, 919)
+position = Vector2(3131, 627)
 scale = Vector2(0.23, 0.23)
+dialogue_lines = Array[String](["Your fingers remember the rough bark of the Great Oak.", "No wall is too high when the forest grants you purchase.", "Climb out of the dark. Reach for the sun that was hidden.", "Jump against a wall to Wall Jump!"])
 
 [node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
 position = Vector2(651, 913)
 scale = Vector2(0.23, 0.23)
+dialogue_lines = Array[String](["You feel a flicker of something familiar. A voice, a laugh. Maybe your own.", "The blue figure… it’s not running away. It’s showing you how to follow warmth again.", "The lightning of Ukko flows through your blade once more.", "Attack by pressing Left Click or Z."])
 
 [node name="LevelExit" parent="." instance=ExtResource("27_lfkt4")]
 position = Vector2(6880.0005, 744)
@@ -4188,12 +4190,14 @@ scale = Vector2(22.47, 22.47)
 next_level_path = "uid://favsoqxjmbpc"
 
 [node name="DashOrb" parent="." instance=ExtResource("29_vlhvw")]
-position = Vector2(818, 917)
+position = Vector2(1627, 875)
 scale = Vector2(0.23, 0.23)
+dialogue_lines = Array[String](["Your heart beats to the rhythm of the chase. You remember the hunt.", "Swift as the Elk of Hiisi, elusive as a shadow.", "Leave your past behind in a blur. Become the streak of light you once wished for.", "Press Shift to Dash."])
 
 [node name="DoubleJumpOrb" parent="." instance=ExtResource("30_gtggk")]
-position = Vector2(985, 922)
+position = Vector2(4129, 443)
 scale = Vector2(0.23, 0.23)
+dialogue_lines = Array[String](["A memory of feathers... or is it the wind?", "Ilmatar, the Spirit of the Air, lends you her breath.", "The earth is not your only foundation. You do not fall... you rise.", "Press Jump again in mid-air to Double Jump."])
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_vlhvw")
