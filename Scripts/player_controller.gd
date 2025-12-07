@@ -2,7 +2,7 @@ class_name PlayerController
 extends CharacterBody2D
 
 # --- VARIABLES ---
-@export var speed = 900
+@export var speed = 500
 @export var jump_power = -500
 @export var max_health = 3
 @export var knockback_force = 300
