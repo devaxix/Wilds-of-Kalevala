@@ -493,6 +493,7 @@ limit_top = -5000
 limit_bottom = 10000
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true

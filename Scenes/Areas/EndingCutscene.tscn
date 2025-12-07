@@ -29,35 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://b4t4ia1kolf2t" path="res://Sprites/Winter Cutscene/Trees02.png" id="23_gryjt"]
 [ext_resource type="Texture2D" uid="uid://bkkp2cgheyeix" path="res://Sprites/Winter Cutscene/Trees.png" id="24_y5fo6"]
 
-[sub_resource type="Curve" id="Curve_vgp7q"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9719108, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_kcicc"]
-curve = SubResource("Curve_vgp7q")
-
-[sub_resource type="Gradient" id="Gradient_efe4w"]
-offsets = PackedFloat32Array(0.34862384, 0.559633)
-colors = PackedColorArray(1, 1, 1, 0.3647059, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ot25"]
-gradient = SubResource("Gradient_efe4w")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pluyx"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1080, 1, 1)
-angular_velocity_min = -1.6093254e-05
-angular_velocity_max = 49.99998
-gravity = Vector3(-10, 100, 0)
-scale_max = 5.0
-color_initial_ramp = SubResource("GradientTexture1D_5ot25")
-alpha_curve = SubResource("CurveTexture_kcicc")
-turbulence_enabled = true
-turbulence_noise_speed_random = 0.0
-turbulence_influence_min = 0.020000001
-turbulence_influence_max = 0.080000006
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pluyx"]
 shader = ExtResource("4_gnrja")
 shader_parameter/speed = 1.0
@@ -117,6 +88,36 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/phase_offset = 0.0
+
+[sub_resource type="Curve" id="Curve_vgp7q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9719108, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kcicc"]
+curve = SubResource("Curve_vgp7q")
+
+[sub_resource type="Gradient" id="Gradient_efe4w"]
+offsets = PackedFloat32Array(0.34862384, 0.559633)
+colors = PackedColorArray(1, 1, 1, 0.3647059, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ot25"]
+gradient = SubResource("Gradient_efe4w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pluyx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1080, 1, 1)
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 49.99998
+gravity = Vector3(-10, 100, 0)
+scale_min = 3.0
+scale_max = 6.0
+color_initial_ramp = SubResource("GradientTexture1D_5ot25")
+alpha_curve = SubResource("CurveTexture_kcicc")
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pccjv"]
 texture = ExtResource("13_dpiv4")
@@ -4717,13 +4718,6 @@ position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("1_23k0h")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Layer Hub/Layer 1/Sprite2D"]
-position = Vector2(-59.999985, -164.40001)
-amount = 1200
-lifetime = 20.0
-preprocess = 10.0
-process_material = SubResource("ParticleProcessMaterial_pluyx")
-
 [node name="Layer 2" type="Parallax2D" parent="Layer Hub"]
 scroll_scale = Vector2(0.15, 1)
 repeat_size = Vector2(1920, 0)
@@ -4811,6 +4805,13 @@ material = SubResource("ShaderMaterial_peabj")
 position = Vector2(960, 540)
 scale = Vector2(3.3333333, 3.333333)
 texture = ExtResource("11_0c7fy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Layer Hub/Layer 9/Sprite2D"]
+position = Vector2(-59.99997, -164.40001)
+amount = 1200
+lifetime = 20.0
+preprocess = 10.0
+process_material = SubResource("ParticleProcessMaterial_pluyx")
 
 [node name="Normal Map" type="TileMapLayer" parent="."]
 light_mask = 3
