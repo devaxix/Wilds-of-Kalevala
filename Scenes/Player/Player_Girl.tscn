@@ -486,11 +486,10 @@ target_position = Vector2(15, 0)
 collision_mask = 8
 
 [node name="Camera2D2" type="Camera2D" parent="."]
-offset = Vector2(0, -150)
 process_callback = 0
 limit_left = -830
-limit_top = -5000
-limit_bottom = 10000
+limit_top = 0
+limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 
