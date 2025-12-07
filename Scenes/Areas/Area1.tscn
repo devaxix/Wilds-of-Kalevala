@@ -2781,10 +2781,6 @@ tile_set = SubResource("TileSet_d1xsq")
 [node name="Pause Menu" parent="." instance=ExtResource("8_emm07")]
 visible = false
 
-[node name="Enemy" parent="." instance=ExtResource("14_lx0ev")]
-position = Vector2(1912, 815.99994)
-scale = Vector2(6.385, 6.385)
-
 [node name="Enemy4" parent="." instance=ExtResource("14_lx0ev")]
 position = Vector2(9848, 487.99997)
 scale = Vector2(6.385, 6.385)
@@ -2843,12 +2839,12 @@ environment = SubResource("Environment_b6jro")
 position = Vector2(8, 824)
 
 [node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
-position = Vector2(3131, 627)
+position = Vector2(12066, 1394)
 scale = Vector2(0.23, 0.23)
 dialogue_lines = Array[String](["Your fingers remember the rough bark of the Great Oak.", "No wall is too high when the forest grants you purchase.", "Climb out of the dark. Reach for the sun that was hidden.", "Jump against a wall to Wall Jump!"])
 
 [node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
-position = Vector2(651, 913)
+position = Vector2(5094, 352)
 scale = Vector2(0.23, 0.23)
 dialogue_lines = Array[String](["You feel a flicker of something familiar. A voice, a laugh. Maybe your own.", "The blue figure… it’s not running away. It’s showing you how to follow warmth again.", "The lightning of Ukko flows through your blade once more.", "Attack by pressing Left Click or Z."])
 
@@ -2858,12 +2854,12 @@ scale = Vector2(22.47, 22.47)
 next_level_path = "uid://favsoqxjmbpc"
 
 [node name="DashOrb" parent="." instance=ExtResource("29_vlhvw")]
-position = Vector2(1627, 875)
+position = Vector2(23547, 973.99994)
 scale = Vector2(0.23, 0.23)
 dialogue_lines = Array[String](["Your heart beats to the rhythm of the chase. You remember the hunt.", "Swift as the Elk of Hiisi, elusive as a shadow.", "Leave your past behind in a blur. Become the streak of light you once wished for.", "Press Shift to Dash."])
 
 [node name="DoubleJumpOrb" parent="." instance=ExtResource("30_gtggk")]
-position = Vector2(4129, 443)
+position = Vector2(2434, 833)
 scale = Vector2(0.23, 0.23)
 dialogue_lines = Array[String](["A memory of feathers... or is it the wind?", "Ilmatar, the Spirit of the Air, lends you her breath.", "The earth is not your only foundation. You do not fall... you rise.", "Press Jump again in mid-air to Double Jump."])
 
