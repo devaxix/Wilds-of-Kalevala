@@ -3185,11 +3185,6 @@ position = Vector2(960.00024, 540)
 scale = Vector2(0.59999985, 0.60000014)
 texture = ExtResource("13_r2qs6")
 
-[node name="GameUI" parent="." instance=ExtResource("15_r6rcv")]
-offset = Vector2(-600, 0)
-scale = Vector2(0.15, 0.15)
-transform = Transform2D(0.15, 0, 0, 0.15, -600, 0)
-
 [node name="Normal Map" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(0, 758.875)
@@ -3257,9 +3252,7 @@ scale = Vector2(0.23, 0.23)
 position = Vector2(985, 922)
 scale = Vector2(0.23, 0.23)
 
-[node name="WeatherLayer" type="CanvasLayer" parent="."]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="WeatherLayer"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_vlhvw")
 position = Vector2(341, 200)
 amount = 1000
@@ -3302,6 +3295,11 @@ volume_db = -9.123
 [node name="RandomSFX3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_xgnn0")
 volume_db = -10.035
+
+[node name="GameUI" parent="." instance=ExtResource("15_r6rcv")]
+offset = Vector2(-600, 0)
+scale = Vector2(0.15, 0.15)
+transform = Transform2D(0.15, 0, 0, 0.15, -600, 0)
 
 [connection signal="timeout" from="WoodpeckerAmbiance/WoodpeckerSFXTimer" to="." method="_on_woodpecker_sfx_timer_timeout"]
 [connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]

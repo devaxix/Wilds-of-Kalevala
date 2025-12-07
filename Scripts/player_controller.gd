@@ -2,7 +2,7 @@ class_name PlayerController
 extends CharacterBody2D
 
 # --- VARIABLES ---
-@export var speed = 900 
+@export var speed = 900
 @export var jump_power = -500
 @export var max_health = 3
 @export var knockback_force = 300
@@ -17,39 +17,58 @@ extends CharacterBody2D
 @export var dash_duration = 0.2
 @export var dash_cooldown = 1.0
 
-@export var game_ui : CanvasLayer 
+@export var game_ui : CanvasLayer
+
+# --- HEALTH SIGNALS ---
+signal health_changed(new_health)
+signal player_died
 
 # --- NODES ---
 @onready var sprite = $PlayerAnimator/Sprite2D
 @onready var animation_player = $AnimationPlayer
-@onready var wall_jump_check = $WallJumpCheck 
+@onready var wall_jump_check = $WallJumpCheck
+@onready var game_manager = get_tree().root.get_node("GameManager")
 
-# JUMP SOUNDS (Conditionally load all 5 sounds to avoid crashing if one is missing)
+# JUMP SOUNDS 
 @onready var jump_sounds = [
-	$JumpSound1, $JumpSound2, $JumpSound3, 
-	$JumpSound4 if has_node("JumpSound4") else null,
-	$JumpSound5 if has_node("JumpSound5") else null
+    $JumpSound1, $JumpSound2, $JumpSound3,
+    $JumpSound4 if has_node("JumpSound4") else null,
+    $JumpSound5 if has_node("JumpSound5") else null
 ]
 
-# HURT SOUNDS (Conditionally load all 5 sounds)
+# HURT SOUNDS 
 @onready var hurt_sounds = [
-	$HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4, 
-	$HurtSound5 if has_node("HurtSound5") else null
+    $HurtSound1, $HurtSound2, $HurtSound3, $HurtSound4,
+    $HurtSound5 if has_node("HurtSound5") else null
 ]
 
-# ATTACK SOUNDS (Conditionally load all 4 sounds)
+# ATTACK SOUNDS 
 @onready var attack_sounds = [
-	$AttackSound1, $AttackSound2, $AttackSound3, 
-	$AttackSound4 if has_node("AttackSound4") else null
+    $AttackSound1, $AttackSound2, $AttackSound3,
+    $AttackSound4 if has_node("AttackSound4") else null
 ]
 
-# SWORD SOUNDS (Conditionally load all 5 sounds)
-@onready var sword_sounds = [
-	$SwordSound1, $SwordSound2, $SwordSound3, $SwordSound4, 
-	$SwordSound5 if has_node("SwordSound5") else null
-]
+# SWORD SOUNDS - CHECK BOTH NAMES (FIXED)
+@onready var sword_sounds = _get_sword_sounds()
 
-# FOOTSTEP SOUND NODE (Conditionally load this node)
+func _get_sword_sounds():
+    # Check for "FSword" (Girl Player)
+    if has_node("FSwordSound1"):
+        return [
+            $FSwordSound1, $FSwordSound2, $FSwordSound3, 
+            $FSwordSound4 if has_node("FSwordSound4") else null,
+            $FSwordSound5 if has_node("FSwordSound5") else null
+        ]
+    # Check for "Sword" (Boy Player)
+    elif has_node("SwordSound1"):
+        return [
+            $SwordSound1, $SwordSound2, $SwordSound3, 
+            $SwordSound4 if has_node("SwordSound4") else null,
+            $SwordSound5 if has_node("SwordSound5") else null
+        ]
+    return []
+
+# FOOTSTEP SOUND NODE (Must be present for the @onready to work)
 @onready var footstep_sound = $FootstepSound if has_node("FootstepSound") else null
 
 # --- STATE ---
@@ -58,235 +77,249 @@ var direction = 0
 var look_dir_x = 1
 
 # MEMORIES
-var has_sword_memory = false 
-var has_wall_jump_memory = false 
-var has_double_jump_memory = false 
-var has_dash_memory = false 
- 
+var has_sword_memory = false
+var has_wall_jump_memory = false
+var has_double_jump_memory = false
+var has_dash_memory = false
+
 var is_attacking = false
 var is_hurt = false
-var is_dashing = false 
-var can_dash = true 
+var is_dashing = false
+var can_dash = true
 
-# CUTSCENE STATE 
-var is_cutscene = false 
+# CUTSCENE STATE
+var is_cutscene = false
 
 # Wall Jump & Double Jump Logic
 var wall_jump_lock = 0.0
-var jump_count = 0 
-var max_jumps = 1 
+var jump_count = 0
+var max_jumps = 1
 
 func _ready():
-	current_health = max_health
-	if has_node("Camera2D2"):
-		$Camera2D2.reset_smoothing()
-	if game_ui:
-		game_ui.update_hearts(current_health)
-		
+    current_health = max_health
+    if has_node("Camera2D2"):
+        $Camera2D2.reset_smoothing()
+        
+    # CRITICAL: Load saved memories from the Game Manager
+    if is_instance_valid(game_manager):
+        has_sword_memory = game_manager.unlocked_sword
+        has_wall_jump_memory = game_manager.unlocked_wall_jump
+        has_double_jump_memory = game_manager.unlocked_double_jump
+        if has_double_jump_memory:
+            max_jumps = 2
+        has_dash_memory = game_manager.unlocked_dash
+
+# --- PHYSICS PROCESS (MOVEMENT & INPUT) ---
 func _physics_process(delta: float) -> void:
-	if is_cutscene: 
-		return
+    if is_cutscene:
+        return
 
-	# --- DASH PHYSICS ---
-	if is_dashing:
-		velocity.y = 0 
-		velocity.x = look_dir_x * dash_speed
-		move_and_slide()
-		return 
+    # --- DASH PHYSICS ---
+    if is_dashing:
+        velocity.y = 0
+        velocity.x = look_dir_x * dash_speed
+        move_and_slide()
+        return
 
-	# 1. GRAVITY
-	if not is_on_floor():
-		velocity.y += 980 * delta
-	else:
-		jump_count = 0
-		# Reset dash if timer is done and we are on floor
-		if not is_dashing and has_node("DashTimer") and $DashTimer.time_left == 0: 
-			can_dash = true
+    # 1. GRAVITY
+    if not is_on_floor():
+        velocity.y += 980 * delta
+    else:
+        jump_count = 0
+        if not is_dashing and has_node("DashTimer") and $DashTimer.time_left == 0:
+            can_dash = true
 
-	# 2. HURT LOCK
-	if is_hurt:
-		velocity.x = move_toward(velocity.x, 0, 10)
-		move_and_slide()
-		return 
+    # 2. HURT LOCK
+    if is_hurt:
+        velocity.x = move_toward(velocity.x, 0, 10)
+        move_and_slide()
+        return
 
-	# 3. UPDATE DIRECTION & SENSORS
-	direction = Input.get_axis("Move Left", "Move Right")
-	
-	if velocity.x != 0:
-		look_dir_x = sign(velocity.x)
-	
-	if direction != 0:
-		wall_jump_check.target_position.x = 15 * direction
+    # 3. UPDATE DIRECTION & SENSORS
+    direction = Input.get_axis("Move Left", "Move Right")
 
-	# 4. WALL SLIDE LOGIC
-	if has_wall_jump_memory and wall_jump_check.is_colliding() and not is_on_floor() and velocity.y > 0:
-		velocity.y = wall_slide_gravity
-		jump_count = 0 
+    if velocity.x != 0:
+        look_dir_x = sign(velocity.x)
 
-	# 5. JUMP & WALL JUMP & DOUBLE JUMP
-	if Input.is_action_just_pressed("Jump"):
-		# A. Wall Jump 
-		if not is_on_floor() and has_wall_jump_memory and wall_jump_check.is_colliding():
-			velocity.y = wall_jump_force 
-			velocity.x = -look_dir_x * wall_jump_push 
-			wall_jump_lock = 0.2 
-			play_random_jump_sound() 
-			
-		# B. Normal & Double Jump
-		elif jump_count < max_jumps:
-			velocity.y = jump_power
-			jump_count += 1
-			play_random_jump_sound() 
+    if direction != 0:
+        wall_jump_check.target_position.x = 15 * direction
 
-	# --- DASH INPUT ---
-	if Input.is_action_just_pressed("Dash") and has_dash_memory and can_dash:
-		start_dash()
+    # 4. WALL SLIDE LOGIC
+    if has_wall_jump_memory and wall_jump_check.is_colliding() and not is_on_floor() and velocity.y > 0:
+        velocity.y = wall_slide_gravity
+        jump_count = 0
 
-	# 6. MOVEMENT
-	if wall_jump_lock > 0:
-		wall_jump_lock -= delta
-	
-	if wall_jump_lock <= 0:
-		if direction:
-			velocity.x = direction * speed
-			if has_node("SwordHitbox"):
-				$SwordHitbox.scale.x = 1 if direction > 0 else -1
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
+    # 5. JUMP & WALL JUMP & DOUBLE JUMP
+    if Input.is_action_just_pressed("Jump"):
+        # A. Wall Jump
+        if not is_on_floor() and has_wall_jump_memory and wall_jump_check.is_colliding():
+            velocity.y = wall_jump_force
+            velocity.x = -look_dir_x * wall_jump_push
+            wall_jump_lock = 0.2
+            play_random_jump_sound()
 
-	# 7. ATTACK
-	if Input.is_action_just_pressed("Attack") and has_sword_memory and not is_attacking:
-		attack()
+        # B. Normal & Double Jump
+        elif jump_count < max_jumps:
+            velocity.y = jump_power
+            jump_count += 1
+            play_random_jump_sound()
 
-	move_and_slide()
+    # --- DASH INPUT ---
+    if Input.is_action_just_pressed("Dash") and has_dash_memory and can_dash:
+        start_dash()
 
-# --- AUDIO ACTIONS ---
+    # 6. MOVEMENT
+    if wall_jump_lock > 0:
+        wall_jump_lock -= delta
+
+    if wall_jump_lock <= 0:
+        if direction:
+            velocity.x = direction * speed
+            if has_node("SwordHitbox"):
+                $SwordHitbox.scale.x = 1 if direction > 0 else -1
+        else:
+            velocity.x = move_toward(velocity.x, 0, speed)
+
+    # 7. ATTACK
+    if Input.is_action_just_pressed("Attack") and has_sword_memory and not is_attacking:
+        attack()
+
+    move_and_slide()
+
+# --- AUDIO ACTIONS (All previous logic) ---
 
 func play_random_jump_sound():
-	# Filter out any null entries (nodes that don't exist in the current scene)
-	var available_sounds = jump_sounds.filter(func(sound): return is_instance_valid(sound))
-	if not available_sounds.is_empty():
-		var random_index = randi() % available_sounds.size()
-		available_sounds[random_index].play()
+    var available_sounds = jump_sounds.filter(func(sound): return is_instance_valid(sound))
+    if not available_sounds.is_empty():
+        var random_index = randi() % available_sounds.size()
+        available_sounds[random_index].play()
 
 func play_random_hurt_sound():
-	var available_sounds = hurt_sounds.filter(func(sound): return is_instance_valid(sound))
-	if not available_sounds.is_empty():
-		var random_index = randi() % available_sounds.size()
-		available_sounds[random_index].play()
+    var available_sounds = hurt_sounds.filter(func(sound): return is_instance_valid(sound))
+    if not available_sounds.is_empty():
+        var random_index = randi() % available_sounds.size()
+        available_sounds[random_index].play()
 
 func play_random_attack_sound():
-	var available_sounds = attack_sounds.filter(func(sound): return is_instance_valid(sound))
-	if not available_sounds.is_empty():
-		var random_index = randi() % available_sounds.size()
-		available_sounds[random_index].play()
-		
+    var available_sounds = attack_sounds.filter(func(sound): return is_instance_valid(sound))
+    if not available_sounds.is_empty():
+        var random_index = randi() % available_sounds.size()
+        available_sounds[random_index].play()
+
 func play_random_sword_sound():
-	var available_sounds = sword_sounds.filter(func(sound): return is_instance_valid(sound))
-	if not available_sounds.is_empty():
-		var random_index = randi() % available_sounds.size()
-		available_sounds[random_index].play()
+    # Use the pre-filtered sword_sounds array
+    var available_sounds = sword_sounds.filter(func(sound): return is_instance_valid(sound))
+    if not available_sounds.is_empty():
+        var random_index = randi() % available_sounds.size()
+        available_sounds[random_index].play()
 
 func play_footstep_sound():
-	# Only runs if the footstep_sound node actually exists on the current player
-	if is_instance_valid(footstep_sound) and is_on_floor() and abs(velocity.x) > 10:
-		if not footstep_sound.is_playing(): 
-			footstep_sound.play()
+    if is_instance_valid(footstep_sound) and is_on_floor() and abs(velocity.x) > 10:
+        if not footstep_sound.is_playing():
+            footstep_sound.play()
 
-# --- ACTIONS ---
+# --- ACTIONS (All previous logic) ---
 
 func start_dash():
-	print("Attempting to Dash...") 
-	is_dashing = true
-	can_dash = false
-	
-	# Flash White
-	if sprite: sprite.modulate = Color(10, 10, 10)
-	
-	await get_tree().create_timer(dash_duration).timeout
-	
-	# Reset
-	if sprite: sprite.modulate = Color(1, 1, 1)
-	
-	is_dashing = false
-	velocity.x = 0 
-	
-	if has_node("DashTimer"):
-		$DashTimer.start()
-	else:
-		print("ERROR: Missing DashTimer node!")
+    print("Attempting to Dash...")
+    is_dashing = true
+    can_dash = false
+
+    if sprite: sprite.modulate = Color(10, 10, 10)
+
+    await get_tree().create_timer(dash_duration).timeout
+
+    if sprite: sprite.modulate = Color(1, 1, 1)
+
+    is_dashing = false
+    velocity.x = 0
+
+    if has_node("DashTimer"):
+        $DashTimer.start()
+    else:
+        print("ERROR: Missing DashTimer node!")
 
 func attack():
-	is_attacking = true
-	play_random_attack_sound()
-	play_random_sword_sound() 
-	
-	if animation_player:
-		animation_player.play("Attack")
-		await animation_player.animation_finished
-		is_attacking = false
-		animation_player.play("Idle")
+    is_attacking = true
+    play_random_attack_sound()
+    play_random_sword_sound()
 
-# --- MEMORY UNLOCKS ---
+    if animation_player:
+        animation_player.play("Attack")
+        await animation_player.animation_finished
+        is_attacking = false
+        animation_player.play("Idle")
+
+# --- MEMORY UNLOCKS (All previous logic) ---
 func unlock_sword_memory():
-	has_sword_memory = true
-	print("MEMORY UNLOCKED: Sword!")
+    has_sword_memory = true
+    # CRITICAL: Update the permanent storage
+    if is_instance_valid(game_manager):
+        game_manager.unlocked_sword = true 
+    print("MEMORY UNLOCKED: Sword!")
 
 func unlock_wall_jump_memory():
-	has_wall_jump_memory = true
-	print("MEMORY UNLOCKED: Wall Jump!")
+    has_wall_jump_memory = true
+    if is_instance_valid(game_manager):
+        game_manager.unlocked_wall_jump = true
+    print("MEMORY UNLOCKED: Wall Jump!")
 
 func unlock_double_jump_memory():
-	has_double_jump_memory = true
-	max_jumps = 2 
-	print("MEMORY UNLOCKED: Double Jump!")
+    has_double_jump_memory = true
+    max_jumps = 2 
+    if is_instance_valid(game_manager):
+        game_manager.unlocked_double_jump = true
+    print("MEMORY UNLOCKED: Double Jump!")
 
 func unlock_dash_memory():
-	has_dash_memory = true
-	print("MEMORY UNLOCKED: Dash!")
+    has_dash_memory = true
+    if is_instance_valid(game_manager):
+        game_manager.unlocked_dash = true
+    print("MEMORY UNLOCKED: Dash!")
 
-# --- DAMAGE LOGIC ---
+# --- DAMAGE LOGIC (All previous logic) ---
 func take_damage(amount, enemy_pos = Vector2.ZERO):
-	if is_hurt or is_dashing: 
-		return 
+    if is_hurt or is_dashing:
+        return
 
-	play_random_hurt_sound() 
-	
-	current_health -= amount
-	if game_ui: game_ui.update_hearts(current_health)
-	
-	if current_health <= 0:
-		die()
-	else:
-		apply_knockback(enemy_pos)
+    play_random_hurt_sound()
+
+    current_health -= amount
+    health_changed.emit(current_health)
+
+    if current_health <= 0:
+        player_died.emit()
+        die()
+    else:
+        apply_knockback(enemy_pos)
 
 func apply_knockback(enemy_pos):
-	is_hurt = true
-	is_attacking = false
-	if sprite: sprite.modulate = Color(1, 0, 0)
-	
-	var dir = (enemy_pos.x - global_position.x)
-	if dir > 0: velocity.x = -knockback_force
-	else: velocity.x = knockback_force
-	velocity.y = -200
-	
-	await get_tree().create_timer(0.4).timeout
-	is_hurt = false
-	if sprite: sprite.modulate = Color(1, 1, 1)
+    is_hurt = true
+    is_attacking = false
+    if sprite: sprite.modulate = Color(1, 0, 0)
+
+    var dir = (enemy_pos.x - global_position.x)
+    if dir > 0: velocity.x = -knockback_force
+    else: velocity.x = knockback_force
+    velocity.y = -200
+
+    await get_tree().create_timer(0.4).timeout
+    is_hurt = false
+    if sprite: sprite.modulate = Color(1, 1, 1)
 
 func die():
-	print("Player Died.")
-	call_deferred("_reload_scene")
+    print("Player Died.")
+    call_deferred("_reload_scene")
 
 func _reload_scene():
-	get_tree().reload_current_scene()
+    get_tree().reload_current_scene()
 
 func _on_sword_hitbox_area_entered(area: Area2D) -> void:
-	if area.has_method("take_damage"):
-		area.take_damage(1, global_position) 
-	elif area.get_parent().has_method("take_damage"):
-		area.get_parent().take_damage(1, global_position)
+    if area.has_method("take_damage"):
+        area.take_damage(1, global_position)
+    elif area.get_parent().has_method("take_damage"):
+        area.get_parent().take_damage(1, global_position)
 
 func _on_dash_timer_timeout():
-	print("Dash Cooldown Over.")
-	can_dash = true
+    print("Dash Cooldown Over.")
+    can_dash = true
