@@ -1,8 +1,12 @@
 extends Node2D
 
-# --- NEW: LEVEL CONFIGURATION ---
-# This creates a dropdown menu in the Inspector.
-# IMPORTANT: You must set this value for each scene (Area1, Summer, Autumn) in the editor!
+# --- CAMERA LIMITS ---
+# Adjust these in the Inspector for each level!
+@export var camera_limit_right: int = 10000 # Change this to your level width
+@export var camera_limit_bottom: int = 1080 # Change this to your level height
+@export var camera_limit_top: int = 0
+@export var camera_limit_left: int = -830
+
 @export_enum("Spring", "Summer", "Autumn", "Winter") var level_season: String = "Spring"
 
 @onready var spawn_point = $PlayerSpawnPoint
@@ -106,3 +110,17 @@ func spawn_player():
 	player_instance.name = "Player"
 	player_instance.game_ui = game_ui
 	add_child(player_instance)
+
+# --- FIX: USE CORRECT NAME "Camera2D2" ---
+	var camera = player_instance.get_node_or_null("Camera2D2") 
+	if camera:
+		# Top is always 0 (Top of the screen)
+		camera.limit_top = 0
+		# Left is always 0 (Left start of level)
+		camera.limit_left = 0
+		
+		# These two rely on your specific level size
+		camera.limit_bottom = camera_limit_bottom
+		camera.limit_right = camera_limit_right
+		
+		print("Camera limits set to: Bottom ", camera_limit_bottom, " Right ", camera_limit_right)
