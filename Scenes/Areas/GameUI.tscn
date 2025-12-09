@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1pojt52uqbqp"]
+[gd_scene load_steps=9 format=3 uid="uid://b1pojt52uqbqp"]
 
 [ext_resource type="Script" uid="uid://bm0wupb4idi2g" path="res://Scripts/game_ui.gd" id="1_0c2s4"]
 [ext_resource type="AudioStream" uid="uid://ceq2qal2ya6jc" path="res://Music/ES_Female Horror Scream, Low Guttural Growl 01 - Epidemic Sound.mp3" id="2_iebrr"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="3_4vw1w"]
 [ext_resource type="AudioStream" uid="uid://cgjj2r3bak7jr" path="res://Music/ES_Male Screams Gaaa - Epidemic Sound.mp3" id="3_nupb2"]
 [ext_resource type="Script" uid="uid://cwaec1xrbn2r4" path="res://Scripts/RegularButtonEffect.gd.gd" id="4_4vw1w"]
+[ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="7_mo0ay"]
+[ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="8_467u4"]
 
 [node name="GameUI" type="CanvasLayer"]
 process_mode = 3
@@ -67,6 +69,9 @@ theme_override_font_sizes/font_size = 211
 text = "Remember"
 flat = true
 script = ExtResource("4_4vw1w")
+hover_sound = ExtResource("7_mo0ay")
+click_sound = ExtResource("8_467u4")
+click_volume_db = 24.0
 
 [node name="Label" type="Label" parent="DeathScreen"]
 layout_mode = 1
