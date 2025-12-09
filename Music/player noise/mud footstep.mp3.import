@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0s50k6okhqud"
+path="res://.godot/imported/mud footstep.mp3-c13535303f7e25cd5332f483ecd5cde8.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/mud footstep.mp3"
+dest_files=["res://.godot/imported/mud footstep.mp3-c13535303f7e25cd5332f483ecd5cde8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

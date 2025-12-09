@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvs2wabcxdwan"
+path="res://.godot/imported/male jumping 5.mp3-843794a8b0a46ec4e243b63a198b0c7a.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/male jumping 5.mp3"
+dest_files=["res://.godot/imported/male jumping 5.mp3-843794a8b0a46ec4e243b63a198b0c7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

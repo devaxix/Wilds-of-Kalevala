@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c83t2oshxdcrb" path="res://Sprites/Fox/firefox_sleep_idle_spritesheet.png" id="19_6jsc8"]
 [ext_resource type="Texture2D" uid="uid://lsiilbh4tdi8" path="res://Sprites/Fox/wake_up_spritesheet.png" id="20_gm4lb"]
 [ext_resource type="Script" uid="uid://beavhohp0r1i3" path="res://Scripts/menu_fox.gd" id="21_86ikd"]
-[ext_resource type="AudioStream" uid="uid://b28xl5c6xiymy" path="res://Music/snow-running-94612(1).mp3" id="22_fblok"]
+[ext_resource type="AudioStream" uid="uid://b28xl5c6xiymy" path="res://Music/player noise/snow-running-94612(1).mp3" id="22_fblok"]
 [ext_resource type="Texture2D" uid="uid://b5ijqvpk2d0ki" path="res://Sprites/Backgrounds/Winter background 17L/14.png" id="23_xm2ma"]
 [ext_resource type="Texture2D" uid="uid://dolpuv04t8yfs" path="res://Sprites/Backgrounds/Winter background 17L/15.png" id="24_0cesf"]
 [ext_resource type="Texture2D" uid="uid://bu6g248p0ot5x" path="res://Sprites/Backgrounds/Winter background 17L/16.png" id="25_h8uwa"]

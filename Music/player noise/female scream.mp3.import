@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o62e4t42p3yr"
+path="res://.godot/imported/female scream.mp3-22bb31a563303105c986f094d8e7fcb8.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/female scream.mp3"
+dest_files=["res://.godot/imported/female scream.mp3-22bb31a563303105c986f094d8e7fcb8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

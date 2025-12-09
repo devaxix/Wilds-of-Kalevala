@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cts7p8ttcm2cm"
+path="res://.godot/imported/bliss (concept).mp3-2e4729c08e7a86efc75f783a36abb597.mp3str"
+
+[deps]
+
+source_file="res://Music/music/bliss (concept).mp3"
+dest_files=["res://.godot/imported/bliss (concept).mp3-2e4729c08e7a86efc75f783a36abb597.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

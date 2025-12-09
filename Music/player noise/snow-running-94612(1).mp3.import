@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b28xl5c6xiymy"
+path="res://.godot/imported/snow-running-94612(1).mp3-303f93fd0d024526a414fdea5b82d4f9.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/snow-running-94612(1).mp3"
+dest_files=["res://.godot/imported/snow-running-94612(1).mp3-303f93fd0d024526a414fdea5b82d4f9.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,27 +1,31 @@
-[gd_scene load_steps=33 format=3 uid="uid://hogl4i6f6uxc"]
+[gd_scene load_steps=37 format=3 uid="uid://hogl4i6f6uxc"]
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/Boy/char_blue.png" id="1_uvnfx"]
+[ext_resource type="AudioStream" uid="uid://d0s50k6okhqud" path="res://Music/player noise/mud footstep.mp3" id="2_ythyg"]
+[ext_resource type="AudioStream" uid="uid://cejegl2kh8fum" path="res://Music/player noise/sumer foot.mp3" id="3_bmb2s"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="3_xpcdj"]
-[ext_resource type="AudioStream" uid="uid://pldell0fsbh5" path="res://Music/male jumping 1.mp3" id="4_jlvik"]
-[ext_resource type="AudioStream" uid="uid://bxw3xrvjivmk" path="res://Music/Male jumping 2.mp3" id="5_gk6dx"]
-[ext_resource type="AudioStream" uid="uid://ehe5ftiipixy" path="res://Music/male jumping 3.mp3" id="6_jhyir"]
-[ext_resource type="AudioStream" uid="uid://d38c676kmjc1g" path="res://Music/male jumping 4.mp3" id="7_74mp2"]
-[ext_resource type="AudioStream" uid="uid://cvs2wabcxdwan" path="res://Music/male jumping 5.mp3" id="8_oikmp"]
-[ext_resource type="AudioStream" uid="uid://cdoimp1q4j0ab" path="res://Music/male ouch 1.mp3" id="9_06tpx"]
-[ext_resource type="AudioStream" uid="uid://3afp3jtfhc3n" path="res://Music/Male ouch 2.mp3" id="10_7g0yx"]
-[ext_resource type="AudioStream" uid="uid://51vdp6giwdcj" path="res://Music/male ouch 3.mp3" id="11_dey5f"]
-[ext_resource type="AudioStream" uid="uid://brwtewpva82mm" path="res://Music/male ouch 4.mp3" id="12_r5xpd"]
-[ext_resource type="AudioStream" uid="uid://lh1u3shxq4w0" path="res://Music/male ouch 5.mp3" id="13_ks1b7"]
-[ext_resource type="AudioStream" uid="uid://bbc45r5q0jvix" path="res://Music/male attacking 1.mp3" id="14_ks1b7"]
-[ext_resource type="AudioStream" uid="uid://v10oat57yd0s" path="res://Music/male attack 2.mp3" id="15_hnuln"]
-[ext_resource type="AudioStream" uid="uid://djb0oj7ykulls" path="res://Music/male attacking 3.mp3" id="16_aqm4k"]
-[ext_resource type="AudioStream" uid="uid://bpgcaowpmnuca" path="res://Music/male attacking 4.mp3" id="17_rcvs5"]
-[ext_resource type="AudioStream" uid="uid://bkerfu0p1vpxk" path="res://Music/sword sound 1.mp3" id="18_eksi1"]
-[ext_resource type="AudioStream" uid="uid://b6btibml1lm20" path="res://Music/Sword sound 2.mp3" id="19_jincj"]
-[ext_resource type="AudioStream" uid="uid://ctvrc65nbvrry" path="res://Music/Sword sound 3.mp3" id="20_rqdc0"]
-[ext_resource type="AudioStream" uid="uid://3wowuj2c4ndh" path="res://Music/sword sound 4.mp3" id="21_qr1w5"]
-[ext_resource type="AudioStream" uid="uid://vfrof7f7v2u3" path="res://Music/sword sound 5.mp3" id="22_ythyg"]
+[ext_resource type="AudioStream" uid="uid://pldell0fsbh5" path="res://Music/player noise/male jumping 1.mp3" id="4_jlvik"]
+[ext_resource type="AudioStream" uid="uid://ca6hj3narneso" path="res://Music/player noise/leaf footstep.mp3" id="4_ur3l4"]
+[ext_resource type="AudioStream" uid="uid://c00pjtffl6lh4" path="res://Music/player noise/snow footstep.mp3" id="5_2ahak"]
+[ext_resource type="AudioStream" uid="uid://bxw3xrvjivmk" path="res://Music/player noise/Male jumping 2.mp3" id="5_gk6dx"]
+[ext_resource type="AudioStream" uid="uid://ehe5ftiipixy" path="res://Music/player noise/male jumping 3.mp3" id="6_jhyir"]
+[ext_resource type="AudioStream" uid="uid://d38c676kmjc1g" path="res://Music/player noise/male jumping 4.mp3" id="7_74mp2"]
+[ext_resource type="AudioStream" uid="uid://cvs2wabcxdwan" path="res://Music/player noise/male jumping 5.mp3" id="8_oikmp"]
+[ext_resource type="AudioStream" uid="uid://cdoimp1q4j0ab" path="res://Music/player noise/male ouch 1.mp3" id="9_06tpx"]
+[ext_resource type="AudioStream" uid="uid://3afp3jtfhc3n" path="res://Music/player noise/Male ouch 2.mp3" id="10_7g0yx"]
+[ext_resource type="AudioStream" uid="uid://51vdp6giwdcj" path="res://Music/player noise/male ouch 3.mp3" id="11_dey5f"]
+[ext_resource type="AudioStream" uid="uid://brwtewpva82mm" path="res://Music/player noise/male ouch 4.mp3" id="12_r5xpd"]
+[ext_resource type="AudioStream" uid="uid://lh1u3shxq4w0" path="res://Music/player noise/male ouch 5.mp3" id="13_ks1b7"]
+[ext_resource type="AudioStream" uid="uid://bbc45r5q0jvix" path="res://Music/player noise/male attacking 1.mp3" id="14_ks1b7"]
+[ext_resource type="AudioStream" uid="uid://v10oat57yd0s" path="res://Music/player noise/male attack 2.mp3" id="15_hnuln"]
+[ext_resource type="AudioStream" uid="uid://djb0oj7ykulls" path="res://Music/player noise/male attacking 3.mp3" id="16_aqm4k"]
+[ext_resource type="AudioStream" uid="uid://bpgcaowpmnuca" path="res://Music/player noise/male attacking 4.mp3" id="17_rcvs5"]
+[ext_resource type="AudioStream" uid="uid://bkerfu0p1vpxk" path="res://Music/player noise/sword sound 1.mp3" id="18_eksi1"]
+[ext_resource type="AudioStream" uid="uid://b6btibml1lm20" path="res://Music/player noise/Sword sound 2.mp3" id="19_jincj"]
+[ext_resource type="AudioStream" uid="uid://ctvrc65nbvrry" path="res://Music/player noise/Sword sound 3.mp3" id="20_rqdc0"]
+[ext_resource type="AudioStream" uid="uid://3wowuj2c4ndh" path="res://Music/player noise/sword sound 4.mp3" id="21_qr1w5"]
+[ext_resource type="AudioStream" uid="uid://vfrof7f7v2u3" path="res://Music/player noise/sword sound 5.mp3" id="22_ythyg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 
@@ -214,6 +218,11 @@ scale = Vector2(9.65, 9.65)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_a3d8c")
+steps_spring = ExtResource("2_ythyg")
+steps_summer = ExtResource("3_bmb2s")
+steps_autumn = ExtResource("4_ur3l4")
+steps_winter = ExtResource("5_2ahak")
+vol_spring_db = 10.0
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("3_xpcdj")

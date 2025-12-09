@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1qge7qinptly"
+path="res://.godot/imported/dog yawn.mp3-029e447ba17fe1c3bd0bfb7ebb01d4fb.mp3str"
+
+[deps]
+
+source_file="res://Music/fox noises/dog yawn.mp3"
+dest_files=["res://.godot/imported/dog yawn.mp3-029e447ba17fe1c3bd0bfb7ebb01d4fb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

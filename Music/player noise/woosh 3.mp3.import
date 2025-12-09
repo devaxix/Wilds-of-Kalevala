@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6k4aw4yanas1"
+path="res://.godot/imported/woosh 3.mp3-67f098d9605b4718db8516fff40a4512.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/woosh 3.mp3"
+dest_files=["res://.godot/imported/woosh 3.mp3-67f098d9605b4718db8516fff40a4512.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
