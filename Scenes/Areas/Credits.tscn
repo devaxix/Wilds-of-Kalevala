@@ -1,7 +1,367 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpps5ppr457cx"]
+[gd_scene load_steps=73 format=3 uid="uid://dpps5ppr457cx"]
 
 [ext_resource type="Script" uid="uid://bu57h10d0snsk" path="res://Scripts/credits.gd" id="1_t714a"]
+[ext_resource type="Shader" uid="uid://8gw7q7yr2u2l" path="res://Shaders/Credits.gdshader" id="2_be75u"]
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="2_xsbmf"]
+[ext_resource type="Script" uid="uid://bqmkft1vrf2i8" path="res://Scripts/parallax_2d.gd" id="3_5p6x4"]
+[ext_resource type="Texture2D" uid="uid://c1qsfs6dah8rq" path="res://Sprites/Backgrounds/Winter background 17L/1.png" id="4_uui1m"]
+[ext_resource type="Texture2D" uid="uid://prxv4epbje1v" path="res://Sprites/Backgrounds/Winter background 17L/2.png" id="5_4jhg7"]
+[ext_resource type="Texture2D" uid="uid://c4qo5m7u2slef" path="res://Sprites/Backgrounds/Winter background 17L/3.png" id="6_6vrxt"]
+[ext_resource type="Texture2D" uid="uid://ccgdrk3yne73c" path="res://Sprites/Backgrounds/Winter background 17L/4.png" id="7_8f1gv"]
+[ext_resource type="Texture2D" uid="uid://cw6aa0msct1go" path="res://Sprites/Backgrounds/Winter background 17L/5.png" id="8_3gavv"]
+[ext_resource type="Texture2D" uid="uid://c1d5vcshctw2w" path="res://Sprites/Backgrounds/Winter background 17L/6.png" id="9_ltsbu"]
+[ext_resource type="Shader" uid="uid://bktqiq0lw33hm" path="res://Shaders/main_menu.gdshader" id="10_t1a2a"]
+[ext_resource type="Texture2D" uid="uid://dvrjwjlqs66t1" path="res://Sprites/Backgrounds/Winter background 17L/7.png" id="11_5idhl"]
+[ext_resource type="Texture2D" uid="uid://c5m8b6d4m5ni6" path="res://Sprites/Backgrounds/Winter background 17L/8.png" id="12_plxon"]
+[ext_resource type="Texture2D" uid="uid://b1ug4j1uvxbop" path="res://Sprites/Backgrounds/Winter background 17L/9.png" id="13_j22n2"]
+[ext_resource type="Texture2D" uid="uid://bhdxgmdxl554k" path="res://Sprites/Backgrounds/Winter background 17L/10.png" id="14_3u1yr"]
+[ext_resource type="Texture2D" uid="uid://6t7mku5vrotu" path="res://Sprites/Backgrounds/Winter background 17L/11.png" id="15_nk5b2"]
+[ext_resource type="Texture2D" uid="uid://iaw78k0stql1" path="res://Sprites/Backgrounds/Winter background 17L/12.png" id="16_uyu6k"]
+[ext_resource type="Texture2D" uid="uid://cnsmgvlcys7va" path="res://Sprites/Backgrounds/Winter background 17L/13.png" id="17_6sv2i"]
+[ext_resource type="Texture2D" uid="uid://u0eu1chuktrd" path="res://Sprites/Fox/run_spritesheet.png" id="18_m67l0"]
+[ext_resource type="Texture2D" uid="uid://c83t2oshxdcrb" path="res://Sprites/Fox/firefox_sleep_idle_spritesheet.png" id="19_6jsc8"]
+[ext_resource type="Texture2D" uid="uid://lsiilbh4tdi8" path="res://Sprites/Fox/wake_up_spritesheet.png" id="20_gm4lb"]
+[ext_resource type="Script" uid="uid://beavhohp0r1i3" path="res://Scripts/menu_fox.gd" id="21_86ikd"]
+[ext_resource type="AudioStream" uid="uid://b28xl5c6xiymy" path="res://Music/snow-running-94612(1).mp3" id="22_fblok"]
+[ext_resource type="Texture2D" uid="uid://b5ijqvpk2d0ki" path="res://Sprites/Backgrounds/Winter background 17L/14.png" id="23_xm2ma"]
+[ext_resource type="Texture2D" uid="uid://dolpuv04t8yfs" path="res://Sprites/Backgrounds/Winter background 17L/15.png" id="24_0cesf"]
+[ext_resource type="Texture2D" uid="uid://bu6g248p0ot5x" path="res://Sprites/Backgrounds/Winter background 17L/16.png" id="25_h8uwa"]
+[ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="27_y3w2g"]
+[ext_resource type="Script" uid="uid://cwaec1xrbn2r4" path="res://Scripts/RegularButtonEffect.gd.gd" id="28_5p6x4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjxak"]
+shader = ExtResource("10_t1a2a")
+shader_parameter/speed = 1.2
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.07000000169506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtsuf"]
+shader = ExtResource("10_t1a2a")
+shader_parameter/speed = 1.2
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.05000000074506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijn5q"]
+shader = ExtResource("10_t1a2a")
+shader_parameter/speed = 0.8
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.08000000217006001
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m28al"]
+atlas = ExtResource("18_m67l0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msqqj"]
+atlas = ExtResource("18_m67l0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gdog"]
+atlas = ExtResource("18_m67l0")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpf3e"]
+atlas = ExtResource("18_m67l0")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnmvd"]
+atlas = ExtResource("19_6jsc8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pivau"]
+atlas = ExtResource("19_6jsc8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7vji"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy3hx"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohupj"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1mge"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xxe1"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyrlk"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oeox"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq6hp"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv4h7"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxoef"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnsdx"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cx31"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uno2t"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl8ue"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sb78"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13p2b"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pvcw"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svu2r"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha75o"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v74h6"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pisol"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c2nt"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46qfg"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvl5g"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3yoh"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e45wc"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irc2s"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wmw5"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j262e"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kdfo"]
+atlas = ExtResource("20_gm4lb")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxbe7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m28al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msqqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gdog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpf3e")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnmvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pivau")
+}],
+"loop": true,
+"name": &"Sleep",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7vji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy3hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohupj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1mge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xxe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyrlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oeox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq6hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv4h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxoef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnsdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cx31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uno2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl8ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sb78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13p2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pvcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svu2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha75o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v74h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pisol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c2nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46qfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvl5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3yoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e45wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irc2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wmw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j262e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kdfo")
+}],
+"loop": false,
+"name": &"Wake",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2e7d1"]
+shader = ExtResource("10_t1a2a")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.07000000169506
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcjro"]
+shader = ExtResource("10_t1a2a")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/phase_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_be75u"]
+shader = ExtResource("2_be75u")
+shader_parameter/blur_amount = 2.5
 
 [sub_resource type="Theme" id="Theme_hijrl"]
 default_font = ExtResource("2_xsbmf")
@@ -15,142 +375,450 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t714a")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="1" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(922, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/1"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(461.42862, 54.519653)
+scale = Vector2(1.8024555, 1.5066963)
+texture = ExtResource("4_uui1m")
+
+[node name="2" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 6.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/2"]
+texture_filter = 1
+position = Vector2(342.857, 106.298)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("5_4jhg7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/2"]
+texture_filter = 1
+position = Vector2(1028.572, 106.298)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("5_4jhg7")
+
+[node name="3" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/3"]
+texture_filter = 1
+position = Vector2(342.857, 92.448)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("6_6vrxt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/3"]
+texture_filter = 1
+position = Vector2(1028.571, 92.448)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("6_6vrxt")
+
+[node name="4" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/4"]
+texture_filter = 1
+position = Vector2(342.857, 89.183)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("7_8f1gv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/4"]
+texture_filter = 1
+position = Vector2(1028.5713, 89.183)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("7_8f1gv")
+
+[node name="5" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 9.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/5"]
+texture_filter = 1
+position = Vector2(342.857, 118.671)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("8_3gavv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/5"]
+texture_filter = 1
+position = Vector2(1028.572, 118.671)
+scale = Vector2(1.3392857, 1.5066963)
+texture = ExtResource("8_3gavv")
+
+[node name="6" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/6"]
+texture_filter = 1
+position = Vector2(342.857, 120.194)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("9_ltsbu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/6"]
+texture_filter = 1
+position = Vector2(1028.572, 120.194)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("9_ltsbu")
+
+[node name="7" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 11.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/7"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_jjxak")
+position = Vector2(1028.5714, 150.549)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("11_5idhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/7"]
+visible = false
+texture_filter = 1
+position = Vector2(342.85696, 150.54898)
+scale = Vector2(1.3392856, 1.5066965)
+texture = ExtResource("11_5idhl")
+
+[node name="8" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 12.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/8"]
+texture_filter = 1
+position = Vector2(343.214, 158.396)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("12_plxon")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/8"]
+texture_filter = 1
+position = Vector2(1028.5715, 158.396)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("12_plxon")
+
+[node name="9" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 13.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/9"]
+texture_filter = 1
+position = Vector2(343.21432, 163.0911)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("13_j22n2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/9"]
+texture_filter = 1
+position = Vector2(1028.9283, 163.0911)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("13_j22n2")
+
+[node name="10" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 14.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/10"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vtsuf")
+position = Vector2(342.857, 186.496)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("14_3u1yr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/10"]
+visible = false
+texture_filter = 1
+position = Vector2(1028.571, 186.496)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("14_3u1yr")
+
+[node name="11" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/11"]
+texture_filter = 1
+position = Vector2(342.857, 182.611)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("15_nk5b2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/11"]
+texture_filter = 1
+position = Vector2(1028.5713, 182.611)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("15_nk5b2")
+
+[node name="12" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 16.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/12"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_ijn5q")
+position = Vector2(342.857, 183.036)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("16_uyu6k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/12"]
+visible = false
+texture_filter = 1
+position = Vector2(1028.5714, 183.036)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("16_uyu6k")
+
+[node name="13" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 17.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/13"]
+texture_filter = 1
+position = Vector2(342.857, 178.321)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("17_6sv2i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/13"]
+texture_filter = 1
+position = Vector2(1028.571, 178.321)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("17_6sv2i")
+
+[node name="Fox" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 17.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Fox"]
+texture_filter = 1
+position = Vector2(342.85696, 178.321)
+scale = Vector2(1.3392856, 1.5066965)
+texture = ExtResource("17_6sv2i")
+
+[node name="MenuFox" type="AnimatedSprite2D" parent="Background/Fox/Sprite2D"]
+position = Vector2(74.66681, 86.60295)
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_wxbe7")
+animation = &"Sleep"
+autoplay = "Sleep"
+script = ExtResource("21_86ikd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Background/Fox/Sprite2D/MenuFox"]
+scale = Vector2(3.965, 3.965)
+
+[node name="FoxRunSound" type="AudioStreamPlayer2D" parent="Background/Fox/Sprite2D/MenuFox"]
+scale = Vector2(1.0000001, 1)
+stream = ExtResource("22_fblok")
+
+[node name="SoundDelayTimer" type="Timer" parent="Background/Fox/Sprite2D/MenuFox"]
+wait_time = 3.0
+
+[node name="14" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 18.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/14"]
+texture_filter = 1
+position = Vector2(342.85715, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("23_xm2ma")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/14"]
+texture_filter = 1
+position = Vector2(1028.5714, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("23_xm2ma")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/14"]
+texture_filter = 1
+position = Vector2(1714.2858, 161.66248)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("23_xm2ma")
+
+[node name="15" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 19.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/15"]
+texture_filter = 1
+position = Vector2(342.85715, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("24_0cesf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/15"]
+texture_filter = 1
+position = Vector2(1028.5714, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("24_0cesf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/15"]
+texture_filter = 1
+position = Vector2(1714.291, 161.663)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("24_0cesf")
+
+[node name="16" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(2.8, 2.8)
+scroll_offset = Vector2(0, 87.34497)
+repeat_size = Vector2(685.72, 0)
+repeat_times = 13
+script = ExtResource("3_5p6x4")
+base_scroll_speed = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/16"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2e7d1")
+position = Vector2(342.85715, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("25_h8uwa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/16"]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_kcjro")
+position = Vector2(1028.5714, 161.6625)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("25_h8uwa")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/16"]
+visible = false
+texture_filter = 1
+position = Vector2(1714.346, 161.663)
+scale = Vector2(1.3392857, 1.5066966)
+texture = ExtResource("25_h8uwa")
+
+[node name="Blur Overlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_be75u")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13682577, 0.13682574, 0.13682571, 1)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+[node name="Black" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "--- SECTION ONE: THE BEGINNING ---"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Aperiam inventore doloremque et non consequatur. Ea quo est qui non dolore. 
-Et aut commodi rerum et molestias. Consequuntur dolores et eum sint rerum debitis.
-Sed consequatur quo velit. Explicabo quis et eum dolores debitis.
-Nihil omnis sunt sit vero."
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "--- SECTION TWO: CREATIVE TEAM ---"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "PROJECT 
-"
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "names here"
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "**ENGINEERING & ARCHITECTURE**"
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Adipisci et rerum non. Non quia et qui.
-Sed dignissimos nulla esse vel dolorem. Quisquam aut sint velit qui."
-horizontal_alignment = 1
-
-[node name="Label8" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "**ART DIRECTION**"
-horizontal_alignment = 1
-
-[node name="Label9" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Voluptas enim qui et dolorem. Quisquam aut sint velit qui.
-Et aut commodi rerum et molestias."
-horizontal_alignment = 1
-
-[node name="Label10" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "**WORLD DESIGN**"
-horizontal_alignment = 1
-
-[node name="Label11" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Voluptas est sint velit qui. Iste illo et rerum non.
-Velit qui quas et rerum."
-horizontal_alignment = 1
-
-[node name="Label12" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "--- SECTION THREE: THANKS ---"
-horizontal_alignment = 1
-
-[node name="Label13" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "**SPECIAL THANKS**"
-horizontal_alignment = 1
-
-[node name="Label14" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-horizontal_alignment = 1
-
-[node name="Label15" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-**COMMUNITY SUPPORT**"
-horizontal_alignment = 1
-
-[node name="Label16" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "**COMMUNITY SUPPORT**
-Dignissimos nulla esse vel dolorem. Sint velit qui quas et rerum non.
-Quisquam aut sint velit qui.
-
---- SECTION FOUR: THE END ---
-
-**CREDITS**
-Final scene text, rolling, rolling...
-
-Donec lacinia est vel diam ultricies, id interdum augue fermentum. Suspendisse potenti. Curabitur vel.
-
-Fin."
-horizontal_alignment = 1
+color = Color(0, 0, 0, 0.5803922)
 
 [node name="BackButton" type="Button" parent="."]
 texture_filter = 1
 texture_repeat = 2
 layout_mode = 0
-offset_left = 27.0
-offset_top = 657.0
-offset_right = 80.0
-offset_bottom = 688.0
+offset_left = 42.0
+offset_top = 978.0
+offset_right = 125.0
+offset_bottom = 1017.0
 scale = Vector2(1.4494426, 1.4494426)
 theme = SubResource("Theme_hijrl")
 theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("27_y3w2g")
+theme_override_font_sizes/font_size = 31
 text = "[SKIP]"
+script = ExtResource("28_5p6x4")
 
+[node name="CreditsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("27_y3w2g")
+theme_override_font_sizes/font_size = 30
+
+[connection signal="screen_entered" from="Background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Background/Fox/Sprite2D/MenuFox" method="_on_screen_entered"]
+[connection signal="screen_exited" from="Background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Background/Fox/Sprite2D/MenuFox" method="_on_screen_exited"]
+[connection signal="timeout" from="Background/Fox/Sprite2D/MenuFox/SoundDelayTimer" to="Background/Fox/Sprite2D/MenuFox" method="_on_sound_delay_timer_timeout"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

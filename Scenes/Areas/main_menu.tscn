@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://i782m1kre42x"]
+[gd_scene load_steps=104 format=3 uid="uid://i782m1kre42x"]
 
 [ext_resource type="FontFile" uid="uid://bvjavivtqdf3" path="res://Fonts/ShadowsIntoLight-Regular.ttf" id="1_01ras"]
 [ext_resource type="Script" uid="uid://dvgw84ur2nba7" path="res://Scripts/main_menu.gd" id="1_yhler"]
@@ -499,6 +499,14 @@ turbulence_enabled = true
 turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.020000001
 turbulence_influence_max = 0.080000006
+
+[sub_resource type="Environment" id="Environment_msqqj"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.05
+glow_strength = 0.63
+glow_bloom = 0.5
+glow_blend_mode = 0
 
 [node name="Main Menu" type="Control"]
 texture_filter = 1
@@ -1061,6 +1069,9 @@ layout_mode = 1
 stream = ExtResource("49_msqqj")
 volume_db = -11.895
 autoplay = true
+
+[node name="Bloom" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_msqqj")
 
 [connection signal="screen_entered" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_entered"]
 [connection signal="screen_exited" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://fud04dvvypdq"]
+[gd_scene load_steps=57 format=4 uid="uid://fud04dvvypdq"]
 
 [ext_resource type="Texture2D" uid="uid://d2xaih03k3ame" path="res://Sprites/Winter Cutscene/background layer0b.png" id="1_23k0h"]
 [ext_resource type="Texture2D" uid="uid://c4kxyankrrqbk" path="res://Sprites/Winter Cutscene/background layer0.png" id="2_lmgqg"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://2gh7edfipdu8" path="res://Sprites/Winter Cutscene/tree03.png" id="22_dpiv4"]
 [ext_resource type="Texture2D" uid="uid://b4t4ia1kolf2t" path="res://Sprites/Winter Cutscene/Trees02.png" id="23_gryjt"]
 [ext_resource type="Texture2D" uid="uid://bkkp2cgheyeix" path="res://Sprites/Winter Cutscene/Trees.png" id="24_y5fo6"]
+[ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="28_nict3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pluyx"]
 shader = ExtResource("4_gnrja")
@@ -4948,6 +4949,8 @@ offset_right = 132.5
 offset_bottom = 375.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("28_nict3")
+theme_override_font_sizes/font_size = 30
 text = "CAST
 
 Hero

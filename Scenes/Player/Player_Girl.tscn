@@ -472,8 +472,6 @@ steps_spring = ExtResource("2_ugqae")
 steps_summer = ExtResource("3_1ketb")
 steps_autumn = ExtResource("4_rok0s")
 steps_winter = ExtResource("5_ikon7")
-vol_spring_db = 10.0
-vol_summer_db = 10.0
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]
 script = ExtResource("2_rqu0h")
@@ -570,6 +568,8 @@ stream = ExtResource("22_ugqae")
 
 [node name="FootstepSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(0.15910898, 0.15910898)
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

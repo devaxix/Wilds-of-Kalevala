@@ -69,6 +69,15 @@ signal player_died
 # SWORD SOUNDS - CHECK BOTH NAMES (FIXED)
 @onready var sword_sounds = _get_sword_sounds()
 
+#Dash Sounds!!!!!!!!!!!!!!!!!!
+@onready var dash_player = $DashSound if has_node("DashSound") else null
+
+# --- DASH AUDIO ---
+@export_group("Dash Audio")
+@export var sfx_dash : AudioStream
+# Slider for Dash Volume (-40 to 10)
+@export_range(-40.0, 10.0) var vol_dash_db : float = 0.0
+
 func _get_sword_sounds():
 	# Check for "FSword" (Girl Player)
 	if has_node("FSwordSound1"):
@@ -286,6 +295,14 @@ func start_dash():
 	print("Attempting to Dash...")
 	is_dashing = true
 	can_dash = false
+
+# --- NEW: PLAY DASH SOUND ---
+	if is_instance_valid(dash_player) and sfx_dash:
+		dash_player.stream = sfx_dash
+		dash_player.volume_db = vol_dash_db
+		# Randomize pitch slightly for variety (0.9 to 1.1)
+		dash_player.pitch_scale = randf_range(0.9, 1.1)
+		dash_player.play()
 
 	if sprite: sprite.modulate = Color(10, 10, 10)
 
