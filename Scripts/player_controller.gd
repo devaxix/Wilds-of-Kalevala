@@ -29,11 +29,23 @@ signal player_died
 @onready var wall_jump_check = $WallJumpCheck
 @onready var game_manager = get_tree().root.get_node("GameManager")
 
-# --- SEASONAL FOOTSTEPS ---
+# --- SEASONAL FOOTSTEPS & VOLUME ---
+@onready var footstep_player = $FootstepSound # Make sure this matches your node name
+
+# 1. Sound Files
+@export_group("Footstep Sounds")
 @export var steps_spring : AudioStream
-@export var steps_summer : AudioStream # e.g., Grass/Dirt
-@export var steps_autumn : AudioStream # e.g., Leaves
-@export var steps_winter : AudioStream # e.g., Snow
+@export var steps_summer : AudioStream 
+@export var steps_autumn : AudioStream 
+@export var steps_winter : AudioStream 
+
+# 2. Volume Sliders (in Decibels)
+# 0.0 is normal, -10.0 is quiet, +5.0 is loud
+@export_group("Footstep Volume")
+@export_range(-40.0, 10.0) var vol_spring_db : float = 0.0
+@export_range(-40.0, 10.0) var vol_summer_db : float = 0.0
+@export_range(-40.0, 10.0) var vol_autumn_db : float = 0.0
+@export_range(-40.0, 10.0) var vol_winter_db : float = 0.0
 
 # JUMP SOUNDS 
 @onready var jump_sounds = [
@@ -233,38 +245,40 @@ func play_random_sword_sound():
 
 func play_footstep_sound():
 	# --- 1. Safety Checks ---
-	if not is_instance_valid(footstep_sound): return
+	if not is_instance_valid(footstep_player): return
 	if not is_on_floor(): return
-	# Good check: Prevents sound if player is just twitching or sliding slightly
 	if abs(velocity.x) < 10: return 
-	
-	# REMOVED: if footstep_sound.is_playing(): return
-	# Reason: We want the sound to restart instantly if we run fast!
 
-	# --- 2. Determine Sound ---
-	var sound_to_play = steps_spring # Default / Area1 Fallback
-	
-	# Check the Autoload (Make sure capitalization matches your Project Settings!)
-	# Usually Autoloads are global, so you don't need is_instance_valid unless it's a local node.
+	# --- 2. Determine Sound & Volume ---
+	var sound_to_play = steps_spring # Default
+	var volume_to_use = vol_spring_db # Default Volume
 	
 	match GameManager.current_season:
 		"Summer":
 			sound_to_play = steps_summer
+			volume_to_use = vol_summer_db
 		"Autumn":
 			sound_to_play = steps_autumn
+			volume_to_use = vol_autumn_db
 		"Winter":
 			sound_to_play = steps_winter
-		"Spring", "Area1": # Explicitly adding Area1 makes the code easier to read later
+			volume_to_use = vol_winter_db
+		"Spring", "Area1":
 			sound_to_play = steps_spring
+			volume_to_use = vol_spring_db
 
-	# --- 3. Swap Stream ---
+	# --- 3. Apply Changes ---
 	if sound_to_play != null:
-		if footstep_sound.stream != sound_to_play:
-			footstep_sound.stream = sound_to_play
+		# Only swap the stream if it's different to prevent stuttering
+		if footstep_player.stream != sound_to_play:
+			footstep_player.stream = sound_to_play
+		
+		# Always update volume (it changes instantly)
+		footstep_player.volume_db = volume_to_use
 	
 	# --- 4. Play ---
-	footstep_sound.pitch_scale = randf_range(0.9, 1.1)
-	footstep_sound.play()
+	footstep_player.pitch_scale = randf_range(0.9, 1.1)
+	footstep_player.play()
 
 # --- ACTIONS (All previous logic) ---
 
@@ -357,10 +371,13 @@ func apply_knockback(enemy_pos):
 
 func die():
 	print("Player Died.")
-	call_deferred("_reload_scene")
-
-func _reload_scene():
-	get_tree().reload_current_scene()
+	# DELETE or COMMENT OUT this line:
+	# call_deferred("_reload_scene") 
+	
+	# Instead, we just emit the signal and stop moving
+	player_died.emit()
+	set_physics_process(false) # Stop the player from moving/falling
+	if animation_player: animation_player.pause() # Freeze animation
 
 func _on_sword_hitbox_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):

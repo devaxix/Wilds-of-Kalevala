@@ -103,6 +103,15 @@ func spawn_player():
 	var player_scene = load(GameManager.selected_character_path)
 	var player_instance = player_scene.instantiate()
 	
+	# 1. Connect Health UI (You already have this)
+	if player_instance.has_signal("health_changed"):
+		player_instance.health_changed.connect(update_hearts_ui)
+		
+	# --- 2. NEW: Connect Death Signal ---
+	if player_instance.has_signal("player_died"):
+		# When player dies, call show_game_over on the GameUI
+		player_instance.player_died.connect(game_ui.show_game_over)
+		
 	if player_instance.has_signal("health_changed"):
 		player_instance.health_changed.connect(update_hearts_ui)
 	

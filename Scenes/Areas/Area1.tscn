@@ -2786,13 +2786,10 @@ stream = ExtResource("36_xgnn0")
 volume_db = -10.035
 
 [node name="GameUI" parent="." instance=ExtResource("15_r6rcv")]
-offset = Vector2(-600, 0)
-scale = Vector2(0.15, 0.15)
-transform = Transform2D(0.15, 0, 0, 0.15, -600, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Rain" type="CanvasLayer" parent="."]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Rain"]
 material = SubResource("CanvasItemMaterial_vlhvw")
 position = Vector2(341, 200)
 amount = 1000
