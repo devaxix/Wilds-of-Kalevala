@@ -70,23 +70,30 @@ func start_spring_intro():
 		if player_instance.has_node("AnimationPlayer"):
 			player_instance.get_node("AnimationPlayer").play("Idle")
 
-	# 1. NARRATOR TEXT
+	# 1. NARRATOR TEXT (Broken into readable chunks)
 	var narrator_text: Array[String] = [
 		"You open your eyes to the sound of rain. The forest is soft and alive...",
-		"The air smells like growing moist plants..."
+		"The air smells like growing moist plants. Flowers are starting to bloom.. Tiny fireflies drift between trees.",
+		"Something warm had been beside you, a presence, a light..",
+		"But when you reached for it… it vanished.",
+		"Only the echo of its warmth lingers, like a heartbeat under your skin.",
+		"You see faint pawprints through the mud and puddles.",
+		"Each step you take is accompanied by echoes of laughter, voices you can't quite place or remember.",
+		"Fragments of your memories smell like rain: a name, a promise, warmth but.. they are scattered."
 	]
 	
-	# FIXED: No Position Argument! Uses default bottom-center.
+	# Start Standard Dialogue (Fixed at bottom)
 	DialogueManager.start_dialogue(narrator_text)
 	
 	await DialogueManager.dialogue_finished
 	
+	# 2. SHORT PAUSE (Closes box, waits, then opens again)
 	await get_tree().create_timer(0.5).timeout
 	
-	# 2. PLAYER TEXT
+	# 3. PLAYER TEXT
 	var player_text: Array[String] = ["I need to find them."]
 	
-	# FIXED: No Position Argument! Also uses default bottom-center.
+	# Start Standard Dialogue again
 	DialogueManager.start_dialogue(player_text)
 	
 	await DialogueManager.dialogue_finished
