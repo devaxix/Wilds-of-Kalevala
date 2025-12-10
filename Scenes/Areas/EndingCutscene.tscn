@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://fud04dvvypdq"]
+[gd_scene load_steps=60 format=4 uid="uid://fud04dvvypdq"]
 
 [ext_resource type="Texture2D" uid="uid://c4kxyankrrqbk" path="res://Sprites/Winter Cutscene/background layer0.png" id="2_lmgqg"]
 [ext_resource type="Texture2D" uid="uid://cpsli3ecjro2s" path="res://Sprites/Winter Cutscene/background layer1.png" id="4_fci2g"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://2gh7edfipdu8" path="res://Sprites/Winter Cutscene/tree03.png" id="22_dpiv4"]
 [ext_resource type="Texture2D" uid="uid://b4t4ia1kolf2t" path="res://Sprites/Winter Cutscene/Trees02.png" id="23_gryjt"]
 [ext_resource type="Texture2D" uid="uid://bkkp2cgheyeix" path="res://Sprites/Winter Cutscene/Trees.png" id="24_y5fo6"]
+[ext_resource type="AudioStream" uid="uid://b28xl5c6xiymy" path="res://Music/player noise/snow-running-94612(1).mp3" id="25_a5stx"]
 [ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="28_nict3"]
 [ext_resource type="Script" uid="uid://cwaec1xrbn2r4" path="res://Scripts/RegularButtonEffect.gd.gd" id="29_f7wtu"]
 
@@ -4906,6 +4907,10 @@ position = Vector2(1223, 878.00006)
 scale = Vector2(6, 6)
 animation = &"Sleep"
 frame_progress = 0.0
+
+[node name="FoxSound" type="AudioStreamPlayer2D" parent="FoxActor"]
+stream = ExtResource("25_a5stx")
+volume_db = 10.0
 
 [node name="PlayerStartPos" type="Marker2D" parent="."]
 position = Vector2(-81, 730)

@@ -6,6 +6,10 @@ extends Node
 @onready var fox_sprite = $"../FoxActor" # Since root is AnimatedSprite2D
 @onready var camera = $"../EndingCamera"
 
+# --- NEW: FOX AUDIO ---
+# Make sure the name matches what you added in Step 1!
+@onready var fox_sound = $"../FoxActor/FoxSound"
+
 # --- UI NODES ---
 @onready var ending_ui = $"../EndingUI"
 @onready var choice_container = $"../EndingUI/ChoiceContainer"
@@ -13,9 +17,12 @@ extends Node
 
 # --- SETTINGS ---
 @export var walk_distance : float = 600.0 # Make sure this is big enough to reach the Fox!
-var player 
+var player
 
 func _ready():
+	# 1. SET THE SEASON TO WINTER
+	# This forces the player to load the "Steps Winter" sound
+	GameManager.current_season = "Winter"
 	# 1. HIDE UI INITIALLY
 	choice_container.visible = false
 	credits_container.visible = false
@@ -42,7 +49,7 @@ func spawn_player_character():
 	
 	# 2. ENABLE PHYSICS (Briefly)
 	# We turn OFF cutscene mode so gravity works
-	player.is_cutscene = false 
+	player.is_cutscene = false
 	player.velocity = Vector2.ZERO # Ensure they fall straight down
 	
 	# 3. AUTOMATED LANDING
@@ -52,14 +59,14 @@ func spawn_player_character():
 		await get_tree().physics_frame
 		
 		# Force X velocity to 0 every frame so they don't slide while falling
-		player.velocity.x = 0 
+		player.velocity.x = 0
 		
 		if player.is_on_floor():
 			break # They touched the ground! Stop waiting.
 	
 	# 4. LOCK IT
 	# Now that they are on the floor, we freeze them.
-	player.is_cutscene = true 
+	player.is_cutscene = true
 	player.velocity = Vector2.ZERO
 	
 	# 5. KILL ANIMATION TREE (If present)
@@ -73,13 +80,13 @@ func start_cutscene():
 	# --- ACT 1: PLAYER WALKS & CAMERA FOLLOWS ---
 	
 	# Force the animation to play
-	if player.has_node("AnimationPlayer"): 
+	if player.has_node("AnimationPlayer"):
 		player.animation_player.play("Walk")
 		# Force it again a split second later just to be safe!
 		await get_tree().create_timer(0.05).timeout
 		player.animation_player.play("Walk")
 	# 1. Start Animation
-	if player.has_node("AnimationPlayer"): 
+	if player.has_node("AnimationPlayer"):
 		player.animation_player.play("Walk")
 	
 	# 2. Move Player
@@ -103,16 +110,25 @@ func start_cutscene():
 	fox_sprite.flip_h = true # Look LEFT at player
 	
 	await get_tree().create_timer(0.5).timeout
-	fox_sprite.play("Wake") 
+	fox_sprite.play("Wake")
 	await fox_sprite.animation_finished
 	
 	# --- ACT 3: FOX APPROACHES ---
 	fox_sprite.play("Run") 
+	
+	# NEW: Start Sound
+	if fox_sound: fox_sound.play()
+	
 	var fox_tween = create_tween()
 	# Walk slightly Left towards player
 	fox_tween.tween_property(fox, "position:x", fox.position.x - 150, 1.5)
+	
 	await fox_tween.finished
-	fox_sprite.play("Idle") 
+	
+	# NEW: Stop Sound immediately when he stops moving
+	if fox_sound: fox_sound.stop()
+	
+	fox_sprite.play("Idle")
 	
 	# --- ACT 4: DIALOGUE 1 ---
 	var lines: Array[String] = [
@@ -135,10 +151,10 @@ func _on_choice_picked():
 	
 	# --- ACT 5: DIALOGUE 2 ---
 	var lines: Array[String] = [
-		"Thank you...", 
-		"...", 
-		"By now you've realized... right?", 
-		"You know who I am.", 
+		"Thank you...",
+		"...",
+		"By now you've realized... right?",
+		"You know who I am.",
 		"I am you."
 	]
 	DialogueManager.start_dialogue(fox.global_position, lines)
@@ -153,8 +169,16 @@ func finish_ending():
 	fox_sprite.flip_h = false # Turn RIGHT
 	fox_sprite.play("Run") 
 	
+	# NEW: Start Sound
+	if fox_sound: fox_sound.play()
+	
 	var run_tween = create_tween()
 	run_tween.tween_property(fox, "position:x", fox.position.x + 1000, 3.0)
+	
+	# Optional: Create a separate tween to fade the sound out over distance
+	# so it doesn't cut off abruptly when the scene changes
+	var sound_fade = create_tween()
+	sound_fade.tween_property(fox_sound, "volume_db", -80.0, 3.0)
 	
 	# --- ACT 7: CAMERA PANS UP (MOON SHOT) ---
 	var cam_tween = create_tween()
@@ -174,7 +198,7 @@ func roll_credits():
 	credits_container.visible = true
 	
 	# Start ABOVE the camera
-	credits_container.position.y = camera.position.y - 800 
+	credits_container.position.y = camera.position.y - 800
 	
 	var credit_tween = create_tween()
 	

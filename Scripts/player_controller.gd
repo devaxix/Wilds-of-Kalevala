@@ -258,7 +258,12 @@ func play_footstep_sound():
 	# --- 1. Safety Checks ---
 	if not is_instance_valid(footstep_player): return
 	if not is_on_floor(): return
-	if abs(velocity.x) < 10: return 
+	
+	# OLD LINE: if abs(velocity.x) < 10: return
+	
+	# NEW LINE: Only stop if we are NOT moving AND NOT in a cutscene
+	if abs(velocity.x) < 10 and is_cutscene == false: 
+		return
 
 	# --- 2. Determine Sound & Volume ---
 	var sound_to_play = steps_spring # Default
