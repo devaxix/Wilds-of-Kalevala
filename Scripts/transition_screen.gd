@@ -7,23 +7,29 @@ signal on_transition_finished
 
 var scene_to_load_path = ""
 
+# The actual length of your animation in the editor (in seconds)
+const BASE_ANIM_LENGTH = 5.0 
+
 func _ready():
 	# 1. SETUP FOR GAME LAUNCH
 	color_rect.visible = true
 	color_rect.modulate.a = 1.0
 	
-	# Ensure speed is Normal (1.0) for the 5-second startup
+	# Startup is slow (Normal 1.0 speed = 5 seconds)
 	animation_player.speed_scale = 1.0 
-	
 	animation_player.play("fade_to_normal")
 
-func transition_to_scene(path: String):
+# UPDATED: Added 'duration' parameter. default is 1.0 second (Fast).
+func transition_to_scene(path: String, duration: float = 1.0):
 	scene_to_load_path = path
 	color_rect.visible = true
 	
-	# SPEED UP for normal scene changes!
-	# 5.0 makes a 5-second animation take 1 second.
-	animation_player.speed_scale = 5.0 
+	# --- THE MATH ---
+	# If animation is 5s and we want it done in 1s: 5 / 1 = 5.0 (Speed Scale)
+	# If animation is 5s and we want it done in 5s: 5 / 5 = 1.0 (Speed Scale)
+	var new_speed = BASE_ANIM_LENGTH / duration
+	
+	animation_player.speed_scale = new_speed
 	
 	animation_player.play("fade_to_black")
 
@@ -34,8 +40,8 @@ func _on_animation_finished(anim_name):
 		print("Changing scene...")
 		get_tree().change_scene_to_file(scene_to_load_path)
 		
-		# Ensure the fade-in matches the fast speed
-		animation_player.speed_scale = 5.0 
+		# NOTE: We do NOT reset speed_scale here. 
+		# We keep the same speed so the Fade IN takes the same time as the Fade OUT.
 		animation_player.play("fade_to_normal")
 		
 	elif anim_name == "fade_to_normal":

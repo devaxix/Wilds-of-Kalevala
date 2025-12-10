@@ -3,10 +3,10 @@ extends Node
 # --- NODES ---
 @onready var player_start_pos = $"../PlayerStartPos"
 @onready var fox = $"../FoxActor"
-@onready var fox_sprite = $"../FoxActor" 
+@onready var fox_sprite = $"../FoxActor"
 @onready var camera = $"../EndingCamera"
 
-# --- NEW: FOX AUDIO ---
+# --- FOX AUDIO ---
 @onready var fox_sound = $"../FoxActor/FoxSound"
 
 # --- UI NODES ---
@@ -15,11 +15,8 @@ extends Node
 @onready var credits_container = $"../EndingUI/CreditsContainer"
 
 # --- SETTINGS ---
-@export var walk_distance : float = 600.0 
+@export var walk_distance : float = 600.0
 var player
-
-# --- FOX TEXT BOX ---
-@export var fox_textbox_texture : Texture2D
 
 func _ready():
 	GameManager.current_season = "Winter"
@@ -100,19 +97,16 @@ func start_cutscene():
 	fox_sprite.play("Idle")
 	
 	# --- ACT 4: DIALOGUE 1 ---
-	DialogueManager.set_custom_theme(fox_textbox_texture, 1.5)
-	
 	var lines: Array[String] = [
 		"You have done so well to reach me... to Remember.",
 		"The world is waiting with love..."
 	]
 	
-	# UPDATED: Use the new function so it knows these are SCREEN PIXELS
-	DialogueManager.start_screen_dialogue(Vector2(960, 1020), lines)
+	# Calls the special function that activates Fox Mode + Fixed Position
+	DialogueManager.start_fox_dialogue(lines)
 	
 	await DialogueManager.dialogue_finished
 	
-	DialogueManager.reset_theme()
 	choice_container.visible = true
 
 func _on_choice_picked():
@@ -120,8 +114,6 @@ func _on_choice_picked():
 	await get_tree().create_timer(1.0).timeout
 	
 	# --- ACT 5: DIALOGUE 2 ---
-	DialogueManager.set_custom_theme(fox_textbox_texture, 1.5)
-	
 	var lines: Array[String] = [
 		"Thank you...", 
 		"...", 
@@ -130,12 +122,9 @@ func _on_choice_picked():
 		"I am you."
 	]
 	
-	# UPDATED: Use Screen Dialogue here too
-	DialogueManager.start_screen_dialogue(Vector2(960, 1020), lines)
+	DialogueManager.start_fox_dialogue(lines)
 	
 	await DialogueManager.dialogue_finished
-	
-	DialogueManager.reset_theme()
 	finish_ending()
 
 func finish_ending():
