@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cq2jdrt3xjq3n"
+path="res://.godot/imported/ES_Passing Clouds - Helmut Schenker.mp3-bf2632a2e33f4b5bde4411d3dc6d809a.mp3str"
+
+[deps]
+
+source_file="res://Music/music/ES_Passing Clouds - Helmut Schenker.mp3"
+dest_files=["res://.godot/imported/ES_Passing Clouds - Helmut Schenker.mp3-bf2632a2e33f4b5bde4411d3dc6d809a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

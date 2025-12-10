@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drnbughejfy7r"
+path="res://.godot/imported/ES_Aura - Martin Landh.mp3-99255bbd7ac314a489f5c15a78d5282f.mp3str"
+
+[deps]
+
+source_file="res://Music/music/ES_Aura - Martin Landh.mp3"
+dest_files=["res://.godot/imported/ES_Aura - Martin Landh.mp3-99255bbd7ac314a489f5c15a78d5282f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
