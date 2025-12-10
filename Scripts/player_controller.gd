@@ -74,7 +74,9 @@ signal player_died
 
 # --- DASH AUDIO ---
 @export_group("Dash Audio")
-@export var sfx_dash : AudioStream
+# CHANGED: Now it's a list (Array) instead of one file
+@export var sfx_dash_sounds : Array[AudioStream] 
+
 # Slider for Dash Volume (-40 to 10)
 @export_range(-40.0, 10.0) var vol_dash_db : float = 0.0
 
@@ -297,10 +299,16 @@ func start_dash():
 	can_dash = false
 
 # --- NEW: PLAY DASH SOUND ---
-	if is_instance_valid(dash_player) and sfx_dash:
-		dash_player.stream = sfx_dash
+	# --- UPDATED: PLAY RANDOM DASH SOUND ---
+	# Check if the player exists AND if the list has sounds in it
+	if is_instance_valid(dash_player) and not sfx_dash_sounds.is_empty():
+		
+		# 1. Pick one random sound from the array
+		var random_sound = sfx_dash_sounds.pick_random()
+		
+		# 2. Assign it and play
+		dash_player.stream = random_sound
 		dash_player.volume_db = vol_dash_db
-		# Randomize pitch slightly for variety (0.9 to 1.1)
 		dash_player.pitch_scale = randf_range(0.9, 1.1)
 		dash_player.play()
 
