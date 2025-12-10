@@ -3055,7 +3055,7 @@ environment = SubResource("Environment_b6jro")
 position = Vector2(9355, 642)
 
 [node name="LevelExit" parent="." instance=ExtResource("16_ae0ff")]
-position = Vector2(23327, 491)
+position = Vector2(25160, 547)
 next_level_path = "uid://fud04dvvypdq"
 
 [node name="WindAmbiance" type="AudioStreamPlayer" parent="."]
