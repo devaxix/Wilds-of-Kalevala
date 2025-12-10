@@ -17,3 +17,6 @@ func _ready():
 	# This turns the "empty space" black when the game plays (preventing white flashes),
 	# but leaves your Editor background gray!
 	RenderingServer.set_default_clear_color(Color.BLACK)
+	
+# --- DIALOGUE MEMORY ---
+var has_seen_spring_intro = false # New variable!

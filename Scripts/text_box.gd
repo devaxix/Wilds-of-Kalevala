@@ -3,58 +3,63 @@ extends MarginContainer
 @onready var label = $MarginContainer/Label
 @onready var timer = $LetterDisplayTimer
 @onready var letter_sound = $LetterSound 
-@onready var next_indicator = $NinePatchRect/IndicatorPosition/NextIndicator
 
-const MAX_WIDTH = 256
+# --- NEW NODES ---
+@onready var standard_bg = $StandardBackground
+@onready var fox_bg = $FoxBackground
+@onready var next_indicator = $StandardBackground/IndicatorPosition/NextIndicator # Adjust path if needed!
 
 var text = ""
 var letter_index = 0
-
-var letter_time = 0.03
-var space_time = 0.06
-var punctuation_time = 0.2
+var base_pitch: float = 1.0
 
 signal finished_displaying()
 
 func _ready():
-	# 1. Start invisible/tiny for the pop-up
+	# We rely on the Editor's position, but we still animate the scale
 	scale = Vector2.ZERO
+
+# --- NEW: TOGGLE FUNCTION ---
+func set_fox_mode(active: bool):
+	if active:
+		standard_bg.visible = false
+		fox_bg.visible = true
+		base_pitch = 1.5 # High pitch for Fox
+	else:
+		standard_bg.visible = true
+		fox_bg.visible = false
+		base_pitch = 1.0 # Normal pitch
 
 func display_text(text_to_display: String):
 	text = text_to_display
-	label.text = "" # Start empty!
+	label.text = "" 
 	letter_index = 0
 	
-	# 2. POP-UP ANIMATION
-	# Set pivot to center so it grows from the middle
+	# Reset pivot to center for the pop-up animation
 	pivot_offset = size / 2 
 	
 	var tween = create_tween()
-	# "Back" transition makes it overshoot/bounce slightly
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK)
 	
-	# 3. Reset Indicator
-	next_indicator.visible = false 
+	if next_indicator: next_indicator.visible = false 
 	
 	display_letter()
 
 func display_letter():
-	# Add one letter to the label
 	label.text += text[letter_index]
-	
 	letter_index += 1
 	
-	# CHECK IF DONE
 	if letter_index >= text.length():
 		finish_displaying_logic()
 		return
 	
 	# SOUND LOGIC
 	if text[letter_index - 1] != " ":
-		letter_sound.pitch_scale = randf_range(0.9, 1.1)
+		# Randomize around the base pitch
+		letter_sound.pitch_scale = randf_range(base_pitch - 0.1, base_pitch + 0.1)
 		letter_sound.play()
 	
-	# TIMING LOGIC (Punctuation Pauses)
+	# TIMING LOGIC
 	match text[letter_index]:
 		"!", ".", "?": timer.start(0.6)
 		",": timer.start(0.2)
@@ -64,25 +69,17 @@ func display_letter():
 func _on_letter_display_timer_timeout():
 	display_letter()
 
-# --- SKIP FUNCTION ---
 func skip_typing():
-	# 1. Stop the timer so it doesn't keep trying to add letters
 	timer.stop()
-	
-	# 2. Force the label to show the FULL text immediately
 	label.text = text
-	
-	# 3. Trigger the finish logic
 	finish_displaying_logic()
 
 func finish_displaying_logic():
-	next_indicator.visible = true # Show arrow
+	if next_indicator: next_indicator.visible = true 
 	finished_displaying.emit()
 
 func close():
 	var tween = create_tween()
-	# Scale down to (0, 0)
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	
 	await tween.finished
 	queue_free()

@@ -481,7 +481,10 @@ steps_spring = ExtResource("2_ugqae")
 steps_summer = ExtResource("3_1ketb")
 steps_autumn = ExtResource("4_rok0s")
 steps_winter = ExtResource("5_ikon7")
-vol_spring_db = 10.0
+vol_spring_db = 6.020000000000003
+vol_summer_db = 9.072000000000003
+vol_autumn_db = -16.51
+vol_winter_db = -10.0
 sfx_dash_sounds = Array[AudioStream]([SubResource("AudioStreamMP3_ugqae"), SubResource("AudioStreamMP3_1ketb"), SubResource("AudioStreamMP3_rok0s")])
 
 [node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "Sprite")]

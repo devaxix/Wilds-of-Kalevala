@@ -1073,9 +1073,6 @@ autoplay = true
 [node name="Bloom" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_msqqj")
 
-[connection signal="screen_entered" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_entered"]
-[connection signal="screen_exited" from="Layers for background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_screen_exited"]
-[connection signal="timeout" from="Layers for background/Fox/Sprite2D/MenuFox/SoundDelayTimer" to="Layers for background/Fox/Sprite2D/MenuFox" method="_on_sound_delay_timer_timeout"]
 [connection signal="pressed" from="Buttons/NewGameButt" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Buttons/LoadGameButt" to="." method="_on_load_game_button_pressed"]
 [connection signal="pressed" from="Buttons/SettingsButt" to="." method="_on_settings_button_pressed"]

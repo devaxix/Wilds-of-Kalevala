@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="transition_screen" type="CanvasLayer"]
+layer = 100
 script = ExtResource("1_hiq36")
 
 [node name="ColorRect" type="ColorRect" parent="."]
