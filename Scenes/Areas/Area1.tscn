@@ -2709,15 +2709,15 @@ parameters/looping = true
 environment = SubResource("Environment_b6jro")
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(14280, 672)
+position = Vector2(30736, 1507)
 
 [node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
-position = Vector2(12066, 1394)
+position = Vector2(30862, 1542)
 scale = Vector2(3.835, 3.835)
 dialogue_lines = Array[String](["Your fingers remember the rough bark of the Great Oak.", "No wall is too high when the forest grants you purchase.", "Climb out of the dark. Reach for the sun that was hidden.", "Jump against a wall to Wall Jump!"])
 
 [node name="WallJumpOrb2" parent="." instance=ExtResource("17_b6jro")]
-position = Vector2(14872, 824)
+position = Vector2(30627, 1322)
 scale = Vector2(3.835, 3.835)
 
 [node name="MemoryOrb" parent="." instance=ExtResource("16_r6rcv")]
@@ -2726,7 +2726,7 @@ scale = Vector2(3.835, 3.835)
 dialogue_lines = Array[String](["You feel a flicker of something familiar. A voice, a laugh. Maybe your own.", "The blue figure… it’s not running away. It’s showing you how to follow warmth again.", "The lightning of Ukko flows through your blade once more.", "Attack by pressing Left Click or Z."])
 
 [node name="MemoryOrb2" parent="." instance=ExtResource("16_r6rcv")]
-position = Vector2(15176, 928)
+position = Vector2(30931, 1426)
 scale = Vector2(3.835, 3.835)
 
 [node name="LevelExit" parent="." instance=ExtResource("27_lfkt4")]
@@ -2745,7 +2745,7 @@ scale = Vector2(3.835, 3.835)
 dialogue_lines = Array[String](["A memory of feathers... or is it the wind?", "Ilmatar, the Spirit of the Air, lends you her breath.", "The earth is not your only foundation. You do not fall... you rise.", "Press Jump again in mid-air to Double Jump."])
 
 [node name="DoubleJumpOrb2" parent="." instance=ExtResource("30_gtggk")]
-position = Vector2(15376, 1064)
+position = Vector2(31131, 1562)
 scale = Vector2(3.835, 3.835)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
