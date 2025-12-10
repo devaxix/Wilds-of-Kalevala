@@ -11,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NinePatchRect/IndicatorPosition/NextIndicator:position")
+tracks/0/path = NodePath("StandardBackground/IndicatorPosition/NextIndicator:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NinePatchRect/IndicatorPosition/NextIndicator:position")
+tracks/0/path = NodePath("StandardBackground/IndicatorPosition/NextIndicator:position")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,16 +50,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -272.0
-offset_top = -136.0
-offset_right = 272.0
-offset_bottom = -56.0
+offset_left = -325.0
+offset_top = -105.0
+offset_right = 325.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_b0wcy")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="StandardBackground" type="NinePatchRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_cq7ga")
 region_rect = Rect2(400, 147, 128, 106)
@@ -68,7 +68,7 @@ patch_margin_top = 40
 patch_margin_right = 36
 patch_margin_bottom = 40
 
-[node name="IndicatorPosition" type="Control" parent="NinePatchRect"]
+[node name="IndicatorPosition" type="Control" parent="StandardBackground"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -80,7 +80,38 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="NextIndicator" type="TextureRect" parent="NinePatchRect/IndicatorPosition"]
+[node name="NextIndicator" type="TextureRect" parent="StandardBackground/IndicatorPosition"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 7.999999
+offset_right = 25.0
+offset_bottom = 52.0
+scale = Vector2(0.495, 0.495)
+texture = ExtResource("3_ovvv6")
+
+[node name="FoxBackground" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_cq7ga")
+region_rect = Rect2(4, 400, 128, 128)
+patch_margin_left = 36
+patch_margin_top = 40
+patch_margin_right = 36
+patch_margin_bottom = 40
+
+[node name="IndicatorPosition" type="Control" parent="FoxBackground"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextIndicator" type="TextureRect" parent="FoxBackground/IndicatorPosition"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_top = 7.999999
