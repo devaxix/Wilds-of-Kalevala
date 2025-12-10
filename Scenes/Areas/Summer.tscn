@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://favsoqxjmbpc"]
+[gd_scene load_steps=55 format=4 uid="uid://favsoqxjmbpc"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_7eltc"]
 [ext_resource type="Texture2D" uid="uid://b5lw4wl7maqmh" path="res://Sprites/Backgrounds/Summer Background/1.Backround.png" id="2_omsia"]
@@ -18,8 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://0xkba45qjwnx" path="res://Scenes/Player/Enemy.tscn" id="15_5v7ck"]
 [ext_resource type="AudioStream" uid="uid://cts7p8ttcm2cm" path="res://Music/music/bliss (concept).mp3" id="16_xgsv1"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="17_2en5k"]
-[ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_fj0ah"]
-[ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_t8x0o"]
 [ext_resource type="AudioStream" uid="uid://bonevwnrncl5s" path="res://Music/ambiance/ES_Forest Summer High Pitched Birds - Epidemic Sound.mp3" id="20_3qng5"]
 [ext_resource type="AudioStream" uid="uid://nj8hjn5djsob" path="res://Music/ambiance/bee-landing-on-flower-374609.mp3" id="21_ypvqy"]
 [ext_resource type="AudioStream" uid="uid://d2q76rfyy0iuw" path="res://Music/ambiance/heat-bugs-summer-insect-cicadas-various-clean-77mel-190831-18891.mp3" id="22_tkrm1"]
@@ -27,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cegmua62uv7tv" path="res://Music/ambiance/ES_Wing Flaps 01 - Epidemic Sound.mp3" id="24_fnj0q"]
 [ext_resource type="AudioStream" uid="uid://dxe3gfy51ocfw" path="res://Music/ambiance/ES_Wing Flaps 02 - Epidemic Sound.mp3" id="25_r5wtb"]
 [ext_resource type="AudioStream" uid="uid://gvy5608kb3m8" path="res://Music/ambiance/ES_Wing Flaps 03 - Epidemic Sound.mp3" id="26_nbxv8"]
+[ext_resource type="AudioStream" uid="uid://b1m4dsfphfmhf" path="res://Music/bush sound/bush sound.mp3" id="28_nbxv8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgsv1"]
 shader = ExtResource("3_7eltc")
@@ -6053,18 +6052,15 @@ sources/3 = SubResource("TileSetAtlasSource_nbxv8")
 sources/4 = SubResource("TileSetAtlasSource_pb8x5")
 sources/5 = SubResource("TileSetAtlasSource_nrjyd")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_emm07"]
-size = Vector2(76908, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx0ev"]
-size = Vector2(20, 88.19063)
-
 [sub_resource type="Environment" id="Environment_b6jro"]
 background_mode = 3
 glow_enabled = true
 glow_intensity = 0.13
 glow_bloom = 0.5
 glow_blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5wtb"]
+size = Vector2(265, 247)
 
 [node name="Area1" type="Node2D"]
 script = ExtResource("1_7eltc")
@@ -6073,7 +6069,7 @@ level_season = "Summer"
 [node name="Layer Hub2" type="Node2D" parent="."]
 
 [node name="Layer 1" type="Parallax2D" parent="Layer Hub2"]
-scroll_scale = Vector2(0.2, 1)
+scroll_scale = Vector2(0.2, 0)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
@@ -6083,7 +6079,7 @@ scale = Vector2(5.9999995, 5.9999995)
 texture = ExtResource("2_omsia")
 
 [node name="Layer 2" type="Parallax2D" parent="Layer Hub2"]
-scroll_scale = Vector2(0.3, 1)
+scroll_scale = Vector2(0.3, 0)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
@@ -6094,7 +6090,7 @@ scale = Vector2(5.9999995, 5.9999995)
 texture = ExtResource("3_2en5k")
 
 [node name="Layer 3" type="Parallax2D" parent="Layer Hub2"]
-scroll_scale = Vector2(0.6, 1)
+scroll_scale = Vector2(0.6, 0)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
@@ -6105,7 +6101,7 @@ scale = Vector2(5.9999995, 5.9999995)
 texture = ExtResource("4_7eltc")
 
 [node name="Layer 5" type="Parallax2D" parent="Layer Hub2"]
-scroll_scale = Vector2(0.6, 1)
+scroll_scale = Vector2(0.6, 0)
 repeat_size = Vector2(3300, 0)
 repeat_times = 2
 
@@ -6124,7 +6120,7 @@ rotation = 0.7853982
 texture = SubResource("GradientTexture2D_f8anx")
 
 [node name="Layer 4" type="Parallax2D" parent="Layer Hub2"]
-scroll_scale = Vector2(0.8, 1)
+scroll_scale = Vector2(0.8, 0)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
@@ -6142,9 +6138,7 @@ texture = ExtResource("7_xgsv1")
 process_material = SubResource("ParticleProcessMaterial_tkrm1")
 
 [node name="GameUI" parent="." instance=ExtResource("8_nvsn2")]
-offset = Vector2(-600, 0)
-scale = Vector2(0.15, 0.15)
-transform = Transform2D(0.15, 0, 0, 0.15, -600, 0)
+visible = false
 
 [node name="Normal Map2" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -6179,13 +6173,6 @@ tile_set = SubResource("TileSet_d1xsq")
 
 [node name="Pause Menu" parent="." instance=ExtResource("14_ppb1h")]
 visible = false
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(3305, 1072)
-shape = SubResource("RectangleShape2D_emm07")
 
 [node name="Enemy" parent="." instance=ExtResource("15_5v7ck")]
 position = Vector2(3673.0002, 487)
@@ -6225,33 +6212,17 @@ position = Vector2(18045, 687.00006)
 scale = Vector2(6.385, 6.385)
 patrol_distance = 300
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-visible = false
-position = Vector2(-824, 544.00006)
-scale = Vector2(12.38, 12.38)
-shape = SubResource("RectangleShape2D_lx0ev")
-
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_xgsv1")
 volume_db = -10.474
 autoplay = true
 parameters/looping = true
 
-[node name="MemoryOrb" parent="." instance=ExtResource("17_fj0ah")]
-position = Vector2(2192, 800)
-scale = Vector2(0.23, 0.23)
-
-[node name="WallJumpOrb" parent="." instance=ExtResource("18_t8x0o")]
-position = Vector2(3168, 696)
-scale = Vector2(0.23, 0.23)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b6jro")
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(254, 738)
+position = Vector2(344, 894)
 
 [node name="LevelExit" parent="." instance=ExtResource("17_2en5k")]
 position = Vector2(34495, 1166)
@@ -6299,5 +6270,17 @@ volume_db = -8.211
 stream = ExtResource("26_nbxv8")
 volume_db = -8.21
 
+[node name="FoxGrassSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_nbxv8")
+volume_db = 5.0
+
+[node name="FoxEventTrigger" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoxEventTrigger"]
+position = Vector2(2577, 697)
+shape = SubResource("RectangleShape2D_r5wtb")
+
 [connection signal="timeout" from="TimedSummerSFX/SummerSFXTimer" to="." method="_on_summer_sfx_timer_timeout"]
 [connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]
+[connection signal="body_entered" from="FoxEventTrigger" to="." method="_on_fox_event_trigger_body_entered"]
