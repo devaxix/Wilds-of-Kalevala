@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beq4g6qbscm74"
+path="res://.godot/imported/ES_Gentle Wind, Leaves Rustling, Acorns Falling, Eurasian Treecreeper, Deciduous Forest, Autumn, Afternoon - Epidemic Sound.mp3-c4973f5c76f139d8e3e6d530c196f3b1.mp3str"
+
+[deps]
+
+source_file="res://Music/ambiance/ES_Gentle Wind, Leaves Rustling, Acorns Falling, Eurasian Treecreeper, Deciduous Forest, Autumn, Afternoon - Epidemic Sound.mp3"
+dest_files=["res://.godot/imported/ES_Gentle Wind, Leaves Rustling, Acorns Falling, Eurasian Treecreeper, Deciduous Forest, Autumn, Afternoon - Epidemic Sound.mp3-c4973f5c76f139d8e3e6d530c196f3b1.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

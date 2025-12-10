@@ -42,10 +42,10 @@ signal player_died
 # 2. Volume Sliders (in Decibels)
 # 0.0 is normal, -10.0 is quiet, +5.0 is loud
 @export_group("Footstep Volume")
-@export_range(-40.0, 10.0) var vol_spring_db : float = 0.0
-@export_range(-40.0, 10.0) var vol_summer_db : float = 0.0
-@export_range(-40.0, 10.0) var vol_autumn_db : float = 0.0
-@export_range(-40.0, 10.0) var vol_winter_db : float = 0.0
+@export_range(-40.0, 40.0) var vol_spring_db : float = 0.0
+@export_range(-40.0, 40.0) var vol_summer_db : float = 0.0
+@export_range(-40.0, 40.0) var vol_autumn_db : float = 0.0
+@export_range(-40.0, 40.0) var vol_winter_db : float = 0.0
 
 # JUMP SOUNDS 
 @onready var jump_sounds = [

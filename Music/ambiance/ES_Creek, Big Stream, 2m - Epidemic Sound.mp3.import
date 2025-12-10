@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bisu7kn1u6p66"
+path="res://.godot/imported/ES_Creek, Big Stream, 2m - Epidemic Sound.mp3-825447912d92d919682d3c0390a0a492.mp3str"
+
+[deps]
+
+source_file="res://Music/ambiance/ES_Creek, Big Stream, 2m - Epidemic Sound.mp3"
+dest_files=["res://.godot/imported/ES_Creek, Big Stream, 2m - Epidemic Sound.mp3-825447912d92d919682d3c0390a0a492.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

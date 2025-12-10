@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkerfu0p1vpxk"
+path="res://.godot/imported/sword sound 1.mp3-1207c318c5c2839f7be1faced3336fb3.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/sword sound 1.mp3"
+dest_files=["res://.godot/imported/sword sound 1.mp3-1207c318c5c2839f7be1faced3336fb3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

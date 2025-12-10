@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cejegl2kh8fum"
+path="res://.godot/imported/sumer foot.mp3-20abf7c0e766f78b18772a789e418a1d.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/sumer foot.mp3"
+dest_files=["res://.godot/imported/sumer foot.mp3-20abf7c0e766f78b18772a789e418a1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

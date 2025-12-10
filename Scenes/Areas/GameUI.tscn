@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1pojt52uqbqp"]
 
 [ext_resource type="Script" uid="uid://bm0wupb4idi2g" path="res://Scripts/game_ui.gd" id="1_0c2s4"]
-[ext_resource type="AudioStream" uid="uid://ceq2qal2ya6jc" path="res://Music/ES_Female Horror Scream, Low Guttural Growl 01 - Epidemic Sound.mp3" id="2_iebrr"]
+[ext_resource type="AudioStream" uid="uid://ceq2qal2ya6jc" path="res://Music/player noise/ES_Female Horror Scream, Low Guttural Growl 01 - Epidemic Sound.mp3" id="2_iebrr"]
 [ext_resource type="Texture2D" uid="uid://cqc1i5fjndutr" path="res://Sprites/heart.png" id="3_0c2s4"]
 [ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="3_4vw1w"]
-[ext_resource type="AudioStream" uid="uid://cgjj2r3bak7jr" path="res://Music/ES_Male Screams Gaaa - Epidemic Sound.mp3" id="3_nupb2"]
+[ext_resource type="AudioStream" uid="uid://cgjj2r3bak7jr" path="res://Music/player noise/ES_Male Screams Gaaa - Epidemic Sound.mp3" id="3_nupb2"]
 [ext_resource type="Script" uid="uid://cwaec1xrbn2r4" path="res://Scripts/RegularButtonEffect.gd.gd" id="4_4vw1w"]
 [ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="7_mo0ay"]
 [ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="8_467u4"]
@@ -59,13 +59,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -478.0
-offset_top = 13.0
+offset_top = 244.0
 offset_right = 478.0
-offset_bottom = 223.0
+offset_bottom = 454.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_4vw1w")
-theme_override_font_sizes/font_size = 211
+theme_override_font_sizes/font_size = 186
 text = "Remember"
 flat = true
 script = ExtResource("4_4vw1w")
@@ -80,15 +80,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -373.0
-offset_top = -349.0
-offset_right = 351.0
-offset_bottom = -102.0
+offset_left = -232.0
+offset_top = 100.0
+offset_right = 173.0
+offset_bottom = 241.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_4vw1w")
-theme_override_font_sizes/font_size = 91
+theme_override_font_sizes/font_size = 71
 text = "Try to remember...
 Who you were."
+
+[node name="Skull" type="TextureRect" parent="DeathScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="DeathSoundPlayer" type="AudioStreamPlayer" parent="."]

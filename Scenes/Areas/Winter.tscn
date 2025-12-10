@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="14_riqyx"]
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="17_yqga2"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="18_3syx0"]
-[ext_resource type="AudioStream" uid="uid://djefh4tpqhyr2" path="res://Music/ambient-piano-relaxing-music-347950.mp3" id="19_bpoeh"]
+[ext_resource type="AudioStream" uid="uid://djefh4tpqhyr2" path="res://Music/music/ambient-piano-relaxing-music-347950.mp3" id="19_bpoeh"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="22_bpoeh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pluyx"]

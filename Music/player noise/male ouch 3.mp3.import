@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://51vdp6giwdcj"
+path="res://.godot/imported/male ouch 3.mp3-47e7cc7f0f7757c23decce546ecf95b5.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/male ouch 3.mp3"
+dest_files=["res://.godot/imported/male ouch 3.mp3-47e7cc7f0f7757c23decce546ecf95b5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

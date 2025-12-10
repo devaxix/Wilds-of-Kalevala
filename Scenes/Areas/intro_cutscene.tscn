@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dh0fqtnqu1c63" path="res://Sprites/Character/Girl/Idle-Sheet.png" id="11_elf5q"]
 [ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="12_km2k6"]
 [ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="13_xeyg7"]
-[ext_resource type="AudioStream" uid="uid://d180taw102ko7" path="res://Music/ES_Night, Crickets, Wind, Quilomene Wildlife Area - Epidemic Sound.mp3" id="15_km2k6"]
-[ext_resource type="AudioStream" uid="uid://bm4tyi4m2bgc1" path="res://Music/ES_Gusts, Snow, Leaves, Howling - Epidemic Sound.mp3" id="16_xeyg7"]
-[ext_resource type="AudioStream" uid="uid://bhykyfe5mlgk7" path="res://Music/owl-hooting-223549.mp3" id="17_glhld"]
+[ext_resource type="AudioStream" uid="uid://d180taw102ko7" path="res://Music/ambiance/ES_Night, Crickets, Wind, Quilomene Wildlife Area - Epidemic Sound.mp3" id="15_km2k6"]
+[ext_resource type="AudioStream" uid="uid://bm4tyi4m2bgc1" path="res://Music/ambiance/ES_Gusts, Snow, Leaves, Howling - Epidemic Sound.mp3" id="16_xeyg7"]
+[ext_resource type="AudioStream" uid="uid://bhykyfe5mlgk7" path="res://Music/ambiance/owl-hooting-223549.mp3" id="17_glhld"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_km2k6"]
 shader = ExtResource("5_rmt17")

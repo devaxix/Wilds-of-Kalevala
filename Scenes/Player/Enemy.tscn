@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dl0eotxjd0bux" path="res://Sprites/Enemies/Skeleton/White_Attack1.png" id="6_3dpap"]
 [ext_resource type="Texture2D" uid="uid://cg3423xgr5qi0" path="res://Sprites/Enemies/Skeleton/White_Attack2.png" id="7_jvte1"]
 [ext_resource type="Script" uid="uid://2p2tnbco5jn3" path="res://Scripts/hurt_box.gd" id="8_ilcl4"]
-[ext_resource type="AudioStream" uid="uid://dkag0qdxwdfux" path="res://Music/ES_Skeleton Movement, Reverb 01 - Epidemic Sound.mp3" id="9_6khg0"]
-[ext_resource type="AudioStream" uid="uid://bafdroed8yutx" path="res://Music/ES_Dirt, Walking - Epidemic Sound.mp3" id="10_7pb3c"]
-[ext_resource type="AudioStream" uid="uid://duen4xyskudfw" path="res://Music/sword-sound-260274.mp3" id="11_6pitp"]
-[ext_resource type="AudioStream" uid="uid://dhlco41lwof6a" path="res://Music/bone-break-sound-269658.mp3" id="12_m0agw"]
-[ext_resource type="AudioStream" uid="uid://lqldbj5ke5c" path="res://Music/skeleton falling on the ground.mp3" id="13_tyqkt"]
+[ext_resource type="AudioStream" uid="uid://dkag0qdxwdfux" path="res://Music/enemy noise/ES_Skeleton Movement, Reverb 01 - Epidemic Sound.mp3" id="9_6khg0"]
+[ext_resource type="AudioStream" uid="uid://bafdroed8yutx" path="res://Music/player noise/ES_Dirt, Walking - Epidemic Sound.mp3" id="10_7pb3c"]
+[ext_resource type="AudioStream" uid="uid://duen4xyskudfw" path="res://Music/player noise/sword-sound-260274.mp3" id="11_6pitp"]
+[ext_resource type="AudioStream" uid="uid://dhlco41lwof6a" path="res://Music/enemy noise/bone-break-sound-269658.mp3" id="12_m0agw"]
+[ext_resource type="AudioStream" uid="uid://lqldbj5ke5c" path="res://Music/enemy noise/skeleton falling on the ground.mp3" id="13_tyqkt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvte1"]
 radius = 16.0

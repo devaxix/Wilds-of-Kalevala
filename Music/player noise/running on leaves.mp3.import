@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7baugefejjb6"
+path="res://.godot/imported/running on leaves.mp3-72d2833f247857d0a59788d59e524266.mp3str"
+
+[deps]
+
+source_file="res://Music/player noise/running on leaves.mp3"
+dest_files=["res://.godot/imported/running on leaves.mp3-72d2833f247857d0a59788d59e524266.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
