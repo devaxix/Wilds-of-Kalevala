@@ -21,9 +21,9 @@ func _ready():
 	credits_container.visible = false
 	
 	# Connect buttons
-	$"../EndingUI/ChoiceContainer/ButtonA".pressed.connect(_on_choice_picked)
-	$"../EndingUI/ChoiceContainer/ButtonB".pressed.connect(_on_choice_picked)
-	$"../EndingUI/ChoiceContainer/ButtonC".pressed.connect(_on_choice_picked)
+	$"../EndingUI/ChoiceContainer/VBoxContainer/ButtonA".pressed.connect(_on_choice_picked)
+	$"../EndingUI/ChoiceContainer/VBoxContainer/ButtonB".pressed.connect(_on_choice_picked)
+	$"../EndingUI/ChoiceContainer/VBoxContainer/ButtonC".pressed.connect(_on_choice_picked)
 	
 	spawn_player_character()
 	start_cutscene()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dpps5ppr457cx"]
+[gd_scene load_steps=75 format=3 uid="uid://dpps5ppr457cx"]
 
 [ext_resource type="Script" uid="uid://bu57h10d0snsk" path="res://Scripts/credits.gd" id="1_t714a"]
 [ext_resource type="Shader" uid="uid://8gw7q7yr2u2l" path="res://Shaders/Credits.gdshader" id="2_be75u"]
@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://bu6g248p0ot5x" path="res://Sprites/Backgrounds/Winter background 17L/16.png" id="25_h8uwa"]
 [ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="27_y3w2g"]
 [ext_resource type="Script" uid="uid://cwaec1xrbn2r4" path="res://Scripts/RegularButtonEffect.gd.gd" id="28_5p6x4"]
+[ext_resource type="AudioStream" uid="uid://bo8yus0jyee8k" path="res://Music/Start Menu Sounds/menu-selection-102220.mp3" id="29_4jhg7"]
+[ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="30_6vrxt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjxak"]
 shader = ExtResource("10_t1a2a")
@@ -801,6 +803,9 @@ theme_override_fonts/font = ExtResource("27_y3w2g")
 theme_override_font_sizes/font_size = 31
 text = "[SKIP]"
 script = ExtResource("28_5p6x4")
+hover_sound = ExtResource("29_4jhg7")
+click_sound = ExtResource("30_6vrxt")
+click_volume_db = 24.0
 
 [node name="CreditsLabel" type="Label" parent="."]
 layout_mode = 1
