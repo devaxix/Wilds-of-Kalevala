@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1m4dsfphfmhf"
+path="res://.godot/imported/bush sound.mp3-73fc5aa88d90a59d6c721f8b6934e4a1.mp3str"
+
+[deps]
+
+source_file="res://Music/bush sound/bush sound.mp3"
+dest_files=["res://.godot/imported/bush sound.mp3-73fc5aa88d90a59d6c721f8b6934e4a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

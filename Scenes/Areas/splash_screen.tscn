@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://kg3mrhl6syyf"]
+
+[ext_resource type="Texture2D" uid="uid://y7mliyo7iwvq" path="res://Sprites/Logo/0E567471-246A-4809-95A1-96A4E45601FD.png" id="1_264fy"]
+[ext_resource type="Script" uid="uid://dif15ta1whmhc" path="res://Scripts/splash_screen.gd" id="1_p04ae"]
+[ext_resource type="Texture2D" uid="uid://dpjbbkeewu0aa" path="res://Sprites/Logo/2AAB6A9C-BDF3-4FAD-B043-4257CF435CBB.png" id="3_6db10"]
+[ext_resource type="Texture2D" uid="uid://cb2d3qwj00mgc" path="res://Sprites/Logo/8E7EA578-ABB9-474D-BCFC-6294F8F48F2F.png" id="4_hqkjn"]
+[ext_resource type="Texture2D" uid="uid://knxl6dhwrv7w" path="res://Sprites/Logo/F7B64447-F3D6-40B3-AE29-6D881B6F7A05.png" id="5_83quh"]
+
+[node name="Splash Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p04ae")
+logo_variations = Array[Texture2D]([ExtResource("1_264fy"), ExtResource("3_6db10"), ExtResource("4_hqkjn"), ExtResource("5_83quh")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LogoDisplay" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2879.9995
+offset_bottom = 1619.9998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_264fy")
+expand_mode = 1
+stretch_mode = 5

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Wilds Of Kalevala"
 config/tags=PackedStringArray("2d", "awesome", "platformer")
-run/main_scene="uid://i782m1kre42x"
+run/main_scene="uid://kg3mrhl6syyf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 config/icon="res://Sprites/icon.svg"

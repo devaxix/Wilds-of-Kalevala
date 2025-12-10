@@ -8,53 +8,33 @@ var dialogue_lines: Array[String] = []
 var current_line_index = 0
 
 var text_box
-var text_box_position: Vector2
-
 var is_dialogue_active = false
 var can_advance_line = false
 var is_typing = false 
 
-# --- STYLE OVERRIDES ---
-var custom_texture: Texture2D = null
-var custom_pitch: float = 1.0
-var use_custom_theme: bool = false
+# --- MODE FLAGS ---
+var is_fox_mode: bool = false
 
-# --- NEW: POSITIONING FLAGS ---
-var is_fixed_position: bool = false # If true, we NEVER convert coordinates
-
-# FUNCTION 1: Standard Dialogue (Follows World Objects/Player)
-func start_dialogue(position: Vector2, lines: Array[String]):
+# 1. Standard Dialogue (Wood Box, Fixed Position)
+# REMOVED: The "position" argument. It now always stays in the .tscn position.
+func start_dialogue(lines: Array[String]):
 	if is_dialogue_active: return
 	
 	dialogue_lines = lines
-	text_box_position = position
-	is_fixed_position = false # Default: It's a world position
+	is_fox_mode = false # Use Wood Box
 	
 	show_text_box()
 	is_dialogue_active = true
 
-# FUNCTION 2: Screen Dialogue (For Cutscenes/Narrator/Fox)
-# This forces the box to stay at specific screen coordinates (e.g. 960, 1000)
-func start_screen_dialogue(screen_position: Vector2, lines: Array[String]):
+# 2. Fox Dialogue (Blue Box, Fixed Position)
+func start_fox_dialogue(lines: Array[String]):
 	if is_dialogue_active: return
 	
 	dialogue_lines = lines
-	text_box_position = screen_position
-	is_fixed_position = true # FIXED: Do not move with camera
+	is_fox_mode = true # Use Blue Box
 	
 	show_text_box()
 	is_dialogue_active = true
-
-# --- STYLE FUNCTIONS ---
-func set_custom_theme(texture: Texture2D, pitch: float):
-	custom_texture = texture
-	custom_pitch = pitch
-	use_custom_theme = true
-
-func reset_theme():
-	use_custom_theme = false
-	custom_texture = null
-	custom_pitch = 1.0
 
 func show_text_box():
 	text_box = text_box_scene.instantiate()
@@ -65,27 +45,13 @@ func show_text_box():
 	get_tree().root.add_child(layer)
 	layer.add_child(text_box)
 	
-	# Apply Custom Theme
-	if use_custom_theme:
-		if text_box.has_method("set_dialogue_theme"):
-			text_box.set_dialogue_theme(custom_texture, custom_pitch)
+	# Apply Visuals (Fox vs Wood)
+	if text_box.has_method("set_fox_mode"):
+		text_box.set_fox_mode(is_fox_mode)
 	
-	# --- POSITIONING LOGIC ---
-	var final_position = text_box_position
-	
-	# Only convert World->Screen if it is NOT a fixed position
-	# (This allows Normal Levels to have fixed Narrator boxes now!)
-	if not is_fixed_position and not use_custom_theme:
-		final_position = get_viewport().get_canvas_transform() * text_box_position
-		final_position.y -= 100 
-
-	text_box.global_position = final_position
-	
-	# Wait 1 frame to center
-	await get_tree().process_frame
-	
-	text_box.global_position.x -= text_box.size.x / 2
-	text_box.global_position.y -= text_box.size.y / 2
+	# --- POSITIONING REMOVED ---
+	# We deleted all the code that moves the box.
+	# It will now appear exactly where you placed it in text_box.tscn!
 	
 	is_typing = true 
 	can_advance_line = false

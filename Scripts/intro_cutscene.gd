@@ -32,9 +32,9 @@ var confirm_girl_lines: Array[String] = ["Yes... I remember her."]
 @onready var girl_btn = $HBoxContainer/GirlButton
 @onready var title_label = $Label
 
-# --- SOUND NODES (Only Owl Remains) ---
-@onready var owl_timer = $Owl_Timer             
-@onready var owl_player = $Owlhooting           
+# --- SOUND NODES ---
+@onready var owl_timer = $Owl_Timer              
+@onready var owl_player = $Owlhooting            
 
 
 func _ready():
@@ -45,19 +45,21 @@ func _ready():
 	boy_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	girl_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	# 2. CONNECT SIGNALS (Fixes 'Identifier not declared' for buttons)
+	# 2. CONNECT SIGNALS
 	boy_btn.pressed.connect(_on_boy_button_pressed)
 	girl_btn.pressed.connect(_on_girl_button_pressed)
 	
-	# 3. CONNECT THE OWL TIMER (Fixes 'Identifier not declared' for owl timer)
+	# 3. CONNECT THE OWL TIMER
 	owl_timer.timeout.connect(_on_owl_timer_timeout) 
 	
 	# 4. START DIALOGUE
 	DialogueManager.dialogue_finished.connect(_on_intro_finished)
 	
 	await get_tree().create_timer(0.5).timeout
-	var center_pos = Vector2(get_viewport_rect().size.x / 2, 900)
-	DialogueManager.start_dialogue(center_pos, intro_lines)
+	
+	# --- FIX 1: REMOVED POSITION ARGUMENT ---
+	# We just send the text now!
+	DialogueManager.start_dialogue(intro_lines)
 
 # --- PHASE 2: REVEAL SELECTION ---
 func _on_intro_finished():
@@ -74,7 +76,7 @@ func _on_intro_finished():
 	boy_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 	girl_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 
-# --- PHASE 3: HANDLE CHOICE (Logic restored) ---
+# --- PHASE 3: HANDLE CHOICE ---
 func _on_boy_button_pressed():
 	choose_character(0, confirm_boy_lines)
 
@@ -103,16 +105,15 @@ func choose_character(index, lines):
 	
 	# 4. Play "I Remember" Text
 	DialogueManager.dialogue_finished.connect(_on_confirm_finished)
-	var center_pos = Vector2(get_viewport_rect().size.x / 2, 900)
-	DialogueManager.start_dialogue(center_pos, lines)
+	
+	# --- FIX 2: REMOVED POSITION ARGUMENT ---
+	DialogueManager.start_dialogue(lines)
 
 # --- PHASE 4: START GAME ---
 func _on_confirm_finished():
 	DialogueManager.dialogue_finished.disconnect(_on_confirm_finished)
 	TransitionScreen.transition_to_scene(GAME_SCENE)
 
-
-# --- SOUND REPEATER FUNCTION (Required to fix the timer connection error) ---
+# --- SOUND REPEATER FUNCTION ---
 func _on_owl_timer_timeout() -> void:
-	# Plays the owl sound every 22 seconds
 	owl_player.play()
