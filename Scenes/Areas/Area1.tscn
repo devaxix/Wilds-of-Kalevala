@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dsqj4dxsb7nqo"]
+[gd_scene load_steps=47 format=4 uid="uid://dsqj4dxsb7nqo"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_b6jro"]
 [ext_resource type="Texture2D" uid="uid://jv0u5axw222p" path="res://Sprites/Backgrounds/Spring Background/MorningLayer6.png" id="8_7y5bs"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c208qpbdhvk6a" path="res://Scenes/Areas/memory_orb.tscn" id="16_r6rcv"]
 [ext_resource type="PackedScene" uid="uid://xg73dfp5s2km" path="res://Scenes/Areas/WallJumpOrb.tscn" id="17_b6jro"]
 [ext_resource type="Texture2D" uid="uid://dja2imxf7spu0" path="res://Sprites/Tileset/Spring_Tileset.png" id="21_agcdg"]
+[ext_resource type="PackedScene" uid="uid://bnkgpb2f642n2" path="res://Scenes/Areas/kill_zone.tscn" id="25_jem53"]
 [ext_resource type="PackedScene" uid="uid://cwqyc8kh03apx" path="res://Scenes/Areas/LevelExit.tscn" id="27_lfkt4"]
 [ext_resource type="PackedScene" uid="uid://cavdv6o45voju" path="res://Scenes/Areas/DashOrb.tscn" id="29_vlhvw"]
 [ext_resource type="PackedScene" uid="uid://rislb48q84vo" path="res://Scenes/Areas/DoubleJumpOrb.tscn" id="30_gtggk"]
@@ -2709,7 +2710,7 @@ parameters/looping = true
 environment = SubResource("Environment_b6jro")
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(30736, 1507)
+position = Vector2(2765, 860)
 
 [node name="WallJumpOrb" parent="." instance=ExtResource("17_b6jro")]
 position = Vector2(30862, 1542)
@@ -2795,6 +2796,10 @@ position = Vector2(341, 200)
 amount = 1000
 preprocess = 0.5
 process_material = SubResource("ParticleProcessMaterial_xgnn0")
+
+[node name="KillZone" parent="." instance=ExtResource("25_jem53")]
+position = Vector2(2627, 1632)
+scale = Vector2(0.47, 0.47)
 
 [connection signal="timeout" from="WoodpeckerAmbiance/WoodpeckerSFXTimer" to="." method="_on_woodpecker_sfx_timer_timeout"]
 [connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]
