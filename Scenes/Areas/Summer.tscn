@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://favsoqxjmbpc"]
+[gd_scene load_steps=56 format=4 uid="uid://favsoqxjmbpc"]
 
 [ext_resource type="Script" uid="uid://b1f5mkiqwel7h" path="res://Scripts/area_1.gd" id="1_7eltc"]
 [ext_resource type="Texture2D" uid="uid://b5lw4wl7maqmh" path="res://Sprites/Backgrounds/Summer Background/1.Backround.png" id="2_omsia"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cegmua62uv7tv" path="res://Music/ambiance/ES_Wing Flaps 01 - Epidemic Sound.mp3" id="24_fnj0q"]
 [ext_resource type="AudioStream" uid="uid://dxe3gfy51ocfw" path="res://Music/ambiance/ES_Wing Flaps 02 - Epidemic Sound.mp3" id="25_r5wtb"]
 [ext_resource type="AudioStream" uid="uid://gvy5608kb3m8" path="res://Music/ambiance/ES_Wing Flaps 03 - Epidemic Sound.mp3" id="26_nbxv8"]
+[ext_resource type="PackedScene" uid="uid://bnkgpb2f642n2" path="res://Scenes/Areas/kill_zone.tscn" id="27_r5wtb"]
 [ext_resource type="AudioStream" uid="uid://b1m4dsfphfmhf" path="res://Music/bush sound/bush sound.mp3" id="28_nbxv8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgsv1"]
@@ -6274,12 +6275,116 @@ volume_db = -8.21
 stream = ExtResource("28_nbxv8")
 volume_db = 5.0
 
+[node name="KillZone20" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(1679, 1426)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone21" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(2811, 1430)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone22" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(4102, 1434)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone23" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(5230, 1459)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone24" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(6157, 1467)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone25" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(7068, 1467)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone26" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(7068, 1467)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone27" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(7991, 1494)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone28" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(8906, 1604)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone29" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(9829, 1638)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone30" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(10748, 1684)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone31" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(11666.999, 1642)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone32" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(12575, 1126)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone33" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(13486, 1259)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone34" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(14401, 1510)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone35" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(15320, 1654)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone36" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(18643, 2155)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone37" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(19562, 2413)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone38" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(20489, 2436)
+scale = Vector2(0.47, 0.47)
+
 [node name="FoxEventTrigger" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoxEventTrigger"]
 position = Vector2(2577, 697)
 shape = SubResource("RectangleShape2D_r5wtb")
+
+[node name="KillZone39" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(21530, 2428)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone40" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(22673, 2443)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone41" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(23596, 2442.9998)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone42" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(25461, 2937)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone43" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(26509, 2933)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone44" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(28093, 2971)
+scale = Vector2(0.47, 0.47)
+
+[node name="KillZone45" parent="." instance=ExtResource("27_r5wtb")]
+position = Vector2(29008, 2979)
+scale = Vector2(0.47, 0.47)
 
 [connection signal="timeout" from="TimedSummerSFX/SummerSFXTimer" to="." method="_on_summer_sfx_timer_timeout"]
 [connection signal="timeout" from="RandomSFXTimer" to="." method="_on_random_sfx_timer_timeout"]
