@@ -339,6 +339,5 @@ animations = [{
 [node name="Fox" type="AnimatedSprite2D"]
 scale = Vector2(4.41, 4.41)
 sprite_frames = SubResource("SpriteFrames_gcmqa")
-animation = &"Idle"
+animation = &"Sleep"
 autoplay = "Sleep"
-frame_progress = 0.6058964
