@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://fud04dvvypdq"]
+[gd_scene load_steps=64 format=4 uid="uid://fud04dvvypdq"]
 
 [ext_resource type="Texture2D" uid="uid://c4kxyankrrqbk" path="res://Sprites/Winter Cutscene/background layer0.png" id="2_lmgqg"]
 [ext_resource type="Texture2D" uid="uid://cpsli3ecjro2s" path="res://Sprites/Winter Cutscene/background layer1.png" id="4_fci2g"]
@@ -26,9 +26,12 @@
 [ext_resource type="Texture2D" uid="uid://b4t4ia1kolf2t" path="res://Sprites/Winter Cutscene/Trees02.png" id="23_gryjt"]
 [ext_resource type="Texture2D" uid="uid://bkkp2cgheyeix" path="res://Sprites/Winter Cutscene/Trees.png" id="24_y5fo6"]
 [ext_resource type="AudioStream" uid="uid://b28xl5c6xiymy" path="res://Music/player noise/snow-running-94612(1).mp3" id="25_a5stx"]
+[ext_resource type="Texture2D" uid="uid://bxvpmjqfgirph" path="res://Sprites/Dialogue Box/fox box.jpg" id="27_0c7fy"]
 [ext_resource type="FontFile" uid="uid://duh34hvfvuxlv" path="res://Fonts/Star Crush.otf" id="28_nict3"]
+[ext_resource type="AudioStream" uid="uid://bx6rrmgvdqmcx" path="res://Music/Start Menu Sounds/computer-mouse-click-351398(1).mp3" id="29_7bl5e"]
 [ext_resource type="Script" uid="uid://cwaec1xrbn2r4" path="res://Scripts/RegularButtonEffect.gd.gd" id="29_f7wtu"]
 [ext_resource type="PackedScene" uid="uid://c5er54bmv3q3j" path="res://Scenes/Areas/pause_menu.tscn" id="29_nict3"]
+[ext_resource type="AudioStream" uid="uid://d3n1x58o00eeu" path="res://Music/Start Menu Sounds/enter game noise 2.mp3" id="30_dpiv4"]
 
 [sub_resource type="Curve" id="Curve_vgp7q"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9719108, 0.0, 0, 0]
@@ -4704,49 +4707,26 @@ glow_intensity = 0.13
 glow_bloom = 0.5
 glow_blend_mode = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1swj5"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.5137255)
-border_width_left = 150
-border_width_right = 135
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gryjt"]
+texture = ExtResource("27_0c7fy")
+texture_margin_left = 36.0
+texture_margin_top = 40.0
+texture_margin_right = 36.0
+texture_margin_bottom = 40.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5stx"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-border_width_left = 150
-border_width_right = 135
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5fo6"]
+texture = ExtResource("27_0c7fy")
+texture_margin_left = 36.0
+texture_margin_top = 40.0
+texture_margin_right = 36.0
+texture_margin_bottom = 40.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nict3"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-border_width_left = 150
-border_width_right = 135
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_052qj"]
+texture = ExtResource("27_0c7fy")
+texture_margin_left = 36.0
+texture_margin_top = 40.0
+texture_margin_right = 36.0
+texture_margin_bottom = 40.0
 
 [node name="Area1" type="Node2D"]
 
@@ -4902,7 +4882,6 @@ texture = SubResource("GradientTexture2D_a5stx")
 position = Vector2(1223, 878.00006)
 scale = Vector2(6, 6)
 animation = &"Wake"
-frame_progress = 0.0
 
 [node name="FoxSound" type="AudioStreamPlayer2D" parent="Layer 14/FoxActor"]
 stream = ExtResource("25_a5stx")
@@ -4930,7 +4909,7 @@ script = ExtResource("18_2tyw7")
 snow_particles = NodePath("../GPUParticles2D")
 
 [node name="PlayerStartPos" type="Marker2D" parent="."]
-position = Vector2(-81, 730)
+position = Vector2(-69, 935)
 
 [node name="EndingCamera" type="Camera2D" parent="."]
 position = Vector2(274, 536)
@@ -4941,9 +4920,17 @@ limit_bottom = 1080
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="EndingUI" type="CanvasLayer" parent="."]
+[node name="WinterAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_lmgqg")
+volume_db = 1.825
+autoplay = true
 
-[node name="ChoiceContainer" type="Control" parent="EndingUI"]
+[node name="Pause Menu" parent="." instance=ExtResource("29_nict3")]
+visible = false
+
+[node name="EndingUI_Layer" type="CanvasLayer" parent="."]
+
+[node name="EndingUI" type="Control" parent="EndingUI_Layer"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -4952,54 +4939,18 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EndingUI/ChoiceContainer"]
-layout_mode = 0
-offset_left = -358.00003
-offset_top = -184.0
-offset_right = 1093.0
-offset_bottom = 314.0
-scale = Vector2(0.495, 0.495)
-theme_override_constants/separation = 30
-
-[node name="ButtonA" type="Button" parent="EndingUI/ChoiceContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("28_nict3")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_1swj5")
-text = "Promise me,
- you will believe the world when it says it loves you."
-script = ExtResource("29_f7wtu")
-
-[node name="ButtonB" type="Button" parent="EndingUI/ChoiceContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("28_nict3")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_a5stx")
-text = "Promise me,
-you will not let your fire be mistaken for rage."
-script = ExtResource("29_f7wtu")
-
-[node name="ButtonC" type="Button" parent="EndingUI/ChoiceContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("28_nict3")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxFlat_nict3")
-text = "Promise me,
- you will always be your own warmth, 
-and never let this fire go out."
-script = ExtResource("29_f7wtu")
-
-[node name="CreditsContainer" type="Control" parent="EndingUI"]
+[node name="CreditsContainer" type="Control" parent="EndingUI_Layer/EndingUI"]
 visible = false
-layout_mode = 3
 anchors_preset = 0
 offset_left = 940.0
 offset_top = 520.0
 offset_right = 980.0
 offset_bottom = 560.0
 
-[node name="Label" type="Label" parent="EndingUI/CreditsContainer"]
+[node name="Label" type="Label" parent="EndingUI_Layer/EndingUI/CreditsContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -5014,42 +4965,123 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("28_nict3")
 theme_override_font_sizes/font_size = 30
-text = "CAST
-
-Hero
-You
-
-Fox
-Also You
+text = "WILDS OF KALEVALA
 
 
-CODE
-
-You
-
-
-ART
-
-You
-(Asset Pack Name if you used one)
+- CREATED BY -
+Studio Pantheon
 
 
-SPECIAL THANKS
-
-Godot Engine
-My Cat/Dog
-Mom & Dad
+- Design & Development -
+Devin & Elle
 
 
-THANKS FOR PLAYING!"
+- PROGRAMMING -
+Devin ......... Lead Programmer
+Elle .......... Gameplay & Systems
+
+
+- ART & VISUALS -
+Elle .......... Visual Artist & Sound Designer
+Daniel ........ Tilesets, Drawing & World Art
+Clark ......... Character Artist
+Andrew ........ Concept Artist
+
+
+- MUSIC & AUDIO -
+Katarai ....... Lead Composer
+Elle .......... Composer & Audio Design
+
+
+- PRODUCTION & SUPPORT -
+Daniel ........ Organization & Support
+
+
+Thank you for remembering.
+
+
+Thank you for playing!"
 horizontal_alignment = 1
 
-[node name="WinterAmbiance" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_lmgqg")
-volume_db = 1.825
-autoplay = true
+[node name="ChoiceContainer" type="Control" parent="EndingUI_Layer/EndingUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 544.0
+offset_top = 71.0
+offset_right = 544.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="Pause Menu" parent="." instance=ExtResource("29_nict3")]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="EndingUI_Layer/EndingUI/ChoiceContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.495, 0.495)
+theme_override_constants/separation = 30
+
+[node name="ButtonA" type="Button" parent="EndingUI_Layer/EndingUI/ChoiceContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_nict3")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxTexture_gryjt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gryjt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gryjt")
+text = "Promise me,
+ you will believe the world when it says it loves you."
+script = ExtResource("29_f7wtu")
+hover_sound = ExtResource("29_7bl5e")
+click_sound = ExtResource("30_dpiv4")
+click_volume_db = 24.0
+
+[node name="ButtonB" type="Button" parent="EndingUI_Layer/EndingUI/ChoiceContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_nict3")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxTexture_y5fo6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y5fo6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_y5fo6")
+text = "Promise me,
+you will not let your fire be mistaken for rage."
+script = ExtResource("29_f7wtu")
+hover_sound = ExtResource("29_7bl5e")
+click_sound = ExtResource("30_dpiv4")
+click_volume_db = 24.0
+
+[node name="ButtonC" type="Button" parent="EndingUI_Layer/EndingUI/ChoiceContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_nict3")
+theme_override_font_sizes/font_size = 61
+theme_override_styles/normal = SubResource("StyleBoxTexture_052qj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_052qj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_052qj")
+text = "Promise me,
+ you will always be your own warmth, 
+and never let this fire go out."
+script = ExtResource("29_f7wtu")
+hover_sound = ExtResource("29_7bl5e")
+click_sound = ExtResource("30_dpiv4")
+click_volume_db = 24.0
 
 [editable path="Layer 14/FoxActor"]

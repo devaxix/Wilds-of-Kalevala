@@ -822,6 +822,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("27_y3w2g")
 theme_override_font_sizes/font_size = 30
+text = "WILDS OF KALEVALA
+A Game by Studio Pantheon
+
+
+--- GAME DIRECTORS ---
+
+Devin
+Elle
+
+
+--- PROGRAMMING & ENGINEERING ---
+
+Devin ................. Lead Programmer
+Elle .................. Gameplay Systems
+
+
+--- ART & VISUALS ---
+
+Elle .................. Art Director
+Daniel ................ World Art & Tilesets
+Clark ................. Character Artist (The Fox)
+Andrew ................ Concept Artist
+
+
+--- AUDIO & SOUNDTRACK ---
+
+Katarai ............... Lead Composer
+Elle .................. Composer & Sound Design
+
+
+--- PRODUCTION & SUPPORT ---
+
+Daniel ................ Organization & Planning
+
+
+--- SPECIAL THANKS ---
+
+To our friends and family who supported us.
+And to you, for playing.
+
+
+© 2025 Studio Pantheon"
 
 [connection signal="screen_entered" from="Background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Background/Fox/Sprite2D/MenuFox" method="_on_screen_entered"]
 [connection signal="screen_exited" from="Background/Fox/Sprite2D/MenuFox/VisibleOnScreenNotifier2D" to="Background/Fox/Sprite2D/MenuFox" method="_on_screen_exited"]

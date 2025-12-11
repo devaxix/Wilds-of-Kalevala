@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://cpesx50f33f18" path="res://Sprites/Character/Boy/char_blue.png" id="1_uvnfx"]
-[ext_resource type="AudioStream" uid="uid://d0s50k6okhqud" path="res://Music/player noise/mud footstep.mp3" id="2_ythyg"]
+[ext_resource type="AudioStream" uid="uid://cc8qgqrvokrbj" path="res://Music/Spring/spring step.mp3" id="2_ythyg"]
 [ext_resource type="AudioStream" uid="uid://cejegl2kh8fum" path="res://Music/player noise/sumer foot.mp3" id="3_bmb2s"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="3_xpcdj"]
 [ext_resource type="AudioStream" uid="uid://pldell0fsbh5" path="res://Music/player noise/male jumping 1.mp3" id="4_jlvik"]
@@ -231,7 +231,6 @@ steps_spring = ExtResource("2_ythyg")
 steps_summer = ExtResource("3_bmb2s")
 steps_autumn = ExtResource("4_ur3l4")
 steps_winter = ExtResource("5_2ahak")
-vol_spring_db = 6.0
 vol_summer_db = 9.0
 vol_autumn_db = -16.0
 vol_winter_db = -10.0

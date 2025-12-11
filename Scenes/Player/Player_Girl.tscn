@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cb5u04msknjy4" path="res://Scripts/player_controller.gd" id="1_powln"]
 [ext_resource type="Script" uid="uid://sts1hb017ck6" path="res://Scripts/player_animator.gd" id="2_rqu0h"]
-[ext_resource type="AudioStream" uid="uid://d0s50k6okhqud" path="res://Music/player noise/mud footstep.mp3" id="2_ugqae"]
+[ext_resource type="AudioStream" uid="uid://cc8qgqrvokrbj" path="res://Music/Spring/spring step.mp3" id="2_ugqae"]
 [ext_resource type="AudioStream" uid="uid://cejegl2kh8fum" path="res://Music/player noise/sumer foot.mp3" id="3_1ketb"]
 [ext_resource type="Texture2D" uid="uid://dh0fqtnqu1c63" path="res://Sprites/Character/Girl/Idle-Sheet.png" id="3_powln"]
 [ext_resource type="AudioStream" uid="uid://ca6hj3narneso" path="res://Music/player noise/leaf footstep.mp3" id="4_rok0s"]
@@ -481,8 +481,7 @@ steps_spring = ExtResource("2_ugqae")
 steps_summer = ExtResource("3_1ketb")
 steps_autumn = ExtResource("4_rok0s")
 steps_winter = ExtResource("5_ikon7")
-vol_spring_db = 6.020000000000003
-vol_summer_db = 9.072000000000003
+vol_summer_db = 9.072000000000005
 vol_autumn_db = -16.51
 vol_winter_db = -10.0
 sfx_dash_sounds = Array[AudioStream]([SubResource("AudioStreamMP3_ugqae"), SubResource("AudioStreamMP3_1ketb"), SubResource("AudioStreamMP3_rok0s")])

@@ -1,7 +1,8 @@
-[gd_scene load_steps=66 format=3 uid="uid://c208qpbdhvk6a"]
+[gd_scene load_steps=67 format=3 uid="uid://c208qpbdhvk6a"]
 
 [ext_resource type="Script" uid="uid://bnua4sfrviiur" path="res://Scripts/AbilityOrb.gd" id="1_fils4"]
 [ext_resource type="Texture2D" uid="uid://b10d32achagfr" path="res://Sprites/FireBall/Small_Iceball_9x24.png" id="2_fils4"]
+[ext_resource type="AudioStream" uid="uid://dni04wwga3fgo" path="res://Music/ability orb/ES_Rejuvenation Spell, Holy, Cleanse, Healing - Epidemic Sound.mp3" id="3_j1ckh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j1ckh"]
 blend_mode = 1
@@ -442,7 +443,7 @@ height = 1.4
 collision_mask = 3
 script = ExtResource("1_fils4")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_j1ckh")
 position = Vector2(8.526513e-14, -9.536743e-07)
@@ -452,9 +453,12 @@ animation = &"Spin"
 autoplay = "Spin"
 frame_progress = 0.99693435
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 scale = Vector2(25.465, 25.465)
 shape = SubResource("CapsuleShape2D_pmwte")
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j1ckh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

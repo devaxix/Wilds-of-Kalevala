@@ -1,7 +1,8 @@
-[gd_scene load_steps=66 format=3 uid="uid://xg73dfp5s2km"]
+[gd_scene load_steps=67 format=3 uid="uid://xg73dfp5s2km"]
 
 [ext_resource type="Script" uid="uid://bnua4sfrviiur" path="res://Scripts/AbilityOrb.gd" id="1_otls5"]
 [ext_resource type="Texture2D" uid="uid://b10d32achagfr" path="res://Sprites/FireBall/Small_Iceball_9x24.png" id="2_otls5"]
+[ext_resource type="AudioStream" uid="uid://dni04wwga3fgo" path="res://Music/ability orb/ES_Rejuvenation Spell, Holy, Cleanse, Healing - Epidemic Sound.mp3" id="3_shm6e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_shm6e"]
 blend_mode = 1
@@ -456,5 +457,8 @@ autoplay = "Spin"
 visible = false
 scale = Vector2(25.465, 25.465)
 shape = SubResource("CapsuleShape2D_snjwj")
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_shm6e")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

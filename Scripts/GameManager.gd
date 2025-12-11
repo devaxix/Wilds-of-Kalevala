@@ -20,3 +20,7 @@ func _ready():
 	
 # --- DIALOGUE MEMORY ---
 var has_seen_spring_intro = false # New variable!
+var has_seen_summer_intro: bool = false
+var has_triggered_summer_fox_event: bool = false # To stop the "What was that?" repeat
+var has_seen_autumn_intro: bool = false
+var has_seen_autumn_cutscene: bool = false

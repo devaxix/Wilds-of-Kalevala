@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc8qgqrvokrbj"
+path="res://.godot/imported/spring step.mp3-3c6e0e7be51ce09ee964e043564c2d04.mp3str"
+
+[deps]
+
+source_file="res://Music/Spring/spring step.mp3"
+dest_files=["res://.godot/imported/spring step.mp3-3c6e0e7be51ce09ee964e043564c2d04.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

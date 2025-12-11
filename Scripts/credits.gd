@@ -21,38 +21,43 @@ func _ready():
 
 	# 1. SETUP CREDITS TEXT
 	credits_label.text = """
-	THE SEASONS
-	
-	
-	-- LEAD DEVELOPER --
-	[Your Name]
-	
-	
-	-- LEVEL DESIGN --
-	[Your Name]
-	Miyuskiss
-	Deva
-	
-	
-	-- ART & SPRITES --
-	PixelFrog (Assets)
-	[Your Name]
-	
-	
-	-- MUSIC & SFX --
-	"Autumn Walk" by Composer
-	"Winter Winds" by AudioSite
-	
-	
-	-- SPECIAL THANKS --
-	Godot Community
-	My Cat (Moral Support)
-	You (For Playing)
-	
-	
-	
-	
-	Thank you for playing!
+	WILDS OF KALEVALA
+A Game by Studio Pantheon
+
+
+
+--- PROGRAMMING & ENGINEERING ---
+
+Devin ................. Lead Programmer
+Elle .................. Gameplay, Systems & Audio
+
+
+--- ART & VISUALS ---
+
+Elle .................. Visual Arts Director & Sound Designing
+Daniel ................ World Art & Tilesets
+Clark ................. Character Artist
+Andrew ................ Concept Artist
+
+
+--- AUDIO & SOUNDTRACK ---
+
+Katarai ............... Lead Composer
+Elle .................. Composer & Sound Design
+
+
+--- PRODUCTION & SUPPORT ---
+
+Daniel ................ Organization & Planning
+
+
+--- SPECIAL THANKS ---
+
+To our friends and family who supported us.
+And to you, for playing.
+
+
+© 2025 Studio Pantheon
 	"""
 	
 	# 2. ALIGNMENT
